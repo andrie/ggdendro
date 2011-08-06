@@ -14,6 +14,12 @@ ggdendro offers a generic function to extract data and text from the various clu
 * `hclust()`
 * `dendrogram()`
 
+These methods create an object of class "dendro", which is essentiall a list of data.frames.  To extract the relevant data frames from the list, there are three accessor functions:
+
+* `segment` for the line segment data
+* `label` for the text for each end segment
+* `leaf_label` for the leaf labels of a tree diagram
+
 
 The results of these functions can then be passed to `ggplot()` for plotting.
 

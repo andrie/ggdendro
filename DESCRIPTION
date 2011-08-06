@@ -2,8 +2,8 @@ Package: ggdendro
 Maintainer: Andrie de Vries
     <andrie.de.vries@pentalibra.com>
 License: GPL (>=2)
-Title: Tools for creating dendrograms and tree plots using
-    ggplot.
+Title: Tools for extracting dendrogram and tree diagram
+    plot data for use with ggplot.
 LazyData: true
 LazyLoad: true
 Author: Andrie de Vries <andrie.de.vries@pentalibra.com>
@@ -14,9 +14,9 @@ Description: This is a set of tools for dendrograms and
     directly to a plot device without exposing the data.
     The ggdendro package resolves this by making available
     functions that extract the dendrogram plot data.
-Version: 0.0-3
-URL: www.pentalibra.com
-Date: 2011-08-05
+Version: 0.0-4
+URL: https://github.com/andrie/ggdendro
+Date: 2011-08-06
 Depends:
     stats
 Suggests:

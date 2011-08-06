@@ -4,7 +4,7 @@
 ###############################################################################
 
 
-#' Tools for creating dendrograms using ggplot.
+#' Tools for extracting dendrogram and tree diagram plot data for use with ggplot.
 #'
 #' This is a set of tools for dendrograms and tree plots using \code{\link[ggplot2]{ggplot}}
 #' 
@@ -16,6 +16,14 @@
 #' \item hclust: \code{\link{dendro_data.hclust}} 
 #' \item dendrogram: \code{\link{dendro_data.dendrogram}} 
 #' \item tree: \code{\link{dendro_data.tree}} 
+#' }
+#' 
+#' These methods create an object of class \code{dendro}, consisting of a list of data.frames.  To extract the relevant data frames from the list, there are three accessor functions:
+#'     
+#' \itemize{
+#' \item{\code{\link{segment}}}{the line segment data}
+#' \item{\code{\link{label}}}{the text for each end segment}
+#' \item{\code{\link{leaf_label}}}{the leaf labels of a tree diagram}
 #' }
 #' 
 #' @name ggdendro-package
