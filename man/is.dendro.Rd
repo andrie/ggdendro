@@ -1,0 +1,17 @@
+\name{is.dendro}
+\alias{is.dendro}
+\title{Tests whether an object is of class dendro.}
+\usage{
+  \method{is}{dendro} (x)
+}
+\arguments{
+  \item{x}{Object to check}
+}
+\description{
+  Is a dendro?  Tests whether an object is of class dendro.
+}
+\seealso{
+  \code{\link{dendro_data}} and
+  \code{\link{ggdendro-package}}
+}
+

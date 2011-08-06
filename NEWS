@@ -1,0 +1,10 @@
+ggdendro 0.0
+============
+
+Experimental release of package.
+
+Supports extraction of plot data for the following classes:
+
+* dendrogram
+* tree
+* hclust
