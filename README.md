@@ -30,8 +30,8 @@ The results of these functions can then be passed to `ggplot()` for plotting.
 	hc <- hclust(dist(USArrests), "ave")
 	hcdata <- dendro_data(hc, type="rectangle")
 	ggplot() + 
-	    geom_segment(data=hcdata$segments, aes(x=x0, y=y0, xend=x1, yend=y1)) +
-	    geom_text(data=hcdata$labels, aes(x=x, y=y, label=text, hjust=0), size=3) +
+	    geom_segment(data=segment(hcdata), aes(x=x0, y=y0, xend=x1, yend=y1)) +
+	    geom_text(data=label(hcdata), aes(x=x, y=y, label=text, hjust=0), size=3) +
 	    coord_flip() + scale_y_reverse(expand=c(0.2, 0))
     
 
