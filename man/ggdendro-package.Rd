@@ -27,8 +27,8 @@
   \item dendrogram: \code{\link{dendro_data.dendrogram}}
   \item tree: \code{\link{dendro_data.tree}} }
 
-  These methods create an object of class "dendro", which
-  is essentiall a list of data.frames.  To extract the
+  These methods create an object of class \code{dendro},
+  consisting of a list of data.frames.  To extract the
   relevant data frames from the list, there are three
   accessor functions:
 

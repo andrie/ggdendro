@@ -4,17 +4,15 @@
 %\VignettePackage{ggdendro}
 
 % Definitions
-%\newcommand{\slan}{{\tt S}}
-%\newcommand{\rlan}{{\tt R}}
-\newcommand{\ggdendro}{{\tt ggdendro}}
-\newcommand{\dendrodata}{\tt dendro\_data}}
-\newcommand{\code}[1]{{\tt #1}}
+\newcommand{\ggdendro}{\tt ggdendro}
+\newcommand{\dendrodata}{\tt dendro\_data}
+\newcommand{\code}[1]{\tt #1}
 \setlength{\parindent}{0in}
 \setlength{\parskip}{.1in}
 \setlength{\textwidth}{140mm}
 \setlength{\oddsidemargin}{10mm}
 
-\title{Introduction to the \ggdendro{} package for plotting dendograms and tree diagrams}
+\title{Introduction to the \\ggdendro{} package for plotting dendograms and tree diagrams}
 \author{Andrie de Vries}
 
 \usepackage{Sweave}
@@ -26,9 +24,17 @@
 
 \section{Introduction}
 
-The \ggluster{} package provides a general framework to extract the plot data for a dendrograms and tree diagrams.
+The \ggdendro{} package provides a general framework to extract the plot data for a dendrograms and tree diagrams.
 
-It does this by providing generic function \dendrodata{} that will extract the appropriate cluster data as well as labels.  This data is returned as a list of data.frames.  These data frames can 
+It does this by providing generic function \dendrodata{} that will extract the appropriate segment data as well as labels.  This data is returned as a list of data.frames.  These data frames can be extracted using three accessor functions:
+
+\itemize{
+\item{\code{segment}}
+\item{\code{label}}
+\item{\code{leaf\_label}}
+}
+
+The \code{ggplot} package doesn't get loaded automatically, so remember to load it first: 
   
 \begin{Schunk}
 \begin{Sinput}
@@ -36,6 +42,8 @@ It does this by providing generic function \dendrodata{} that will extract the a
 > library(ggdendro)
 \end{Sinput}
 \end{Schunk}
+
+With the required packages loaded, we are ready.
 
 
 \section{Dendrograms}
@@ -47,7 +55,7 @@ The \code{hclust()} and \code{dendrogram()} functions in R makes it easy to plot
 > hc <- hclust(dist(USArrests), "ave")
 > dhc <- as.dendrogram(hc)
 > ddata <- dendro_data(dhc, type = "rectangle")
-> p <- ggplot(ddata$segments) + geom_segment(aes(x = x0, y = y0, 
+> p <- ggplot(segment(ddata)) + geom_segment(aes(x = x0, y = y0, 
 +     xend = x1, yend = y1)) + coord_flip() + scale_y_reverse(expand = c(0.2, 
 +     0))
 > print(p)
@@ -91,7 +99,7 @@ Dendrograms can also be drawn using triangular lines instead of rectangular line
 \begin{Schunk}
 \begin{Sinput}
 > ddata <- dendro_data(dhc, type = "triangle")
-> p <- ggplot(ddata$segments) + geom_segment(aes(x = x0, y = y0, 
+> p <- ggplot(segment(ddata)) + geom_segment(aes(x = x0, y = y0, 
 +     xend = x1, yend = y1)) + coord_flip() + scale_y_reverse(expand = c(0.2, 
 +     0)) + opts(panel.grid.major = theme_blank(), panel.grid.minor = theme_blank(), 
 +     panel.background = theme_blank(), axis.title.x = theme_text(colour = NA), 
@@ -123,11 +131,11 @@ Dendrograms can also be drawn using triangular lines instead of rectangular line
 > cpus.ltr <- tree(log10(perf) ~ syct + mmin + mmax + cach + chmin + 
 +     chmax, cpus)
 > tree_data <- dendro_data(cpus.ltr)
-> p <- ggplot(tree_data$segments) + geom_segment(aes(x = x, y = y, 
+> p <- ggplot(segment(tree_data)) + geom_segment(aes(x = x, y = y, 
 +     xend = xend, yend = yend, size = n), colour = "blue", alpha = 0.5) + 
-+     scale_size("n", to = c(0, 3)) + geom_text(data = tree_data$labels, 
++     scale_size("n", to = c(0, 3)) + geom_text(data = label(tree_data), 
 +     aes(x = x, y = y, label = label), vjust = -0.5, size = 3) + 
-+     geom_text(data = tree_data$leaf_labels, aes(x = x, y = y, 
++     geom_text(data = leaf_label(tree_data), aes(x = x, y = y, 
 +         label = label), vjust = 0.5, size = 2)
 > print(p)
 \end{Sinput}
@@ -143,9 +151,9 @@ Dendrograms can also be drawn using triangular lines instead of rectangular line
 \end{figure}
 
 
-\section{Final thoughts}
+\section{Conclusion}
 
-The last word.
+\ggdendro{} makes it easy to extract the line segment and label data from hclust, dendrogram and tree objects.
 
 
 % Start a new page
