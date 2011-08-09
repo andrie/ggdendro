@@ -35,10 +35,10 @@ dhc <- as.dendrogram(hc)
 # Rectangular lines
 ddata <- dendro_data(dhc, type="rectangle")
 ggplot(segment(ddata)) + geom_segment(aes(x=x0, y=y0, xend=x1, yend=y1)) +
-coord_flip() + scale_y_reverse(expand=c(0.2, 0))
+coord_flip() + scale_y_reverse(expand=c(0.2, 0)) + theme_dendro()
 # Triangular lines
 ddata <- dendro_data(dhc, type="triangle")
-ggplot(segment(ddata)) + geom_segment(aes(x=x0, y=y0, xend=x1, yend=y1))
+ggplot(segment(ddata)) + geom_segment(aes(x=x0, y=y0, xend=x1, yend=y1)) + theme_dendro()
 #
 # Demonstrate dendro_data.hclust
 #
@@ -47,12 +47,13 @@ hc <- hclust(dist(USArrests), "ave")
 # Rectangular lines
 hcdata <- dendro_data(hc, type="rectangle")
 ggplot(segment(hcdata)) + geom_segment(aes(x=x0, y=y0, xend=x1, yend=y1)) +
-coord_flip() + scale_y_reverse(expand=c(0.2, 0))
+coord_flip() + scale_y_reverse(expand=c(0.2, 0)) + theme_dendro()
 # Triangular lines
 hcdata <- dendro_data(hc, type="triangle")
-ggplot(segment(hcdata)) + geom_segment(aes(x=x0, y=y0, xend=x1, yend=y1))
+ggplot(segment(hcdata)) + geom_segment(aes(x=x0, y=y0, xend=x1, yend=y1)) +
+theme_dendro()
 }
 \seealso{
-  \code{\link{dendro_data}}
+  \code{\link{dendro_data}}, \code{\link{ggdendrogram}}
 }
 

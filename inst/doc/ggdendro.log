@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2011.3.21)  9 AUG 2011 00:08
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2011.3.21)  9 AUG 2011 17:29
 entering extended mode
 **f:/git/ggdendro/ggdendro/inst/doc/./ggdendro.tex
 (f:/git/ggdendro/ggdendro/inst/doc/./ggdendro.tex
@@ -171,16 +171,16 @@ LaTeX Font Info:    ... okay on input line 16.
 \MPnumerator=\count95
 \everyMPtoPDFconversion=\toks16
 )
+LaTeX Font Info:    Try loading font information for T1+aett on input line 27.
+("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\ae\t1aett.fd"
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+)
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 27.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 27.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 27.
-LaTeX Font Info:    Try loading font information for T1+aett on input line 29.
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\ae\t1aett.fd"
-File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
-)
 LaTeX Font Info:    Try loading font information for TS1+aer on input line 38.
 ("C:/Program Files/R/R-2.13.1/share/texmf/tex/latex\ts1aer.fd"
 File: ts1aer.fd 
@@ -190,46 +190,43 @@ LaTeX Font Info:    Font shape `TS1/aer/m/n' in size <10> not available
 [1
 
 {C:/Users/Andrie/AppData/Local/MiKTeX/2.8/pdftex/config/pdftex.map}] <ggdendro-
-dendro1.pdf, id=12, 289.08pt x 144.54pt>
+dendro1.pdf, id=13, 289.08pt x 144.54pt>
 File: ggdendro-dendro1.pdf Graphic file (type pdf)
-<use ggdendro-dendro1.pdf> [2 <f:/git/ggdendro/ggdendro/inst/doc/ggdendro-dendr
-o1.pdf>] <ggdendro-dendro2.pdf, id=21, 289.08pt x 144.54pt>
+<use ggdendro-dendro1.pdf> <ggdendro-dendro2.pdf, id=14, 289.08pt x 144.54pt>
 File: ggdendro-dendro2.pdf Graphic file (type pdf)
-<use ggdendro-dendro2.pdf> <ggdendro-dendro3.pdf, id=22, 289.08pt x 144.54pt>
+<use ggdendro-dendro2.pdf>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[2 <f:/git/ggdendro/ggdendro/inst/doc/ggdendro-dendro1.pdf>] <ggdendro-dendro3.
+pdf, id=23, 289.08pt x 144.54pt>
 File: ggdendro-dendro3.pdf Graphic file (type pdf)
-<use ggdendro-dendro3.pdf>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[3 <f:/git/ggdendro/ggdendro/inst/doc/ggdendro-dendro2.pdf>] <ggdendro-tree1.pd
-f, id=29, 289.08pt x 216.81pt>
+<use ggdendro-dendro3.pdf> [3 <f:/git/ggdendro/ggdendro/inst/doc/ggdendro-dendr
+o2.pdf> <f:/git/ggdendro/ggdendro/inst/doc/ggdendro-dendro3.pdf>] <ggdendro-tre
+e1.pdf, id=33, 289.08pt x 216.81pt>
 File: ggdendro-tree1.pdf Graphic file (type pdf)
-<use ggdendro-tree1.pdf>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[4 <f:/git/ggdendro/ggdendro/inst/doc/ggdendro-dendro3.pdf>] [5 <f:/git/ggdendr
-o/ggdendro/inst/doc/ggdendro-tree1.pdf>] (f:\git\ggdendro\ggdendro\inst\doc\ggd
-endro.aux) ) 
+<use ggdendro-tree1.pdf> [4 <f:/git/ggdendro/ggdendro/inst/doc/ggdendro-tree1.p
+df>] (f:\git\ggdendro\ggdendro\inst\doc\ggdendro.aux) ) 
 Here is how much of TeX's memory you used:
- 2151 strings out of 495285
- 29690 string characters out of 3179875
+ 2155 strings out of 495285
+ 29726 string characters out of 3179875
  72682 words of memory out of 3000000
- 5327 multiletter control sequences out of 15000+200000
- 21122 words of font info for 50 fonts, out of 3000000 for 9000
+ 5328 multiletter control sequences out of 15000+200000
+ 21970 words of font info for 53 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 35i,6n,21p,425b,269s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Andrie\AppData\Local\MiKTeX\2.8\fonts\pk\ljfour\jknappen
-\ec\dpi600\tcrm1000.pk><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/am
-sfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsf
-onts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfont
-s/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/c
-m/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/c
-msltt10.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/c
-mtt10.pfb>
-Output written on ggdendro.pdf (5 pages, 168830 bytes).
+ 35i,6n,21p,458b,275s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\Andrie\AppDat
+a\Local\MiKTeX\2.8\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk><C:/Program F
+iles (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fil
+es (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files 
+(x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x8
+6)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/
+MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmsltt10.pfb><C:/Program Files (x86)/
+MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files (x86)/Mi
+KTeX 2.8/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on ggdendro.pdf (4 pages, 167379 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
+ 72 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

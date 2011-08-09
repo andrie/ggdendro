@@ -1,5 +1,5 @@
 
-% \VignetteIndexEntry{Introduction to ggdendro}
+% \VignetteIndexEntry{Plotting dendrograms and tree diagrams with ggplot}
 % \VignettePackage{ggdendro}
 % \VignetteKeyword{dendrogram}
 % \VignetteKeyword{ggplot}
@@ -20,12 +20,12 @@
 \setlength{\parindent}{0.0em}
 
 %\begin{titlepage}
-\title{Introduction to the \\ggdendro{} package for plotting dendograms and tree diagrams}
+\title{Introduction to the \ggdendro{} package for plotting dendrograms and tree diagrams}
 \author{Andrie de Vries}
 %\end{titlepage}
-\maketitle
+\maketitle{}
 
-\ggdendro{} is a package that makes it easy to extract dendogram and tree diagrams into a data frame.  
+\ggdendro{} is a package that makes it easy to extract dendrogram and tree diagrams into a data frame.  
 
 \section{Introduction}
 
@@ -51,7 +51,7 @@ With the required packages loaded, we are ready.
 
 \section{Dendrograms}
 
-The \code{hclust()} and \code{dendrogram()} functions in R makes it easy to plot the results of hierarchical cluster analysis and other dendrograms in R.  However, it is hard to extract the data from this analysis to customise these plots, since the \code{plot()} functions for both these classes prints directly without the option of returning the plot data.  
+The \code{hclust} and \code{dendrogram} functions in R makes it easy to plot the results of hierarchical cluster analysis and other dendrograms in R.  However, it is hard to extract the data from this analysis to customise these plots, since the \code{plot} functions for both these classes prints directly without the option of returning the plot data.  
 
 <<dendro1, fig=TRUE, width=4, height=2, include=FALSE, keep.source=TRUE>>=
 hc <- hclust(dist(USArrests), "ave")
@@ -68,24 +68,14 @@ print(p)
 \begin{center}
 \includegraphics[width=4in, height=2in]{ggdendro-dendro1}
 \end{center}
-\caption{A dendrogram produced using \dendrodata{} and \code{ggplot()}}
+\caption{A dendrogram produced using \dendrodata{} and \code{ggplot}}
 \end{figure}
 
 
-Of course, using ggplot to create the dendrogram means one has full control over the appearance of the plot.  For example, here is the same data, but this time plotted horizontally with a clean background:
+Of course, using ggplot to create the dendrogram means one has full control over the appearance of the plot.  For example, here is the same data, but this time plotted horizontally with a clean background.  In \code{ggplot} this means passing a number of options to \code{opts}.  \ggdendro{} has a convenient function, \code{theme\_dendro} that wraps these options into a convenient function.
 
 <<dendro2, fig=TRUE, width=4, height=2, include=FALSE, keep.source=TRUE>>=
-p <- p + coord_flip() +
-  opts(
-    panel.grid.major = theme_blank(),
-    panel.grid.minor = theme_blank(),
-    panel.background = theme_blank(),
-    axis.title.x = theme_text(colour=NA),
-    axis.title.y = theme_blank(),
-    axis.text.x = theme_blank(),
-    axis.text.y = theme_blank(),
-    axis.line = theme_blank()
-    )  
+p <- p + coord_flip() + theme_dendro()
 print(p)
 @
 
@@ -103,16 +93,7 @@ ddata <- dendro_data(dhc, type="triangle")
 p <- ggplot(segment(ddata)) + 
     geom_segment(aes(x=x0, y=y0, xend=x1, yend=y1)) + 
     coord_flip() + scale_y_reverse(expand=c(0.2, 0)) +
-    opts(
-        panel.grid.major = theme_blank(),
-        panel.grid.minor = theme_blank(),
-        panel.background = theme_blank(),
-        axis.title.x = theme_text(colour=NA),
-        axis.title.y = theme_blank(),
-        axis.text.x = theme_blank(),
-        axis.text.y = theme_blank(),
-        axis.line = theme_blank()
-    )  
+    theme_dendro()
 print(p)
 @
 
@@ -141,7 +122,8 @@ p <- ggplot(segment(tree_data)) +
     geom_text(data=label(tree_data), 
         aes(x=x, y=y, label=label), vjust=-0.5, size=3) +
     geom_text(data=leaf_label(tree_data), 
-        aes(x=x, y=y, label=label), vjust=0.5, size=2)
+        aes(x=x, y=y, label=label), vjust=0.5, size=2) +
+    theme_dendro()
 print(p)
 @
 

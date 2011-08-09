@@ -35,9 +35,10 @@ scale_size("n", to=c(0, 3)) +
 geom_text(data=label(tree_data),
 aes(x=x, y=y, label=label), vjust=-0.5, size=4) +
 geom_text(data=leaf_label(tree_data),
-aes(x=x, y=y, label=label), vjust=0.5, size=3)
+aes(x=x, y=y, label=label), vjust=0.5, size=3) +
+theme_dendro()
 }
 \seealso{
-  \code{\link{dendro_data}}
+  \code{\link{dendro_data}}, \code{\link{ggdendrogram}}
 }
 

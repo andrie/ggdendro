@@ -14,7 +14,7 @@
 #' \item{segments}{a data frame containing the line segment data}
 #' \item{labels}{a data frame containing the label text data}
 #' \item{leaf_labels}{a data frame containing the leaf label text data}
-#' @seealso \code{\link{dendro_data}}
+#' @seealso \code{\link{dendro_data}}, \code{\link{ggdendrogram}}
 #' @examples
 #' require(tree)
 #' require(ggplot2)
@@ -28,7 +28,8 @@
 #' 	geom_text(data=label(tree_data), 
 #' 		aes(x=x, y=y, label=label), vjust=-0.5, size=4) +
 #' 	geom_text(data=leaf_label(tree_data), 
-#' 		aes(x=x, y=y, label=label), vjust=0.5, size=3)
+#' 		aes(x=x, y=y, label=label), vjust=0.5, size=3) +
+#'  theme_dendro()
 dendro_data.tree <- function(model, ...){
 	require(tree)
 	labels <- tree_labels(model, ...)
@@ -51,21 +52,6 @@ dendro_data.tree <- function(model, ...){
 #' @param ... ignored
 #' @keywords internal
 #' @seealso \code{\link{dendro_data.tree}}
-#' @examples
-#' require(tree)
-#' require(ggplot2)
-#' data(cpus, package="MASS")
-#' cpus.ltr <- tree(log10(perf) ~ syct+mmin+mmax+cach+chmin+chmax, cpus)
-#' tree_data <- dendro_data(cpus.ltr)
-#' ggplot() +
-#' 	geom_segment(data=segment(tree_data), 
-#'    aes(x=x, y=y, xend=xend, yend=yend, size=n), 
-#' 		colour="blue", alpha=0.5) +
-#' 		scale_size("n", to=c(0, 3)) +
-#' 	geom_text(data=label(tree_data), 
-#' 		aes(x=x, y=y, label=label), vjust=-0.5, size=4) +
-#' 	geom_text(data=leaf_label(tree_data), 
-#' 		aes(x=x, y=y, label=label), vjust=0.5, size=3)
 tree_segments <- function(model, ...){
   require(tree)
 	# Uses tree:::treeco to extract data frame of plot locations
