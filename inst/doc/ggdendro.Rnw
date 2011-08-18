@@ -9,6 +9,7 @@
 \newcommand{\ggdendro}{\texttt{ggdendro}}
 \newcommand{\dendrodata}{\texttt{dendro\_data}}
 \newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\ggplot}{\texttt{ggplot}}
 
 \documentclass[10pt,oneside]{article}
 
@@ -20,7 +21,7 @@
 \setlength{\parindent}{0.0em}
 
 %\begin{titlepage}
-\title{Introduction to the \ggdendro{} package for plotting dendrograms and tree diagrams}
+\title{Using the \ggdendro{} package for plotting dendrograms and tree diagrams}
 \author{Andrie de Vries}
 %\end{titlepage}
 \maketitle{}
@@ -39,6 +40,13 @@ It does this by providing generic function \dendrodata{} that will extract the a
 \item \code{leaf\_label}
 \end{itemize}
 
+The package also provides two convenient wrapper functions:
+
+\begin{itemize}
+\item\code{ggdendrogram} is a wrapper around \ggplot{} to create a dendrogram using a single line of code.  The resulting object is of class \ggplot{}, so can be manipulated using the \ggplot{} tools.
+\item\code{theme\_dendro} is a \ggplot{} theme with a blank canvas, i.e. no axes, axis labels or tick marks.
+\end{itemize}
+
 The \code{ggplot} package doesn't get loaded automatically, so remember to load it first: 
   
 <<initialise, echo=TRUE>>=
@@ -46,10 +54,28 @@ library(ggplot2)
 library(ggdendro)
 @
 
-With the required packages loaded, we are ready.
+\section{Using the \code{ggdendrogram} wrapper}
 
+The \ggdendro{} package will extract all of the plot data from dendrogram objects.  Sometimes it is useful to have fine-grained control over the plot.  Other times it might be more convenient to have a simple wrapper around \code{ggplot} to produce a dendrogram with a small amount of code.
 
-\section{Dendrograms}
+The function \code{ggdendrogram} provides such a wrapper to produce a plot with a single line of code.  It provides a few options for controlling the display of line segments, labels and plot rotation (rotated by 90 degrees or not).  
+
+<<dendrogram, fig=TRUE, width=4, height=2, include=FALSE, keep.source=TRUE>>=
+hc <- hclust(dist(USArrests), "ave")
+p <- ggdendrogram(hc, rotate=FALSE, size=2)
+print(p)
+@
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=4in, height=2in]{ggdendro-dendrogram}
+\end{center}
+\caption{A dendrogram produced using \code{ggdendrogram}}
+\end{figure}
+
+The next section shows how to take full control over the data extraction and subsequent plotting.
+
+\section{Extracting the dendrogram plot data using \dendrodata{}}
 
 The \code{hclust} and \code{dendrogram} functions in R makes it easy to plot the results of hierarchical cluster analysis and other dendrograms in R.  However, it is hard to extract the data from this analysis to customise these plots, since the \code{plot} functions for both these classes prints directly without the option of returning the plot data.  
 

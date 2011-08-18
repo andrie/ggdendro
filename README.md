@@ -33,6 +33,15 @@ The results of these functions can then be passed to `ggplot()` for plotting.
 	    geom_segment(data=segment(hcdata), aes(x=x0, y=y0, xend=x1, yend=y1)) +
 	    geom_text(data=label(hcdata), aes(x=x, y=y, label=text, hjust=0), size=3) +
 	    coord_flip() + scale_y_reverse(expand=c(0.2, 0))
+	    
+	### demonstrate plotting directly from object class hclust
+	ggdendrogram(hc, rotate=FALSE)
+	ggdendrogram(hc, rotate=TRUE)
+	### demonstrate converting hclust to dendro using dendro_data first
+	hcdata <- dendro_data(hc)
+	ggdendrogram(hcdata, rotate=TRUE) + opts(title="Dendrogram in ggplot2")
+
+	    
     
 
 

@@ -36,6 +36,10 @@
   data} \item{\code{\link{label}}}{the text for each end
   segment} \item{\code{\link{leaf_label}}}{the leaf labels
   of a tree diagram} }
+
+  To plot a dendrogram, either construct a plot with
+  \code{\link[ggplot2]{ggplot}} or use the function
+  \code{ggdendrogram}
 }
 \author{
   Andrie de Vries \email{andrie.de.vries@pentalibra.com}

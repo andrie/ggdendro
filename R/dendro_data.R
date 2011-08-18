@@ -119,6 +119,7 @@ theme_dendro <- function(){
 #' @param labels if TRUE, shows segment labels
 #' @param rotate if TRUE, rotates plot by 90 degrees
 #' @param theme_dendro if TRUE, applies a blank theme to plot (see \code{\link{theme_dendro}}) 
+#' @param ... other parameters passed to \code{\link[ggplot2]{geom_text}}
 #' @export
 #' @return A \code{\link[ggplot2]{ggplot}} object
 #' @seealso \code{\link{dendro_data}}
@@ -130,8 +131,8 @@ theme_dendro <- function(){
 #' ggdendrogram(hc, rotate=TRUE)
 #' ### demonstrate converting hclust to dendro using dendro_data first
 #' hcdata <- dendro_data(hc)
-#' ggdendrogram(hcdata, rotate=TRUE) + opts(title="Dendrogram in ggplot2")
-ggdendrogram <- function(data, segments=TRUE, labels=TRUE, rotate=FALSE, theme_dendro=TRUE){
+#' ggdendrogram(hcdata, rotate=TRUE, size=2) + opts(title="Dendrogram in ggplot2")
+ggdendrogram <- function(data, segments=TRUE, labels=TRUE, rotate=FALSE, theme_dendro=TRUE, ...){
   stopifnot(require(ggplot2))
   if(!is.dendro(data)) data <- dendro_data(data)
   angle <- ifelse(rotate, 0, 90)
@@ -141,7 +142,7 @@ ggdendrogram <- function(data, segments=TRUE, labels=TRUE, rotate=FALSE, theme_d
     p <- p + geom_segment(data=segment(data), aes_string(x="x0", y="y0", xend="x1", yend="y1"))
   }
   if(labels){
-    p <- p + geom_text(data=label(data), aes_string(x="x", y="y", label="text"), hjust=hjust, size=3, angle=angle)
+    p <- p + geom_text(data=label(data), aes_string(x="x", y="y", label="text"), hjust=hjust, angle=angle, ...)
   }
   if(rotate){
     p <- p + coord_flip()

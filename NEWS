@@ -1,3 +1,9 @@
+ggdendro 0.0-7
+==============
+
+Included the ggdendrogram function that conveniently creates a ggplot dendrogram in a single line of code.
+Created theme_dendro, an almost blank theme
+
 ggdendro 0.0
 ============
 
