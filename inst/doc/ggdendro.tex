@@ -57,6 +57,7 @@ The \code{ggplot} package doesn't get loaded automatically, so remember to load 
 \end{Sinput}
 \end{Schunk}
 
+%------------------------------------------------------------------------------
 \section{Using the \code{ggdendrogram} wrapper}
 
 The \ggdendro{} package will extract all of the plot data from dendrogram objects.  Sometimes it is useful to have fine-grained control over the plot.  Other times it might be more convenient to have a simple wrapper around \code{ggplot} to produce a dendrogram with a small amount of code.
@@ -80,6 +81,7 @@ The function \code{ggdendrogram} provides such a wrapper to produce a plot with 
 
 The next section shows how to take full control over the data extraction and subsequent plotting.
 
+%------------------------------------------------------------------------------
 \section{Extracting the dendrogram plot data using \dendrodata{}}
 
 The \code{hclust} and \code{dendrogram} functions in R makes it easy to plot the results of hierarchical cluster analysis and other dendrograms in R.  However, it is hard to extract the data from this analysis to customise these plots, since the \code{plot} functions for both these classes prints directly without the option of returning the plot data.  
@@ -143,7 +145,8 @@ Dendrograms can also be drawn using triangular lines instead of rectangular line
 
   
 
-\section{Tree diagrams}
+%------------------------------------------------------------------------------
+\section{Regression tree diagrams}
 
 The \code{tree} function in package \code{tree} creates tree diagrams.  To extract the plot data for these diagrams using \ggdendro{} follows the same basic pattern as dendrograms: 
 
@@ -151,7 +154,8 @@ The \code{tree} function in package \code{tree} creates tree diagrams.  To extra
 \begin{Sinput}
 > require(tree)
 > data(cpus, package="MASS")
-> cpus.ltr <- tree(log10(perf) ~ syct+mmin+mmax+cach+chmin+chmax, cpus)
+> cpus.ltr <- tree(log10(perf) ~ 
++         syct+mmin+mmax+cach+chmin+chmax, cpus)
 > tree_data <- dendro_data(cpus.ltr)
 > p <- ggplot(segment(tree_data)) +
 +     geom_segment(aes(x=x, y=y, xend=xend, yend=yend, size=n), 
@@ -168,12 +172,43 @@ The \code{tree} function in package \code{tree} creates tree diagrams.  To extra
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=4in, height=3in]{ggdendro-tree1}
+\includegraphics[width=4in, height=2.5in]{ggdendro-tree1}
 \end{center}
-\caption{Tree plot}
+\caption{Regression tree plot}
 \end{figure}
 
 
+%------------------------------------------------------------------------------
+\section{Classification tree diagrams}
+
+The \code{rpart} function in package \code{rpart} creates classification diagrams.  To extract the plot data for these diagrams using \ggdendro{} follows the same basic pattern as dendrograms: 
+
+\begin{Schunk}
+\begin{Sinput}
+> fit <- rpart(Kyphosis ~ Age + Number + Start, 
++     method="class", data=kyphosis)
+> fitr <- dendro_data(fit)
+> p <- ggplot() + 
++     geom_segment(data=fitr$segments, 
++         aes(x=x, y=y, xend=xend, yend=yend)) + 
++     geom_text(data=fitr$labels, 
++         aes(x=x, y=y, label=label), size=3, vjust=0) +
++     geom_text(data=fitr$leaf_labels, 
++         aes(x=x, y=y, label=label), size=3, vjust=1) +
++     theme_dendro()
+> print(p)
+\end{Sinput}
+\end{Schunk}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=4in, height=2.5in]{ggdendro-rpart1}
+\end{center}
+\caption{Classification tree plot}
+\end{figure}
+
+
+%------------------------------------------------------------------------------
 \section{Conclusion}
 
 The \ggdendro{} package makes it easy to extract the line segment and label data from hclust, dendrogram and tree objects.

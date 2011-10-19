@@ -1,6 +1,6 @@
 \name{dendro_data.tree}
 \alias{dendro_data.tree}
-\title{Extract data from tree object for plotting using ggplot.}
+\title{Extract data from regression tree object for plotting using ggplot.}
 \usage{
   \method{dendro_data}{tree} (model, ...)
 }
@@ -19,8 +19,9 @@
 }
 \description{
   Extracts data to plot line segments and labels from a
-  tree() object.  This data can then be manipulated or
-  plotted, e.g. using ggplot().
+  \code{\link[tree]{tree}} object.  This data can then be
+  manipulated or plotted, e.g. using
+  \code{\link[ggplot2]{ggplot}}.
 }
 \examples{
 require(tree)

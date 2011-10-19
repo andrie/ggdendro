@@ -1,8 +1,17 @@
-ggdendro 0.0-7
+ggdendro 0.1-01 (Released 19/10/2011)
 ==============
 
-Included the ggdendrogram function that conveniently creates a ggplot dendrogram in a single line of code.
-Created theme_dendro, an almost blank theme
+New functionality
+
+* Added support for classification trees using package:rpart 
+
+ggdendro 0.0-7 (Released 12/8/2011)
+==============
+
+New functionality
+
+* Included the ggdendrogram function that conveniently creates a ggplot dendrogram in a single line of code.
+* Created theme_dendro, an almost blank theme
 
 ggdendro 0.0
 ============

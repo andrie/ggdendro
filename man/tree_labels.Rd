@@ -15,7 +15,7 @@
 }
 \description{
   Extract labels data frame from tree object for plotting
-  using ggplot
+  using ggplot.
 }
 \seealso{
   \code{\link{dendro_data}}

@@ -1,9 +1,8 @@
 # Plots tree object in ggplot2
 
-#' Extract data from tree object for plotting using ggplot.
+#' Extract data from regression tree object for plotting using ggplot.
 #' 
-#' Extracts data to plot line segments and labels from a tree() object.  This data can
-#' then be manipulated or plotted, e.g. using ggplot().
+#' Extracts data to plot line segments and labels from a \code{\link[tree]{tree}} object.  This data can then be manipulated or plotted, e.g. using \code{\link[ggplot2]{ggplot}}.
 #' 
 #' @param model object of class "tree", e.g. the output of tree()
 #' @param ... ignored
@@ -45,9 +44,6 @@ dendro_data.tree <- function(model, ...){
 
 
 #' Extract data frame from tree object for plotting using ggplot.
-#' 
-#' Extract data frame from tree object for plotting using ggplot
-#' 
 #' @param model object of class "tree", e.g. the output of tree()
 #' @param ... ignored
 #' @keywords internal
@@ -72,9 +68,6 @@ tree_segments <- function(model, ...){
 }
 
 #' Extract labels data frame from tree object for plotting using ggplot.
-#' 
-#' Extract labels data frame from tree object for plotting using ggplot
-#' 
 #' @param model object of class "tree", e.g. the output of tree()
 #' @param ... ignored
 #' @return a list with two elements: $labels and $leaf_labels

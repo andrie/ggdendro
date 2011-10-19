@@ -1,13 +1,21 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2011.3.21)  16 AUG 2011 18:15
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.9.28)  19 OCT 2011 13:09
 entering extended mode
 **f:/git/ggdendro/ggdendro/inst/doc/./ggdendro.tex
 (f:/git/ggdendro/ggdendro/inst/doc/./ggdendro.tex
-LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
-rman, ngerman, german-x-2009-06-19, ngerman-x-2009-06-19, french, loaded.
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\article.cls"
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
+vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
+an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
+romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
+sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
+senglishmax, welsh, loaded.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\size10.clo"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size10.clo"
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -21,30 +29,35 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-) ("C:/Program Files/R/R-2.13.1/share/texmf/tex/latex\Sweave.sty"
+) ("C:/Program Files/R/R-2.13.2/share/texmf/tex/latex\Sweave.sty"
 Package: Sweave 
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\ifthen.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
-) ("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\graphics\graphicx.sty"
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\graphics\keyval.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
-) ("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\graphics\graphics.sty"
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\graphics\trig.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
-) ("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\00miktex\graphics.cfg"
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\pdftex-def\pdftex.def"
-File: pdftex.def 2010/02/14 v0.04n Graphics/color for pdfTeX
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+)
 \Gread@gobject=\count87
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
-) (C:\Users\Andrie\AppData\Roaming\MiKTeX\2.8\tex\latex\fancyvrb\fancyvrb.sty
+) (C:\Users\Andrie\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyvrb\fancyvrb.sty
 Package: fancyvrb 2008/02/07
 
 Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
@@ -55,10 +68,10 @@ Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix
 \c@FancyVerbLine=\count89
 \FV@StepNumber=\count90
 \FV@OutFile=\write3
-) ("C:/Program Files/R/R-2.13.1/share/texmf/tex/latex\upquote.sty"
+) ("C:/Program Files/R/R-2.13.2/share/texmf/tex/latex\upquote.sty"
 Package: upquote 2003/08/11 v1.1 Covington's upright-quote modification to verb
 atim and verb
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\textcomp.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\textcomp.sty"
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -72,7 +85,7 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             Family '?' is the default used for unknown fonts.
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\ts1enc.def"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1enc.def"
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
 LaTeX Info: Redefining \oldstylenums on input line 266.
@@ -107,37 +120,51 @@ Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
 Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
 Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
 Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
-Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 311.
-Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 312.
-Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 313.
-Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 314.
-Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 315.
-Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 316.
-Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 317.
-Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 318.
-Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 319.
-Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 320.
-Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 321.
-Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 322.
-Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 323.
-Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
-Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
-Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
-)) ("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\fontenc.sty"
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 311.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 312.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 313.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 314.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 315.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 316.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 317.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 318.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 319.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 320.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 321.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 322.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 323.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 324.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 326.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 327.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 328.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 329.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 330.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 331.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 332.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 333.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 334.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 335.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 336.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
+)) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\fontenc.sty"
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\t1enc.def"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1enc.def"
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
-)) ("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\ae\ae.sty"
+)) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ae\ae.sty"
 Package: ae 2001/02/12 1.3 Almost European Computer Modern
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\fontenc.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\fontenc.sty"
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\t1enc.def"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1enc.def"
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 )
 LaTeX Font Info:    Try loading font information for T1+aer on input line 100.
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\ae\t1aer.fd"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ae\t1aer.fd"
 File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
 )))) (f:\git\ggdendro\ggdendro\inst\doc\ggdendro.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
@@ -154,11 +181,11 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
 LaTeX Font Info:    ... okay on input line 17.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 17.
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\ts1cmr.fd"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 17.
-("C:\Program Files (x86)\MiKTeX 2.8\tex\context\base\supp-pdf.tex"
+(C:\Users\Andrie\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count91
 \scratchdimen=\dimen105
@@ -169,10 +196,11 @@ LaTeX Font Info:    ... okay on input line 17.
 \MPscratchCnt=\count94
 \MPscratchDim=\dimen106
 \MPnumerator=\count95
+\makeMPintoPDFobject=\count96
 \everyMPtoPDFconversion=\toks16
 )
 LaTeX Font Info:    Try loading font information for T1+aett on input line 28.
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\ae\t1aett.fd"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -182,64 +210,83 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 28.
 LaTeX Font Info:    Try loading font information for TS1+aer on input line 39.
-("C:/Program Files/R/R-2.13.1/share/texmf/tex/latex\ts1aer.fd"
+("C:/Program Files/R/R-2.13.2/share/texmf/tex/latex\ts1aer.fd"
 File: ts1aer.fd 
 )
 LaTeX Font Info:    Font shape `TS1/aer/m/n' in size <10> not available
 (Font)              Font shape `TS1/cmr/m/n' tried instead on input line 39.
 
 LaTeX Font Warning: Font shape `T1/aett/bx/n' undefined
-(Font)              using `T1/aett/m/n' instead on input line 60.
+(Font)              using `T1/aett/m/n' instead on input line 61.
 
 [1
 
-{C:/Users/Andrie/AppData/Local/MiKTeX/2.8/pdftex/config/pdftex.map}] <ggdendro-
+{C:/Users/Andrie/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] <ggdendro-
 dendrogram.pdf, id=13, 289.08pt x 144.54pt>
 File: ggdendro-dendrogram.pdf Graphic file (type pdf)
-<use ggdendro-dendrogram.pdf> [2 <f:/git/ggdendro/ggdendro/inst/doc/ggdendro-de
-ndrogram.pdf>] <ggdendro-dendro1.pdf, id=22, 289.08pt x 144.54pt>
+<use ggdendro-dendrogram.pdf>
+Package pdftex.def Info: ggdendro-dendrogram.pdf used on input line 77.
+(pdftex.def)             Requested size: 289.09251pt x 144.54623pt.
+[2 <f:/git/ggdendro/ggdendro/inst/doc/ggdendro-dendrogram.pdf>] <ggdendro-dendr
+o1.pdf, id=22, 289.08pt x 144.54pt>
 File: ggdendro-dendro1.pdf Graphic file (type pdf)
-<use ggdendro-dendro1.pdf> <ggdendro-dendro2.pdf, id=23, 289.08pt x 144.54pt>
+<use ggdendro-dendro1.pdf>
+Package pdftex.def Info: ggdendro-dendro1.pdf used on input line 104.
+(pdftex.def)             Requested size: 289.09251pt x 144.54623pt.
+<ggdendro-dendro2.pdf, id=23, 289.08pt x 144.54pt>
 File: ggdendro-dendro2.pdf Graphic file (type pdf)
 <use ggdendro-dendro2.pdf>
+Package pdftex.def Info: ggdendro-dendro2.pdf used on input line 121.
+(pdftex.def)             Requested size: 289.09251pt x 144.54623pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 <ggdendro-dendro3.pdf, id=24, 289.08pt x 144.54pt>
 File: ggdendro-dendro3.pdf Graphic file (type pdf)
 <use ggdendro-dendro3.pdf>
+Package pdftex.def Info: ggdendro-dendro3.pdf used on input line 141.
+(pdftex.def)             Requested size: 289.09251pt x 144.54623pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [3 <f:/git/ggdendro/ggdendro/inst/doc/ggdendro-dendro1.pdf>] [4 <f:/git/ggdendr
 o/ggdendro/inst/doc/ggdendro-dendro2.pdf> <f:/git/ggdendro/ggdendro/inst/doc/gg
-dendro-dendro3.pdf>] <ggdendro-tree1.pdf, id=42, 289.08pt x 216.81pt>
+dendro-dendro3.pdf>] <ggdendro-tree1.pdf, id=42, 289.08pt x 180.675pt>
 File: ggdendro-tree1.pdf Graphic file (type pdf)
-<use ggdendro-tree1.pdf> [5 <f:/git/ggdendro/ggdendro/inst/doc/ggdendro-tree1.p
-df>] (f:\git\ggdendro\ggdendro\inst\doc\ggdendro.aux)
+<use ggdendro-tree1.pdf>
+Package pdftex.def Info: ggdendro-tree1.pdf used on input line 175.
+(pdftex.def)             Requested size: 289.09251pt x 180.67729pt.
+[5 <f:/git/ggdendro/ggdendro/inst/doc/ggdendro-tree1.pdf>] <ggdendro-rpart1.pdf
+, id=55, 289.08pt x 180.675pt>
+File: ggdendro-rpart1.pdf Graphic file (type pdf)
+<use ggdendro-rpart1.pdf>
+Package pdftex.def Info: ggdendro-rpart1.pdf used on input line 205.
+(pdftex.def)             Requested size: 289.09251pt x 180.67729pt.
+[6 <f:/git/ggdendro/ggdendro/inst/doc/ggdendro-rpart1.pdf>] (f:\git\ggdendro\gg
+dendro\inst\doc\ggdendro.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 2165 strings out of 495285
- 29917 string characters out of 3179875
- 72693 words of memory out of 3000000
- 5336 multiletter control sequences out of 15000+200000
+ 2398 strings out of 494045
+ 33365 string characters out of 3146017
+ 77211 words of memory out of 3000000
+ 5654 multiletter control sequences out of 15000+200000
  22460 words of font info for 55 fonts, out of 3000000 for 9000
- 14 hyphenation exceptions out of 8191
+ 715 hyphenation exceptions out of 8191
  35i,6n,21p,458b,275s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Andrie\AppData\Local\MiKTeX\2.8\fonts\pk\ljfour\jknappen\ec\dpi600
-\tcrm1000.pk><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/
-cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cm
-r10.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr12
-.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr17.pf
-b><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmsltt10.pf
-b><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-<C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on ggdendro.pdf (5 pages, 195794 bytes).
+ <C:\Users\Andrie\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
+\tcrm1000.pk><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+r10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12
+.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pf
+b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsltt10.pf
+b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on ggdendro.pdf (6 pages, 213346 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
+ 90 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

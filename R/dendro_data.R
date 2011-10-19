@@ -62,31 +62,24 @@ as.dendro <- function(x){
 }
 
 
-#' Returns segment data from dendro object.
+#' Returns segment, lavel or leaf-label data from dendro object.
 #' 
-#' Returns segment data from dendro object.
+#' \code{segment} returns segment data from dendro object.
 #' 
 #' @param x dendro object
+#' @aliases segment label leaf_label
 #' @export
 segment <- function(x){
   x$segments
 }
 
-#' Returns label data from dendro object.
-#' 
-#' Returns label data from dendro object.
-#' 
-#' @param x dendro object
+#' @rdname segment
 #' @export
 label <- function(x){
   x$labels
 }
 
-#' Returns leaf label data from dendro object.
-#' 
-#' Returns leaf label data from dendro object.
-#' 
-#' @param x dendro object
+#' @rdname segment
 #' @export
 leaf_label <- function(x){
   x$leaf_labels
@@ -97,7 +90,8 @@ leaf_label <- function(x){
 #' Sets most of the \code{ggplot} options to blank, by returning blank \code{opts} for the panel grid, panel background, axis title, axis text, axis line and axis ticks.
 #' @export
 theme_dendro <- function(){
-  opts(
+  theme_blank <- ggplot2::theme_blank
+  ggplot2::opts(
       panel.grid.major = theme_blank(),
       panel.grid.minor = theme_blank(),
       panel.background = theme_blank(),
