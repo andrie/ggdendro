@@ -2,8 +2,9 @@
 \alias{ggdendrogram}
 \title{Creates dendrogram plot using ggplot.}
 \usage{
-  ggdendrogram(data, segments = TRUE, labels = TRUE, rotate
-  = FALSE, theme_dendro = TRUE, ...)
+  ggdendrogram(data, segments = TRUE, labels = TRUE,
+  leaf_labels = TRUE, rotate = FALSE, theme_dendro = TRUE,
+  ...)
 }
 \arguments{
   \item{data}{Either a dendro object or an object that can
@@ -14,6 +15,8 @@
   \item{segments}{If TRUE, show line segments}
 
   \item{labels}{if TRUE, shows segment labels}
+
+  \item{leaf_labels}{if TRUE, shows leaf labels}
 
   \item{rotate}{if TRUE, rotates plot by 90 degrees}
 

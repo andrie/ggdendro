@@ -33,6 +33,12 @@
 
   \itemize{ \item \code{\link{dendro_data.hclust}} \item
   \code{\link{dendro_data.dendrogram}} \item
-  \code{\link{dendro_data.tree}} }
+  \code{\link{dendro_data.tree}} \item
+  \code{\link{dendro_data.rpart}} } To extract the data for
+  line segments, labels or leaf labels use: \itemize{
+  \item{\code{\link{segment}}}{the line segment data}
+  \item{\code{\link{label}}}{the text for each end segment}
+  \item{\code{\link{leaf_label}}}{the leaf labels of a tree
+  diagram} }
 }
 

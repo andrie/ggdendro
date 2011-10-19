@@ -41,7 +41,7 @@
 
   To plot a dendrogram, either construct a plot with
   \code{\link[ggplot2]{ggplot}} or use the function
-  \code{ggdendrogram}
+  \code{\link{ggdendrogram}}
 }
 \author{
   Andrie de Vries \email{andrie.de.vries@pentalibra.com}

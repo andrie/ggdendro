@@ -2,7 +2,7 @@
 \alias{label}
 \alias{leaf_label}
 \alias{segment}
-\title{Returns segment, lavel or leaf-label data from dendro object.}
+\title{Returns segment, label or leaf-label data from dendro object.}
 \usage{
   segment(x)
 
@@ -14,6 +14,11 @@
   \item{x}{dendro object}
 }
 \description{
-  \code{segment} returns segment data from dendro object.
+  \code{segment} extracts line segments, \code{label}
+  extracts labels, and \code{leaf_label} extracts leaf
+  labels from a dendro object.
+}
+\seealso{
+  \code{\link{dendro_data}}
 }
 

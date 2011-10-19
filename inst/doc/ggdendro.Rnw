@@ -87,7 +87,7 @@ dhc <- as.dendrogram(hc)
 # Rectangular lines
 ddata <- dendro_data(dhc, type="rectangle")
 p <- ggplot(segment(ddata)) + 
-    geom_segment(aes(x=x0, y=y0, xend=x1, yend=y1)) + 
+    geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) + 
     coord_flip() + scale_y_reverse(expand=c(0.2, 0))
 print(p)
 @
@@ -119,7 +119,7 @@ Dendrograms can also be drawn using triangular lines instead of rectangular line
 <<dendro3, fig=TRUE, width=4, height=2, include=FALSE, keep.source=TRUE>>=
 ddata <- dendro_data(dhc, type="triangle")
 p <- ggplot(segment(ddata)) + 
-    geom_segment(aes(x=x0, y=y0, xend=x1, yend=y1)) + 
+    geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) + 
     coord_flip() + scale_y_reverse(expand=c(0.2, 0)) +
     theme_dendro()
 print(p)

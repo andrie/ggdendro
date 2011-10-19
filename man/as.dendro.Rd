@@ -2,10 +2,18 @@
 \alias{as.dendro}
 \title{Coerces object to class dendro.}
 \usage{
-  as.dendro(x)
+  as.dendro(segments, labels, leaf_labels = NULL, class)
 }
 \arguments{
-  \item{x}{Object to check}
+  \item{segments}{data.frame with segment data}
+
+  \item{labels}{data.frame with labels data}
+
+  \item{leaf_labels}{data.frame with leaf label data}
+
+  \item{class}{The class of the original model object, e.g.
+  "hclust".  This is used by \code{\link{ggdendrogram}} to
+  determine the angle and jutification of labels}
 }
 \description{
   Method for coercing object to class dendro.
