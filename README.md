@@ -10,9 +10,10 @@ ggdendro offers a generic function to extract data and text from the various clu
 
 `dendro_data` has methods for the following classes:
 
-* `tree()`
-* `hclust()`
-* `dendrogram()`
+* `tree`
+* `hclust`
+* `dendrogram`
+* `rpart`
 
 These methods create an object of class "dendro", which is essentiall a list of data.frames.  To extract the relevant data frames from the list, there are three accessor functions:
 
