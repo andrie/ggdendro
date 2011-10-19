@@ -27,11 +27,11 @@
 #' dhc <- as.dendrogram(hc)
 #' # Rectangular lines
 #' ddata <- dendro_data(dhc, type="rectangle")
-#' ggplot(segment(ddata)) + geom_segment(aes(x=x0, y=y0, xend=x1, yend=y1)) + 
+#' ggplot(segment(ddata)) + geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) + 
 #' 		coord_flip() + scale_y_reverse(expand=c(0.2, 0)) + theme_dendro()
 #' # Triangular lines
 #' ddata <- dendro_data(dhc, type="triangle")
-#' ggplot(segment(ddata)) + geom_segment(aes(x=x0, y=y0, xend=x1, yend=y1)) + theme_dendro()
+#' ggplot(segment(ddata)) + geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) + theme_dendro()
 #' #
 #' # Demonstrate dendro_data.hclust
 #' #
@@ -39,30 +39,28 @@
 #' hc <- hclust(dist(USArrests), "ave")
 #' # Rectangular lines
 #' hcdata <- dendro_data(hc, type="rectangle")
-#' ggplot(segment(hcdata)) + geom_segment(aes(x=x0, y=y0, xend=x1, yend=y1)) + 
+#' ggplot(segment(hcdata)) + geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) + 
 #'    coord_flip() + scale_y_reverse(expand=c(0.2, 0)) + theme_dendro()
 #' # Triangular lines
 #' hcdata <- dendro_data(hc, type="triangle")
-#' ggplot(segment(hcdata)) + geom_segment(aes(x=x0, y=y0, xend=x1, yend=y1)) +
+#' ggplot(segment(hcdata)) + geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) +
 #'   theme_dendro()
 dendro_data.dendrogram <- function (model, type = c("rectangle", "triangle"), ...){
 	hcdata <- dendrogram_data(model, type=type, ...)
 	as.dendro(
-        list(
-  			segments = hcdata$segments,
-  			labels = hcdata$labels
+      segments = hcdata$segments,
+  		labels = hcdata$labels,
+      class="dendrogram"
   	)
-  )
 } 
 
 dendro_data.hclust <- function (model, type = c("rectangle", "triangle"), ...){
   dhc <- as.dendrogram(model)
   hcdata <- dendrogram_data(dhc, type=type, ...)
   as.dendro(
-      list(
-          segments = hcdata$segments,
-          labels = hcdata$labels
-      )
+      segments = hcdata$segments,
+      labels = hcdata$labels,
+      class="hclust"
   )
 } 
 
@@ -133,8 +131,7 @@ dendrogram_data <- function (x, type = c("rectangle", "triangle"), ...){
 	}
 	
 	gg.plotNode <- function (x1, x2, subtree, type, center, leaflab, dLeaf, nodePar, 
-			edgePar, horiz=FALSE, ddsegments=NULL, ddlabels=NULL) 
-	{
+			edgePar, horiz=FALSE, ddsegments=NULL, ddlabels=NULL) {
 		inner <- !is.leaf(subtree) && x1 != x2
 		yTop <- attr(subtree, "height")
 		bx <- stats:::plotNodeLimit(x1, x2, subtree, center)
@@ -260,8 +257,11 @@ dendrogram_data <- function (x, type = c("rectangle", "triangle"), ...){
 		return(list(segments=ddsegments, labels=ddlabels))
 	}
 	
-	gg.plotNode(x1, x2, x, type = type, center = center, leaflab = leaflab, 
+	ret <- gg.plotNode(x1, x2, x, type = type, center = center, leaflab = leaflab, 
 			dLeaf = dLeaf, nodePar = nodePar, edgePar = edgePar, horiz=FALSE, 
 			ddsegments=NULL, ddlabels=NULL)
+  names(ret$segments) <- c("x", "y", "xend", "yend")
+  names(ret$labels) <- c("x", "y", "label")
+  ret
 }
 

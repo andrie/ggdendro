@@ -1,17 +1,26 @@
-ggdendro 0.1-01 (Release date: 19/10/2011)
+ggdendro 0.1-02 (Release date: 19/10/2011)
 ==============
 
 New functionality
 
-* Added support for classification trees using package:rpart 
+* Added support for classification trees using `package:rpart` 
+
+Fixed bugs:
+
+* Classification trees using `tree` produced error due to attempted rounding on factor variables
+
+Changes in API
+
+* Fixed inconsistencies in the names of the `data.frame` segments.  The names are now always `x`, `y`, `xend` and `yend`
+
 
 ggdendro 0.0-7 (Release date: 12/8/2011)
 ==============
 
 New functionality
 
-* Included the ggdendrogram function that conveniently creates a ggplot dendrogram in a single line of code.
-* Created theme_dendro, an almost blank theme
+* Included the `ggdendrogram` function that conveniently creates a `ggplot` dendrogram in a single line of code.
+* Created `theme_dendro`, an almost blank theme
 
 ggdendro 0.0
 ============

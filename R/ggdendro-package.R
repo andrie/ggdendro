@@ -27,7 +27,7 @@
 #' \item{\code{\link{leaf_label}}}{the leaf labels of a tree diagram}
 #' }
 #' 
-#' To plot a dendrogram, either construct a plot with \code{\link[ggplot2]{ggplot}} or use the function \code{ggdendrogram}
+#' To plot a dendrogram, either construct a plot with \code{\link[ggplot2]{ggplot}} or use the function \code{\link{ggdendrogram}}
 #' 
 #' @name ggdendro-package
 #' @aliases ggdendro

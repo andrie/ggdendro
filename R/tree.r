@@ -33,12 +33,11 @@ dendro_data.tree <- function(model, ...){
 	require(tree)
 	labels <- tree_labels(model, ...)
 	as.dendro(
-      list(
-			segments = tree_segments(model, ...),
-			labels = labels$labels,
-			leaf_labels = labels$leaf_labels
-			)
-  )
+    segments = tree_segments(model, ...),
+		labels = labels$labels,
+		leaf_labels = labels$leaf_labels,
+    class="tree"
+	)
 }
 
 
@@ -97,7 +96,11 @@ tree_labels <- function(model, ...){
 	# Extract leaf labels
 	data <- data.frame(x, y, label, yval)
 	data <- data[data$label == "<leaf>",]
-	data$label <- round(data$yval, 2)
+  if(is.numeric(data$yval)){
+	  data$label <- round(data$yval, 2)
+  } else {
+    data$label <- data$yval
+  }
 	leaf_labels <- as.data.frame(data)
 	
 	list(

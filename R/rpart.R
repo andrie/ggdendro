@@ -36,12 +36,11 @@ dendro_data.rpart <- function(model, ...){
   segments <- rpart_segments(model, )
   labels <- rpart_labels(model, ...)
   as.dendro(
-      list(
-          segments = segments,
-          labels = labels$labels,
-          leaf_labels = labels$leaf_labels
-      ))
-  
+      segments = segments,
+      labels = labels$labels,
+      leaf_labels = labels$leaf_labels,
+      class="rpart"
+  )
 }
 
 #' Extract data frame from rpart object for plotting using ggplot.
