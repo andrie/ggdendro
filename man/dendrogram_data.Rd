@@ -3,7 +3,7 @@
 \title{Extract data frame from dendrogram object for plotting using ggplot.}
 \usage{
   dendrogram_data(x, type = c("rectangle", "triangle"),
-  ...)
+    ...)
 }
 \arguments{
   \item{x}{object of class "dendrogram", e.g. the output of
@@ -20,7 +20,16 @@
   using ggplot
 }
 \seealso{
-  \code{\link{dendro_data}}
+  \code{\link{ggdendrogram}}
+
+  Other dendro_data methods:
+  \code{\link{dendro_data.dendrogram}},
+  \code{\link{dendro_data.rpart}},
+  \code{\link{dendro_data.tree}},
+  \code{\link{rpart_labels}}
+
+  Other dendrogram/hclust functions:
+  \code{\link{dendro_data.dendrogram}}
 }
 \keyword{internal}
 

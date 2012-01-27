@@ -148,7 +148,7 @@ tree_data <- dendro_data(cpus.ltr)
 p <- ggplot(segment(tree_data)) +
     geom_segment(aes(x=x, y=y, xend=xend, yend=yend, size=n), 
         colour="blue", alpha=0.5) +
-    scale_size("n", to=c(0, 3)) +
+    scale_size("n") +
     geom_text(data=label(tree_data), 
         aes(x=x, y=y, label=label), vjust=-0.5, size=3) +
     geom_text(data=leaf_label(tree_data), 

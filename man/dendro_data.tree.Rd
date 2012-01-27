@@ -30,16 +30,25 @@ data(cpus, package="MASS")
 cpus.ltr <- tree(log10(perf) ~ syct+mmin+mmax+cach+chmin+chmax, cpus)
 tree_data <- dendro_data(cpus.ltr)
 ggplot(segment(tree_data)) +
-geom_segment(aes(x=x, y=y, xend=xend, yend=yend, size=n),
-colour="blue", alpha=0.5) +
-scale_size("n", to=c(0, 3)) +
-geom_text(data=label(tree_data),
-aes(x=x, y=y, label=label), vjust=-0.5, size=4) +
-geom_text(data=leaf_label(tree_data),
-aes(x=x, y=y, label=label), vjust=0.5, size=3) +
-theme_dendro()
+	geom_segment(aes(x=x, y=y, xend=xend, yend=yend, size=n),
+		colour="blue", alpha=0.5) +
+	scale_size("n") +
+	geom_text(data=label(tree_data),
+		aes(x=x, y=y, label=label), vjust=-0.5, size=4) +
+	geom_text(data=leaf_label(tree_data),
+		aes(x=x, y=y, label=label), vjust=0.5, size=3) +
+ theme_dendro()
 }
 \seealso{
-  \code{\link{dendro_data}}, \code{\link{ggdendrogram}}
+  \code{\link{ggdendrogram}}
+
+  Other dendro_data methods:
+  \code{\link{dendro_data.dendrogram}},
+  \code{\link{dendro_data.rpart}},
+  \code{\link{dendrogram_data}}, \code{\link{rpart_labels}}
+
+  Other tree functions:
+  \code{\link{get_data_tree_leaf_labels}},
+  \code{\link{tree_labels}}, \code{\link{tree_segments}}
 }
 

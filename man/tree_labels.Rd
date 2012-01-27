@@ -18,7 +18,11 @@
   using ggplot.
 }
 \seealso{
-  \code{\link{dendro_data}}
+  \code{\link{ggdendrogram}}
+
+  Other tree functions: \code{\link{dendro_data.tree}},
+  \code{\link{get_data_tree_leaf_labels}},
+  \code{\link{tree_segments}}
 }
 \keyword{internal}
 

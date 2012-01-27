@@ -17,7 +17,9 @@
 #' A list with the following elements:
 #' \item{segments}{Line segment data}
 #' \item{labels}{Label data}
-#' @seealso \code{\link{dendro_data}}, \code{\link{ggdendrogram}}
+#' @seealso \code{\link{ggdendrogram}}
+#' @family dendro_data methods
+#' @family dendrogram/hclust functions
 #' @examples
 #' require(ggplot2)
 #' #
@@ -77,7 +79,9 @@ dendro_data.hclust <- function (model, type = c("rectangle", "triangle"), ...){
 #' @param type The type of plot, indicating the shape of the dendrogram.  "Rectangle" will draw
 #' rectangular lines, while "triangle" will draw triangular lines.
 #' @param ... ignored
-#' @seealso \code{\link{dendro_data}}
+#' @seealso \code{\link{ggdendrogram}}
+#' @family dendro_data methods
+#' @family dendrogram/hclust functions
 #' @keywords internal
 dendrogram_data <- function (x, type = c("rectangle", "triangle"), ...){ 
 

@@ -15,7 +15,10 @@
   ggplot.
 }
 \seealso{
-  \code{\link{dendro_data.tree}}
+  \code{\link{ggdendrogram}}
+
+  Other rpart functions: \code{\link{dendro_data.rpart}},
+  \code{\link{rpart_labels}}
 }
 \keyword{internal}
 

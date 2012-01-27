@@ -13,7 +13,9 @@
 #' \item{segments}{a data frame containing the line segment data}
 #' \item{labels}{a data frame containing the label text data}
 #' \item{leaf_labels}{a data frame containing the leaf label text data}
-#' @seealso \code{\link{dendro_data}}, \code{\link{ggdendrogram}}
+#' @seealso \code{\link{ggdendrogram}}
+#' @family dendro_data methods
+#' @family tree functions
 #' @examples
 #' require(tree)
 #' require(ggplot2)
@@ -23,7 +25,7 @@
 #' ggplot(segment(tree_data)) +
 #' 	geom_segment(aes(x=x, y=y, xend=xend, yend=yend, size=n), 
 #' 		colour="blue", alpha=0.5) +
-#' 	scale_size("n", to=c(0, 3)) +
+#' 	scale_size("n") +
 #' 	geom_text(data=label(tree_data), 
 #' 		aes(x=x, y=y, label=label), vjust=-0.5, size=4) +
 #' 	geom_text(data=leaf_label(tree_data), 
@@ -46,7 +48,8 @@ dendro_data.tree <- function(model, ...){
 #' @param model object of class "tree", e.g. the output of tree()
 #' @param ... ignored
 #' @keywords internal
-#' @seealso \code{\link{dendro_data.tree}}
+#' @seealso \code{\link{ggdendrogram}}
+#' @family tree functions
 tree_segments <- function(model, ...){
   require(tree)
 	# Uses tree:::treeco to extract data frame of plot locations
@@ -71,7 +74,8 @@ tree_segments <- function(model, ...){
 #' @param ... ignored
 #' @return a list with two elements: $labels and $leaf_labels
 #' @keywords internal
-#' @seealso \code{\link{dendro_data}}
+#' @seealso \code{\link{ggdendrogram}}
+#' @family tree functions
 tree_labels <- function(model, ...){
   require(tree)
   # Uses tree:::treeco to extract data frame of plot locations
@@ -116,7 +120,8 @@ tree_labels <- function(model, ...){
 #' @param model object of class "tree", e.g. the output of tree()
 #' @param ... ignored
 #' @keywords internal
-#' @seealso \code{\link{dendro_data}}
+#' @seealso \code{\link{ggdendrogram}}
+#' @family tree functions
 get_data_tree_leaf_labels <- function(model, ...){
   require(tree)
   # Uses tree:::treeco to extract data frame of plot locations

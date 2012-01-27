@@ -3,8 +3,8 @@
 \alias{dendro_data.hclust}
 \title{Extract line segment and label data from dendrogram or hclust object.}
 \usage{
-  \method{dendro_data}{dendrogram} (model, type =
-  c("rectangle", "triangle"), ...)
+  \method{dendro_data}{dendrogram} (model,
+    type = c("rectangle", "triangle"), ...)
 }
 \arguments{
   \item{model}{object of class "dendrogram", e.g. the
@@ -35,7 +35,7 @@ dhc <- as.dendrogram(hc)
 # Rectangular lines
 ddata <- dendro_data(dhc, type="rectangle")
 ggplot(segment(ddata)) + geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) +
-coord_flip() + scale_y_reverse(expand=c(0.2, 0)) + theme_dendro()
+		coord_flip() + scale_y_reverse(expand=c(0.2, 0)) + theme_dendro()
 # Triangular lines
 ddata <- dendro_data(dhc, type="triangle")
 ggplot(segment(ddata)) + geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) + theme_dendro()
@@ -47,13 +47,21 @@ hc <- hclust(dist(USArrests), "ave")
 # Rectangular lines
 hcdata <- dendro_data(hc, type="rectangle")
 ggplot(segment(hcdata)) + geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) +
-coord_flip() + scale_y_reverse(expand=c(0.2, 0)) + theme_dendro()
+   coord_flip() + scale_y_reverse(expand=c(0.2, 0)) + theme_dendro()
 # Triangular lines
 hcdata <- dendro_data(hc, type="triangle")
 ggplot(segment(hcdata)) + geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) +
-theme_dendro()
+  theme_dendro()
 }
 \seealso{
-  \code{\link{dendro_data}}, \code{\link{ggdendrogram}}
+  \code{\link{ggdendrogram}}
+
+  Other dendro_data methods:
+  \code{\link{dendro_data.rpart}},
+  \code{\link{dendro_data.tree}},
+  \code{\link{dendrogram_data}}, \code{\link{rpart_labels}}
+
+  Other dendrogram/hclust functions:
+  \code{\link{dendrogram_data}}
 }
 

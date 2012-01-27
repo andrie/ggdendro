@@ -21,7 +21,9 @@
 #' \item{segments}{a data frame containing the line segment data}
 #' \item{labels}{a data frame containing the label text data}
 #' \item{leaf_labels}{a data frame containing the leaf label text data}
-#' @seealso \code{\link{dendro_data}}, \code{\link{ggdendrogram}}
+#' @seealso \code{\link{ggdendrogram}}
+#' @family dendro_data methods
+#' @family rpart functions
 #' @examples
 #' require(rpart)
 #' require(ggplot2)
@@ -47,7 +49,8 @@ dendro_data.rpart <- function(model, ...){
 #' @param model object of class "tree", e.g. the output of tree()
 #' @param ... ignored
 #' @keywords internal
-#' @seealso \code{\link{dendro_data.tree}}
+#' @seealso \code{\link{ggdendrogram}}
+#' @family rpart functions
 rpart_segments <- function (model, ...) {
   x <- model
   uniform = FALSE
@@ -103,7 +106,9 @@ rpart_segments <- function (model, ...) {
 #' @param ... ignored
 #' @return a list with two elements: $labels and $leaf_labels
 #' @keywords internal
-#' @seealso \code{\link{dendro_data}}
+#' @seealso \code{\link{ggdendrogram}}
+#' @family dendro_data methods
+#' @family rpart functions
 rpart_labels <- function (model, splits = TRUE, label, FUN = text, all = FALSE, pretty = NULL, 
     digits = getOption("digits") - 3, use.n = FALSE, fancy = FALSE, 
     fwidth = 0.8, fheight = 0.8, ...) 
