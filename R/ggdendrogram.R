@@ -71,6 +71,7 @@ ggdendrogram <- function(data, segments=TRUE, labels=TRUE, leaf_labels=TRUE,
 #' Sets most of the \code{ggplot} options to blank, by returning blank \code{opts} for the panel grid, panel background, axis title, axis text, axis line and axis ticks.
 #' @export
 theme_dendro <- function(){
+  stopifnot(require(ggplot2))
   theme_blank <- ggplot2::theme_blank
   ggplot2::opts(
       panel.grid.major = theme_blank(),

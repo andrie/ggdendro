@@ -19,6 +19,7 @@
 #' @examples
 #' require(tree)
 #' require(ggplot2)
+#' require(MASS)
 #' data(cpus, package="MASS")
 #' cpus.ltr <- tree(log10(perf) ~ syct+mmin+mmax+cach+chmin+chmax, cpus)
 #' tree_data <- dendro_data(cpus.ltr)

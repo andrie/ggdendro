@@ -32,7 +32,6 @@
 #' @name ggdendro-package
 #' @aliases ggdendro
 #' @docType package
-#' @import ggplot2
 #' @title Tools for creating dendrograms, regresion tree and classification tree plots using ggplot in [R]
 #' @author Andrie de Vries \email{andrie.de.vries@@pentalibra.com}
 #' @keywords package

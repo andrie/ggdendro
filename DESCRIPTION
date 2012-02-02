@@ -14,18 +14,17 @@ Description: This is a set of tools for dendrograms and
     directly to a plot device without exposing the data.
     The ggdendro package resolves this by making available
     functions that extract the dendrogram plot data.
-Version: 0.1-03
+Version: 0.1-04
 URL: https://github.com/andrie/ggdendro
 Date: 2012-01-27
 Depends:
-    stats
+    stats,
+    ggplot2
 Suggests:
     tree,
     plyr,
     rpart,
-    ggplot2
-Imports:
-    ggplot2
+    MASS
 Collate:
     'dendro_data.R'
     'dendrogram.R'
