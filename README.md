@@ -32,7 +32,7 @@ The results of these functions can then be passed to `ggplot()` for plotting.
 	hcdata <- dendro_data(hc, type="rectangle")
 	ggplot() + 
 	    geom_segment(data=segment(hcdata), aes(x=x, y=y, xend=xend, yend=yend)) +
-	    geom_text(data=label(hcdata), aes(x=x, y=y, label=text, hjust=0), size=3) +
+	    geom_text(data=label(hcdata), aes(x=x, y=y, label=label, hjust=0), size=3) +
 	    coord_flip() + scale_y_reverse(expand=c(0.2, 0))
 	    
 	### demonstrate plotting directly from object class hclust
