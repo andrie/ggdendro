@@ -22,11 +22,12 @@
 #' library(ggplot2)
 #' hc <- hclust(dist(USArrests), "ave")
 #' ### demonstrate plotting directly from object class hclust
-#' ggdendrogram(hc, rotate=FALSE)
+#' p <- ggdendrogram(hc, rotate=FALSE)
+#' print(p)
 #' ggdendrogram(hc, rotate=TRUE)
 #' ### demonstrate converting hclust to dendro using dendro_data first
 #' hcdata <- dendro_data(hc)
-#' ggdendrogram(hcdata, rotate=TRUE, size=2) + opts(title="Dendrogram in ggplot2")
+#' ggdendrogram(hcdata, rotate=TRUE, size=2) + labs(title="Dendrogram in ggplot2")
 ggdendrogram <- function(data, segments=TRUE, labels=TRUE, leaf_labels=TRUE, 
     rotate=FALSE, theme_dendro=TRUE, ...){
   stopifnot(require(ggplot2))
@@ -68,21 +69,21 @@ ggdendrogram <- function(data, segments=TRUE, labels=TRUE, leaf_labels=TRUE,
 
 #' Creates completely blank theme in ggplot.
 #' 
-#' Sets most of the \code{ggplot} options to blank, by returning blank \code{opts} for the panel grid, panel background, axis title, axis text, axis line and axis ticks.
+#' Sets most of the \code{ggplot} options to blank, by returning blank \code{theme} elements for the panel grid, panel background, axis title, axis text, axis line and axis ticks.
 #' @export
 theme_dendro <- function(){
   stopifnot(require(ggplot2))
-  theme_blank <- ggplot2::theme_blank
-  ggplot2::opts(
-      panel.grid.major = theme_blank(),
-      panel.grid.minor = theme_blank(),
-      panel.background = theme_blank(),
-      axis.title.x = theme_text(colour=NA),
-      axis.title.y = theme_blank(),
-      axis.text.x = theme_blank(),
-      axis.text.y = theme_blank(),
-      axis.line = theme_blank(),
-      axis.ticks = theme_blank()
+  element_blank <- ggplot2::element_blank
+  ggplot2::theme(
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.background = element_blank(),
+      axis.title.x = element_text(colour=NA),
+      axis.title.y = element_blank(),
+      axis.text.x = element_blank(),
+      axis.text.y = element_blank(),
+      axis.line = element_blank(),
+      axis.ticks = element_blank()
   )
 }
 

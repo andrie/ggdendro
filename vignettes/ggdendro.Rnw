@@ -100,7 +100,11 @@ print(p)
 \end{figure}
 
 
-Of course, using ggplot to create the dendrogram means one has full control over the appearance of the plot.  For example, here is the same data, but this time plotted horizontally with a clean background.  In \code{ggplot} this means passing a number of options to \code{opts}.  \ggdendro{} has a convenient function, \code{theme\_dendro} that wraps these options into a convenient function.
+Of course, using ggplot to create the dendrogram means one has full control over
+the appearance of the plot.  For example, here is the same data, but this time
+plotted horizontally with a clean background.  In \code{ggplot} this means
+passing a number of options to \code{theme}.  \ggdendro{} has a convenient
+function, \code{theme\_dendro} that wraps these options into a convenient function.
 
 <<dendro2, fig=TRUE, width=4, height=2, include=FALSE, keep.source=TRUE>>=
 p <- p + coord_flip() + theme_dendro()
