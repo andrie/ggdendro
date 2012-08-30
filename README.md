@@ -40,7 +40,7 @@ The results of these functions can then be passed to `ggplot()` for plotting.
 	ggdendrogram(hc, rotate=TRUE)
 	### demonstrate converting hclust to dendro using dendro_data first
 	hcdata <- dendro_data(hc)
-	ggdendrogram(hcdata, rotate=TRUE) + opts(title="Dendrogram in ggplot2")
+	ggdendrogram(hcdata, rotate=TRUE) + labs(title="Dendrogram in ggplot2")
 
 	    
     
