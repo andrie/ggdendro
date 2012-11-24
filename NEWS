@@ -1,3 +1,13 @@
+ggdendro 0.1-08 (Release date: 23/11/2012)
+==============
+
+New functionality
+* None
+
+Changes:
+* Changed Licence from GPL (>=2) to GPL-2|GPL-3 to conform with rtree and rpart license conditions
+* Removed dependency on non-exported rpart code, by copying this code into ggdendro (in particular rpartco)
+
 ggdendro 0.1-07 (Release date: 30/08/2012)
 ==============
 
