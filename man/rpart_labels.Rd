@@ -17,8 +17,11 @@
   a list with two elements: $labels and $leaf_labels
 }
 \description{
-  Extract labels data frame from rpart object for plotting
-  using ggplot.
+  This code is modified from the original plot.rpart in
+  package rpart.
+}
+\author{
+  Original author Brian Ripley
 }
 \seealso{
   \code{\link{ggdendrogram}}

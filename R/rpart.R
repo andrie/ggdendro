@@ -75,14 +75,14 @@ rpart_segments <- function (model, ...) {
   assign(paste(".rpart.parms", dev.cur(), sep = "."), list(uniform = uniform, 
           branch = branch, nspace = nspace, minbranch = minbranch), 
       envir = .GlobalEnv)
-  temp <- rpart:::rpartco(x)
+  temp <- rpartco(x)
   xx <- temp$x
   yy <- temp$y
   temp1 <- range(xx) + diff(range(xx)) * c(-margin, margin)
   temp2 <- range(yy) + diff(range(yy)) * c(-margin, margin)
   #plot(temp1, temp2, type = "n", axes = FALSE, xlab = "", ylab = "", ...)
   node <- as.numeric(row.names(x$frame))
-  temp <- rpart:::rpart.branch(xx, yy, node, branch)
+  temp <- rpart.branch(xx, yy, node, branch)
   #if (branch > 0) text(xx[1L], yy[1L], "|")
   #lines(c(temp$x), c(temp$y))
 
@@ -102,9 +102,12 @@ rpart_segments <- function (model, ...) {
 
 
 #' Extract labels data frame from rpart object for plotting using ggplot.
+#' 
+#' This code is modified from the original plot.rpart in package rpart.
 #' @param model object of class "rpart", e.g. the output of rpart()
 #' @param ... ignored
 #' @return a list with two elements: $labels and $leaf_labels
+#' @author Original author Brian Ripley
 #' @keywords internal
 #' @seealso \code{\link{ggdendrogram}}
 #' @family dendro_data methods
@@ -127,7 +130,7 @@ rpart_labels <- function (model, splits = TRUE, label, FUN = text, all = FALSE, 
   cxy <- par("cxy")
   if (!is.null(srt <- list(...)$srt) && srt == 90) 
     cxy <- rev(cxy)
-  xy <- rpart:::rpartco(x)
+  xy <- rpartco(x)
   node <- as.numeric(row.names(x$frame))
   is.left <- (node%%2 == 0)
   node.left <- node[is.left]
@@ -208,3 +211,138 @@ rpart_labels <- function (model, splits = TRUE, label, FUN = text, all = FALSE, 
   )
 }
 
+#-------------------------------------------------------------------------------
+
+#' This is an exact copy of rpartco in package rpart.
+#' 
+#' The original function is not exported from rpart, but we require it to calculate the coordinates of leaves, segments and labels.
+#' @author Brian Ripley
+#' @keywords internal
+rpartco <- function (tree, parms = paste(".rpart.parms", dev.cur(), sep = ".")){
+  frame <- tree$frame
+  node <- as.numeric(row.names(frame))
+  depth <- tree.depth(node)
+  is.leaf <- (frame$var == "<leaf>")
+  if (exists(parms, envir = .GlobalEnv)) {
+    parms <- get(parms, envir = .GlobalEnv)
+    uniform <- parms$uniform
+    nspace <- parms$nspace
+    minbranch <- parms$minbranch
+  }
+  else {
+    uniform <- FALSE
+    nspace <- -1
+    minbranch <- 0.3
+  }
+  if (uniform) 
+    y <- (1 + max(depth) - depth)/max(depth, 4)
+  else {
+    y <- dev <- frame$dev
+    temp <- split(seq(node), depth)
+    parent <- match(floor(node/2), node)
+    sibling <- match(ifelse(node%%2, node - 1, node + 1), 
+                     node)
+    for (i in temp[-1L]) {
+      temp2 <- dev[parent[i]] - (dev[i] + dev[sibling[i]])
+      y[i] <- y[parent[i]] - temp2
+    }
+    fudge <- minbranch * diff(range(y))/max(depth)
+    for (i in temp[-1L]) {
+      temp2 <- dev[parent[i]] - (dev[i] + dev[sibling[i]])
+      haskids <- !(is.leaf[i] & is.leaf[sibling[i]])
+      y[i] <- y[parent[i]] - ifelse(temp2 <= fudge & haskids, 
+                                    fudge, temp2)
+    }
+    y <- y/(max(y))
+  }
+  x <- double(length(node))
+  x[is.leaf] <- seq(sum(is.leaf))
+  left.child <- match(node * 2, node)
+  right.child <- match(node * 2 + 1, node)
+  temp <- split(seq(node)[!is.leaf], depth[!is.leaf])
+  for (i in rev(temp)) x[i] <- 0.5 * (x[left.child[i]] + x[right.child[i]])
+  if (nspace < 0) 
+    return(list(x = x, y = y))
+  compress <- function(x, me, depth) {
+    lson <- me + 1L
+    if (is.leaf[lson]) 
+      left <- list(left = x[lson], right = x[lson], depth = depth + 
+                     1L, sons = lson)
+    else {
+      left <- compress(x, me + 1L, depth + 1L)
+      x <- left$x
+    }
+    rson <- me + 1L + length(left$sons)
+    if (is.leaf[rson]) 
+      right <- list(left = x[rson], right = x[rson], depth = depth + 
+                      1L, sons = rson)
+    else {
+      right <- compress(x, rson, depth + 1L)
+      x <- right$x
+    }
+    maxd <- max(left$depth, right$depth) - depth
+    mind <- min(left$depth, right$depth) - depth
+    slide <- min(right$left[1L:mind] - left$right[1L:mind]) - 
+      1L
+    if (slide > 0) {
+      x[right$sons] <- x[right$sons] - slide
+      x[me] <- (x[right$sons[1L]] + x[left$sons[1L]])/2
+    }
+    else slide <- 0
+    if (left$depth > right$depth) {
+      templ <- left$left
+      tempr <- left$right
+      tempr[1L:mind] <- pmax(tempr[1L:mind], right$right - 
+                               slide)
+    }
+    else {
+      templ <- right$left - slide
+      tempr <- right$right - slide
+      templ[1L:mind] <- pmin(templ[1L:mind], left$left)
+    }
+    list(x = x, left = c(x[me] - nspace * (x[me] - x[lson]), 
+                         templ), right = c(x[me] - nspace * (x[me] - x[rson]), 
+                                           tempr), depth = maxd + depth, sons = c(me, left$sons, 
+                                                                                  right$sons))
+  }
+  x <- compress(x, 1L, 1L)$x
+  list(x = x, y = y)
+}
+
+
+#' This is an exact copy of rpart.branch in package rpart.
+#' 
+#' The original function is not exported from rpart, but we require it to calculate the coordinates of leaves, segments and labels.
+#' @author Brian Ripley
+#' @keywords internal
+rpart.branch <- function (x, y, node, branch){
+  if (missing(branch)) {
+    if (exists(parms <- paste(".rpart.parms", dev.cur(), 
+                              sep = "."), envir = .GlobalEnv)) {
+      parms <- get(parms, envir = .GlobalEnv)
+      branch <- parms$branch
+    }
+    else branch <- 0
+  }
+  is.left <- (node%%2 == 0)
+  node.left <- node[is.left]
+  parent <- match(node.left/2, node)
+  sibling <- match(node.left + 1, node)
+  temp <- (x[sibling] - x[is.left]) * (1 - branch)/2
+  xx <- rbind(x[is.left], x[is.left] + temp, x[sibling] - temp, 
+              x[sibling], NA)
+  yy <- rbind(y[is.left], y[parent], y[parent], y[sibling], 
+              NA)
+  list(x = xx, y = yy)
+}
+
+#' This is an exact copy of tree.depth in package rpart.
+#' 
+#' The original function is not exported from rpart, but we require it to calculate the coordinates of leaves, segments and labels.
+#' @author Brian Ripley
+#' @keywords internal
+tree.depth <- function (nodes) 
+{
+  depth <- floor(log(nodes, base = 2) + 1e-07)
+  depth - min(depth)
+}
