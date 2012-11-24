@@ -14,6 +14,9 @@
   Extract labels data frame from tree object for plotting
   using ggplot
 }
+\author{
+  Code modified from original by Brian Ripley
+}
 \seealso{
   \code{\link{ggdendrogram}}
 

@@ -40,6 +40,10 @@ ggplot(segment(tree_data)) +
 		aes(x=x, y=y, label=label), vjust=0.5, size=3) +
  theme_dendro()
 }
+\author{
+  Andrie de Vries, using code modified from original by
+  Brian Ripley
+}
 \seealso{
   \code{\link{ggdendrogram}}
 

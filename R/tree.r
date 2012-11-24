@@ -16,6 +16,7 @@
 #' @seealso \code{\link{ggdendrogram}}
 #' @family dendro_data methods
 #' @family tree functions
+#' @author Andrie de Vries, using code modified from original by Brian Ripley
 #' @examples
 #' require(tree)
 #' require(ggplot2)
@@ -51,6 +52,7 @@ dendro_data.tree <- function(model, ...){
 #' @keywords internal
 #' @seealso \code{\link{ggdendrogram}}
 #' @family tree functions
+#' @author Code modified from original by Brian Ripley
 tree_segments <- function(model, ...){
   require(tree)
 	# Uses tree:::treeco to extract data frame of plot locations
@@ -77,6 +79,7 @@ tree_segments <- function(model, ...){
 #' @keywords internal
 #' @seealso \code{\link{ggdendrogram}}
 #' @family tree functions
+#' @author Code modified from original by Brian Ripley
 tree_labels <- function(model, ...){
   require(tree)
   # Uses tree:::treeco to extract data frame of plot locations
@@ -123,6 +126,7 @@ tree_labels <- function(model, ...){
 #' @keywords internal
 #' @seealso \code{\link{ggdendrogram}}
 #' @family tree functions
+#' @author Code modified from original by Brian Ripley
 get_data_tree_leaf_labels <- function(model, ...){
   require(tree)
   # Uses tree:::treeco to extract data frame of plot locations
