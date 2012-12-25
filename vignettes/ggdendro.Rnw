@@ -169,34 +169,6 @@ print(p)
 \end{figure}
 
 
-%------------------------------------------------------------------------------
-\section{Classification tree diagrams}
-
-The \code{rpart} function in package \code{rpart} creates classification diagrams.  To extract the plot data for these diagrams using \ggdendro{} follows the same basic pattern as dendrograms: 
-
-<<rpart1, fig=TRUE, width=4, height=2.5, include=FALSE, keep.source=TRUE>>=
-library(rpart)
-fit <- rpart(Kyphosis ~ Age + Number + Start, 
-    method="class", data=kyphosis)
-fitr <- dendro_data(fit)
-p <- ggplot() + 
-    geom_segment(data=fitr$segments, 
-        aes(x=x, y=y, xend=xend, yend=yend)) + 
-    geom_text(data=fitr$labels, 
-        aes(x=x, y=y, label=label), size=3, vjust=0) +
-    geom_text(data=fitr$leaf_labels, 
-        aes(x=x, y=y, label=label), size=3, vjust=1) +
-    theme_dendro()
-print(p)
-@
-
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=4in, height=2.5in]{ggdendro-rpart1}
-\end{center}
-\caption{Classification tree plot}
-\end{figure}
-
 
 %------------------------------------------------------------------------------
 \section{Conclusion}

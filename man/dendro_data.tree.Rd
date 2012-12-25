@@ -49,8 +49,7 @@ ggplot(segment(tree_data)) +
 
   Other dendro_data methods:
   \code{\link{dendro_data.dendrogram}},
-  \code{\link{dendro_data.rpart}},
-  \code{\link{dendrogram_data}}, \code{\link{rpart_labels}}
+  \code{\link{dendrogram_data}}
 
   Other tree functions:
   \code{\link{get_data_tree_leaf_labels}},

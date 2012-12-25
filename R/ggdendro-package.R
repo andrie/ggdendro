@@ -16,7 +16,6 @@
 #' \item hclust: \code{\link{dendro_data.hclust}} 
 #' \item dendrogram: \code{\link{dendro_data.dendrogram}} 
 #' \item regression trees: \code{\link{dendro_data.tree}} 
-#' \item classification trees: \code{\link{dendro_data.rpart}} 
 #' }
 #' 
 #' These methods create an object of class \code{dendro}, consisting of a list of data.frames.  To extract the relevant data frames from the list, there are three accessor functions:

@@ -24,9 +24,7 @@
 
   Other dendro_data methods:
   \code{\link{dendro_data.dendrogram}},
-  \code{\link{dendro_data.rpart}},
-  \code{\link{dendro_data.tree}},
-  \code{\link{rpart_labels}}
+  \code{\link{dendro_data.tree}}
 
   Other dendrogram/hclust functions:
   \code{\link{dendro_data.dendrogram}}
