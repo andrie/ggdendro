@@ -32,7 +32,7 @@
 #' @aliases ggdendro
 #' @docType package
 #' @title Tools for creating dendrograms, regresion tree and classification tree plots using ggplot in [R]
-#' @author Andrie de Vries \email{andrie@@pentalibra.com}
+#' @author Andrie de Vries \email{apdevries@@gmail.com}
 #' @keywords package
 #' @seealso \code{\link{dendro_data}}
 NULL
