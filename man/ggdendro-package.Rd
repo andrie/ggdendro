@@ -42,7 +42,7 @@
   \code{\link{ggdendrogram}}
 }
 \author{
-  Andrie de Vries \email{andrie@pentalibra.com}
+  Andrie de Vries \email{apdevries@gmail.com}
 }
 \seealso{
   \code{\link{dendro_data}}
