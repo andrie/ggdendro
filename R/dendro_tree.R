@@ -1,5 +1,24 @@
 # Plots tree object in ggplot2
 
+#
+#  Contains code from tree/R/tree.R by B. D. Ripley  Copyright (C) 1994-2012
+#
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 or 3 of the License
+#  (at your option).
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  A copy of the GNU General Public License is available at
+#  http://www.r-project.org/Licenses/
+#
+#
+
+
 #' Extract data from regression tree object for plotting using ggplot.
 #' 
 #' Extracts data to plot line segments and labels from a \code{\link[tree]{tree}} object.  This data can then be manipulated or plotted, e.g. using \code{\link[ggplot2]{ggplot}}.
@@ -148,6 +167,5 @@ get_data_tree_leaf_labels <- function(model, ...){
   data$label <- round(data$yval, 2)
   data
 }
-
 
 
