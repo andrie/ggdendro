@@ -1,5 +1,24 @@
+#
+#  ggdendro/R/dendro_tree.R by Andrie de Vries  Copyright (C) 2011-2013
+#  Contains code adapted from stats/hclust.R Copyright (C) 1995-2012 The R Core Team
+#
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 or 3 of the License
+#  (at your option).
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  A copy of the GNU General Public License is available at
+#  http://www.r-project.org/Licenses/
+#
+#
 
-###############################################################################
+
+
 #' Extract line segment and label data from dendrogram or hclust object.
 #' 
 #' Extract line segment and label data from dendrogram or hclust object.  Results are stored in a
