@@ -110,17 +110,17 @@ test_that("ggdendrogram plots and accepts ... parameters", {
 
 #------------------------------------------------------------------------------
 
-context("rpart")
-
-test_that("data_tree() returns the correct classes", {
-      
-      require(rpart)
-      fit <- rpart(Kyphosis ~ Age + Number + Start,   method="class", data=kyphosis)
-      tdata <- dendro_data(fit)
-      expect_that(tdata, is_a("dendro"))
-      expect_that(segment(tdata), is_a("data.frame"))
-      expect_that(label(tdata), is_a("data.frame"))
-      expect_that(leaf_label(tdata), is_a("data.frame"))
-      
-    })
+# context("rpart")
+# 
+# test_that("data_tree() returns the correct classes", {
+#       
+#       require(rpart)
+#       fit <- rpart(Kyphosis ~ Age + Number + Start,   method="class", data=kyphosis)
+#       tdata <- dendro_data(fit)
+#       expect_that(tdata, is_a("dendro"))
+#       expect_that(segment(tdata), is_a("data.frame"))
+#       expect_that(label(tdata), is_a("data.frame"))
+#       expect_that(leaf_label(tdata), is_a("data.frame"))
+#       
+#     })
 
