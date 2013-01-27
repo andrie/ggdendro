@@ -1,3 +1,13 @@
+ggdendro 0.1-12 (Release date: 27/01/2013)
+==============
+
+New functionality
+* None
+
+Changes:
+* ggdendro now imports MASS, tree and ggplot2 (rather than suggests)
+* Added Brian D. Ripley as author (original author of package tree)
+
 ggdendro 0.1-09 (Release date: 25/12/2012)
 ==============
 
