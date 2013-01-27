@@ -43,7 +43,6 @@
 #' ggdendrogram(hcdata, rotate=TRUE, size=2) + labs(title="Dendrogram in ggplot2")
 ggdendrogram <- function(data, segments=TRUE, labels=TRUE, leaf_labels=TRUE, 
     rotate=FALSE, theme_dendro=TRUE, ...){
-  stopifnot(require(ggplot2))
   dataClass <- if(inherits(data, "dendro")) data$class else class(data)
   angle <- if(dataClass %in% c("dendrogram", "hclust")){
         ifelse(rotate, 0, 90)
@@ -85,7 +84,6 @@ ggdendrogram <- function(data, segments=TRUE, labels=TRUE, leaf_labels=TRUE,
 #' Sets most of the \code{ggplot} options to blank, by returning blank \code{theme} elements for the panel grid, panel background, axis title, axis text, axis line and axis ticks.
 #' @export
 theme_dendro <- function(){
-  stopifnot(require(ggplot2))
   element_blank <- ggplot2::element_blank
   ggplot2::theme(
       panel.grid.major = element_blank(),

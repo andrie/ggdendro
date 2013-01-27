@@ -52,7 +52,6 @@
 #' 		aes(x=x, y=y, label=label), vjust=0.5, size=3) +
 #'  theme_dendro()
 dendro_data.tree <- function(model, ...){
-	require(tree)
 	labels <- tree_labels(model, ...)
 	as.dendro(
     segments = tree_segments(model, ...),
@@ -72,7 +71,6 @@ dendro_data.tree <- function(model, ...){
 #' @family tree functions
 #' @author Code modified from original by Brian Ripley
 tree_segments <- function(model, ...){
-  require(tree)
 	# Uses tree:::treeco to extract data frame of plot locations
 	xy <- tree:::treeco(model)
 	n <- model$frame$n
@@ -99,7 +97,6 @@ tree_segments <- function(model, ...){
 #' @family tree functions
 #' @author Code modified from original by Brian Ripley
 tree_labels <- function(model, ...){
-  require(tree)
   # Uses tree:::treeco to extract data frame of plot locations
   xy <- tree:::treeco(model)
   label <- model$frame$var
@@ -146,7 +143,6 @@ tree_labels <- function(model, ...){
 #' @family tree functions
 #' @author Code modified from original by Brian Ripley
 get_data_tree_leaf_labels <- function(model, ...){
-  require(tree)
   # Uses tree:::treeco to extract data frame of plot locations
   xy <- tree:::treeco(model)
   label <- model$frame$var
