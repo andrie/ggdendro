@@ -1,0 +1,91 @@
+\name{dendro_data.rpart}
+\alias{dendro_data.rpart}
+\title{Extract data from classification tree object for plotting using ggplot.}
+\usage{
+  \method{dendro_data}{rpart} (model, uniform = FALSE,
+    branch = 1, compress = FALSE, nspace, margin = 0,
+    minbranch = 0.3, ...)
+}
+\arguments{
+  \item{model}{object of class "tree", e.g. the output of
+  tree()}
+
+  \item{uniform}{if TRUE, uniform vertical spacing of the
+  nodes is used; this may be less cluttered when fitting a
+  large plot onto a page. The default is to use a
+  non-uniform spacing proportional to the error in the
+  fit.}
+
+  \item{branch}{controls the shape of the branches from
+  parent to child node. Any number from 0 to 1 is allowed.
+  A value of 1 gives square shouldered branches, a value of
+  0 give V shaped branches, with other values being
+  intermediate.}
+
+  \item{compress}{if FALSE, the leaf nodes will be at the
+  horizontal plot coordinates of 1:nleaves. If TRUE, the
+  routine attempts a more compact arrangement of the tree.
+  The compaction algorithm assumes uniform=TRUE;
+  surprisingly, the result is usually an improvement even
+  when that is not the case.}
+
+  \item{nspace}{the amount of extra space between a node
+  with children and a leaf, as compared to the minimal
+  space between leaves. Applies to compressed trees only.
+  The default is the value of branch.}
+
+  \item{margin}{an extra fraction of white space to leave
+  around the borders of the tree. (Long labels sometimes
+  get cut off by the default computation).}
+
+  \item{minbranch}{set the minimum length for a branch to
+  minbranch times the average branch length. This parameter
+  is ignored if uniform=TRUE. Sometimes a split will give
+  very little improvement, or even (in the classification
+  case) no improvement at all. A tree with branch lengths
+  strictly proportional to improvement leaves no room to
+  squeeze in node labels.}
+
+  \item{...}{ignored}
+}
+\value{
+  A list of three data frames: \item{segments}{a data frame
+  containing the line segment data} \item{labels}{a data
+  frame containing the label text data}
+  \item{leaf_labels}{a data frame containing the leaf label
+  text data}
+}
+\description{
+  Extracts data to plot line segments and labels from a
+  \code{\link[rpart]{rpart}} classification tree object.
+  This data can then be manipulated or plotted, e.g. using
+  \code{\link[ggplot2]{ggplot}}.
+}
+\details{
+  This code is in essence a copy of
+  \code{\link[rpart]{plot.rpart}}, retaining the plot data
+  but without plotting toa plot device.
+}
+\examples{
+require(rpart)
+require(ggplot2)
+fit <- rpart(Kyphosis ~ Age + Number + Start, method="class", data=kyphosis)
+fitr <- dendro_data(fit)
+ggplot() +
+    geom_segment(data=fitr$segments, aes(x=x, y=y, xend=xend, yend=yend)) +
+    geom_text(data=fitr$labels, aes(x=x, y=y, label=label)) +
+    geom_text(data=fitr$leaf_labels, aes(x=x, y=y, label=label)) +
+    theme_dendro()
+}
+\seealso{
+  \code{\link{ggdendrogram}}
+
+  Other dendro_data methods:
+  \code{\link{dendro_data.dendrogram}},
+  \code{\link{dendro_data.tree}},
+  \code{\link{dendrogram_data}}, \code{\link{rpart_labels}}
+
+  Other rpart functions: \code{\link{rpart_labels}},
+  \code{\link{rpart_segments}}
+}
+

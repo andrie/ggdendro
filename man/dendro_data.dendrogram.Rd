@@ -57,8 +57,9 @@ ggplot(segment(hcdata)) + geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) +
   \code{\link{ggdendrogram}}
 
   Other dendro_data methods:
+  \code{\link{dendro_data.rpart}},
   \code{\link{dendro_data.tree}},
-  \code{\link{dendrogram_data}}
+  \code{\link{dendrogram_data}}, \code{\link{rpart_labels}}
 
   Other dendrogram/hclust functions:
   \code{\link{dendrogram_data}}
