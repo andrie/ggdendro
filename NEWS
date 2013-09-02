@@ -6,6 +6,7 @@ New functionality
 
 Changes:
 * Modified code to suggest tree, rather than import
+* Changed plot behaviour of ggdendrogram() to have prettier axis labels
 
 
 ggdendro 0.1-12 (Release date: 27/01/2013)
