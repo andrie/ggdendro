@@ -1,3 +1,13 @@
+ggdendro 0.1-13 (Release date: 02/09/2013)
+==============
+
+New functionality
+* Added support for rpart
+
+Changes:
+* Modified code to suggest tree, rather than import
+
+
 ggdendro 0.1-12 (Release date: 27/01/2013)
 ==============
 
