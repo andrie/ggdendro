@@ -39,6 +39,7 @@
 #' \item \code{\link{dendro_data.hclust}}
 #' \item \code{\link{dendro_data.dendrogram}}		 
 #' \item \code{\link{dendro_data.tree}}	
+#' \item \code{\link{dendro_data.rpart}} 
 #' }
 #' To extract the data for line segments, labels or leaf labels use:
 #' \itemize{
