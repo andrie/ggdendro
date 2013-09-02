@@ -60,21 +60,29 @@ ggdendrogram <- function(data, segments=TRUE, labels=TRUE, leaf_labels=TRUE,
     p <- p + geom_segment(data=segment(data), 
         aes_string(x="x", y="y", xend="xend", yend="yend"))
   }
-  if(all(labels, !is.null(data$labels))){
-    p <- p + geom_text(data=label(data), 
-        aes_string(x="x", y="y", label="label"), hjust=hjust, angle=angle, ...)
-  }
+#   if(all(labels, !is.null(data$labels))){
+#     p <- p + geom_text(data=label(data), 
+#         aes_string(x="x", y="y", label="label"), hjust=hjust, angle=angle, ...)
+#   }
   if(all(leaf_labels, !is.null(data$leaf_labels))){
     p <- p + geom_text(data=leaf_label(data), 
         aes_string(x="x", y="y", label="label"), hjust=hjust, angle=angle, ...)
   }
   if(rotate){
-    p <- p + coord_flip()
-    p <- p + scale_y_reverse(expand=c(0.2, 0))
+    p <- p + scale_x_discrete(labels=data$labels$label)
   } else {
-    p <- p + scale_y_continuous(expand=c(0.2, 0))
+    p <- p + scale_x_discrete(labels=data$labels$label)
+  }
+  if(rotate){
+    p <- p + coord_flip()
+    p <- p + scale_y_continuous()
+  } else {
+    p <- p + scale_y_continuous()
   }
   if(theme_dendro) p <- p + theme_dendro()
+  p <- p + theme(axis.text.x = element_text(angle=angle, hjust=1))
+  p <- p + theme(axis.text.y = element_text(angle=angle, hjust=1))
+
   p
 }
 
