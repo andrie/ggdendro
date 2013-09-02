@@ -2,11 +2,17 @@
 \alias{dendro_data.tree}
 \title{Extract data from regression tree object for plotting using ggplot.}
 \usage{
-  \method{dendro_data}{tree} (model, ...)
+  \method{dendro_data}{tree} (model,
+    type = c("proportional", "uniform"), ...)
 }
 \arguments{
   \item{model}{object of class "tree", e.g. the output of
   tree()}
+
+  \item{type}{Either \code{proportional} or \code{uniform}.
+  If this partially matches "uniform", the branches are of
+  uniform length. Otherwise they are proportional to the
+  decrease in impurity.}
 
   \item{...}{ignored}
 }
@@ -49,7 +55,8 @@ ggplot(segment(tree_data)) +
 
   Other dendro_data methods:
   \code{\link{dendro_data.dendrogram}},
-  \code{\link{dendrogram_data}}
+  \code{\link{dendro_data.rpart}},
+  \code{\link{dendrogram_data}}, \code{\link{rpart_labels}}
 
   Other tree functions:
   \code{\link{get_data_tree_leaf_labels}},
