@@ -123,7 +123,7 @@ dendrogram_data <- function (x, type = c("rectangle", "triangle"), ...){
 	hgt <- attr(x, "height")
 	if (edge.root && is.logical(edge.root)) 
 		edge.root <- 0.0625 * if (is.leaf(x)) 1 else hgt
-	mem.x <- stats:::.memberDend(x)
+	mem.x <- .memberDend(x)
 	yTop <- hgt + edge.root
 	if (center) {
 		x1 <- 0.5
@@ -157,7 +157,7 @@ dendrogram_data <- function (x, type = c("rectangle", "triangle"), ...){
 			edgePar, horiz=FALSE, ddsegments=NULL, ddlabels=NULL) {
 		inner <- !is.leaf(subtree) && x1 != x2
 		yTop <- attr(subtree, "height")
-		bx <- stats:::plotNodeLimit(x1, x2, subtree, center)
+		bx <- plotNodeLimit(x1, x2, subtree, center)
 		xTop <- bx$x
 		hasP <- !is.null(nPar <- attr(subtree, "nodePar"))
 		if (!hasP) nPar <- nodePar
@@ -212,7 +212,7 @@ dendrogram_data <- function (x, type = c("rectangle", "triangle"), ...){
 					yBot <- 0
 				xBot <- if (center) 
 							mean(bx$limit[k:(k + 1)])
-						else bx$limit[k] + stats:::.midDend(child)
+						else bx$limit[k] + .midDend(child)
 #			hasE <- !is.null(ePar <- attr(child, "edgePar"))
 #			if (!hasE) ePar <- edgePar
 #			i <- if (!is.leaf(child) || hasE) 1 else 2
@@ -288,3 +288,61 @@ dendrogram_data <- function (x, type = c("rectangle", "triangle"), ...){
   ret
 }
 
+
+# .memberDend -------------------------------------------------------------
+
+### Code copied from stats:::.memberDend
+
+.memberDend <- function (x) 
+{
+  r <- attr(x, "x.member")
+  if (is.null(r)) {
+    r <- attr(x, "members")
+    if (is.null(r)) 
+      r <- 1L
+  }
+  r
+}
+
+
+# plotNodeLimit -----------------------------------------------------------
+
+### Code copied from stats:::plotNodeLimit
+
+plotNodeLimit <- function (x1, x2, subtree, center) 
+{
+  inner <- !is.leaf(subtree) && x1 != x2
+  if (inner) {
+    K <- length(subtree)
+    mTop <- .memberDend(subtree)
+    limit <- integer(K)
+    xx1 <- x1
+    for (k in 1L:K) {
+      m <- .memberDend(subtree[[k]])
+      xx1 <- xx1 + (if (center) 
+        (x2 - x1) * m/mTop
+                    else m)
+      limit[k] <- xx1
+    }
+    limit <- c(x1, limit)
+  }
+  else {
+    limit <- c(x1, x2)
+  }
+  mid <- attr(subtree, "midpoint")
+  center <- center || (inner && !is.numeric(mid))
+  x <- if (center) 
+    mean(c(x1, x2))
+  else x1 + (if (inner) 
+    mid
+             else 0)
+  list(x = x, limit = limit)
+}
+
+# .midDend --------------------------------------------------------------------
+
+### Code copied from stats:::.midDend
+
+
+.midDend <- function (x) 
+  if (is.null(mp <- attr(x, "midpoint"))) 0 else mp
