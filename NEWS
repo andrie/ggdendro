@@ -1,4 +1,4 @@
-ggdendro 0.1-13 (Release date: 02/09/2013)
+ggdendro 0.1-14 (Release date: 03/09/2013)
 ==============
 
 New functionality
@@ -7,6 +7,8 @@ New functionality
 Changes:
 * Modified code to suggest tree, rather than import
 * Changed plot behaviour of ggdendrogram() to have prettier axis labels
+* Removed all references to hidden functions in package stats
+
 
 
 ggdendro 0.1-12 (Release date: 27/01/2013)
