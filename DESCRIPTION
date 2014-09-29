@@ -24,11 +24,3 @@ Suggests:
 Imports:
     MASS,
     ggplot2(>= 0.9.2)
-Collate:
-    'dendro_data.R'
-    'dendrogram.R'
-    'ggdendro-package.R'
-    'ggdendrogram.R'
-    'dendro_tree.R'
-    'dendro_rpart.R'
-    'rpart.R'
