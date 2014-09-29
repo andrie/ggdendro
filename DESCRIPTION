@@ -17,10 +17,14 @@ Description: This is a set of tools for dendrograms and
     functions that extract the dendrogram plot data.
 Version: 0.1-14
 URL: https://github.com/andrie/ggdendro
+BugReports: https://github.com/andrie/ggdendro/issues
 Date: 2013-09-03
-Suggests:
-    rpart(>= 4.0-0),
-    tree
 Imports:
     MASS,
     ggplot2(>= 0.9.2)
+Suggests:
+    rpart(>= 4.0-0),
+    tree,
+    testthat,
+    knitr
+VignetteBuilder: knitr
