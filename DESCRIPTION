@@ -15,10 +15,10 @@ Description: This is a set of tools for dendrograms and
     directly to a plot device without exposing the data.
     The ggdendro package resolves this by making available
     functions that extract the dendrogram plot data.
-Version: 0.1-14
+Version: 0.1-15
 URL: https://github.com/andrie/ggdendro
 BugReports: https://github.com/andrie/ggdendro/issues
-Date: 2013-09-03
+Date: 2014-09-029
 Imports:
     MASS,
     ggplot2(>= 0.9.2)
