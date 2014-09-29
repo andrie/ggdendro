@@ -1,3 +1,15 @@
+ggdendro 0.1-15 (Release date: 29/09/2014)
+==============
+
+New functionality:
+- None
+
+Changes:
+- Some bug fixes
+- Unit tests now run during R CMD check
+- Modified vignette to use knitr instead of SWeave
+
+
 ggdendro 0.1-14 (Release date: 03/09/2013)
 ==============
 

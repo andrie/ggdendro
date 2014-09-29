@@ -5,11 +5,11 @@ Authors@R: c(person("Andrie", "de Vries", role=c("aut", "cre"),
     c("aut"), comment = "author of package tree"))
 License: GPL-2|GPL-3
 Title: Tools for extracting dendrogram and tree diagram
-    plot data for use with ggplot.
+    plot data for use with ggplot2
 LazyData: true
 LazyLoad: true
 Description: This is a set of tools for dendrograms and
-    tree plots using ggplot.  The ggplot philosophy is to
+    tree plots using ggplot2.  The ggplot2 philosophy is to
     clearly separate data from the presentation.
     Unfortunately the plot method for dendrograms plots
     directly to a plot device without exposing the data.
@@ -18,7 +18,7 @@ Description: This is a set of tools for dendrograms and
 Version: 0.1-15
 URL: https://github.com/andrie/ggdendro
 BugReports: https://github.com/andrie/ggdendro/issues
-Date: 2014-09-029
+Date: 2014-09-29
 Imports:
     MASS,
     ggplot2(>= 0.9.2)
