@@ -2,6 +2,10 @@
 
 This is a set of tools for creating dendrograms and tree plots using `ggplot` in R.
 
+**Build status**
+
+Master: [<img src="https://travis-ci.org/andrie/ggdendro.svg?branch=master" alt="Build Status" />](https://travis-ci.org/andrie/ggdendro)
+
 ## Important functions
 
 The `ggdendro` package offers a generic function to extract data and text from the various clustering models:
