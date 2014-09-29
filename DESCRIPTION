@@ -1,5 +1,4 @@
 Package: ggdendro
-Author: Andrie de Vries, Brian Ripley
 Authors@R: c(person("Andrie", "de Vries", role=c("aut", "cre"),
     email="apdevries@gmail.com"), person(c("Brian", "D."), "Ripley", role =
     c("aut"), comment = "author of package tree"))
