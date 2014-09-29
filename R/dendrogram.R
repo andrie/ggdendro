@@ -180,9 +180,10 @@ dendrogram_data <- function (x, type = c("rectangle", "triangle"), ...){
 								cbind(yTop, xTop)
 							else cbind(xTop, yTop), pch = pch, bg = bg, col = col, cex = cex)
 		}
-		lab.col <- Xtract("lab.col", nPar, default = par("col"), i)
-		lab.cex <- Xtract("lab.cex", nPar, default = c(1, 1), i)
-		lab.font <- Xtract("lab.font", nPar, default = par("font"), i)
+# 		lab.col <- Xtract("lab.col", nPar, default = par("col"), i)
+# 		lab.cex <- Xtract("lab.cex", nPar, default = c(1, 1), i)
+# 		lab.font <- Xtract("lab.font", nPar, default = par("font"), i)
+    lab.cex <- 1
 		if (is.leaf(subtree)) {
 			if (leaflab == "perpendicular") {
 				Y <- yTop - dLeaf * lab.cex
