@@ -1,11 +1,9 @@
 % \VignetteEngine{knitr::knitr}
 % \VignetteIndexEntry{Plotting dendrograms and tree diagrams with ggplot}
 % \VignettePackage{ggdendro}
-% \VignetteKeyword{dendrogram}
-% \VignetteKeyword{ggplot}
 
 
-# Using the ggdendro package for plotting dendrograms and tree diagrams
+# Using the ggdendro package for plotting dendrograms
 
 `ggdendro` is a package that makes it easy to extract dendrogram and tree diagrams into a data frame.  
 
