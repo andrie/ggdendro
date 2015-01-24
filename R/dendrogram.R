@@ -85,6 +85,16 @@ dendro_data.hclust <- function (model, type = c("rectangle", "triangle"), ...){
   )
 } 
 
+dendro_data.twins <- function (model, type = c("rectangle", "triangle"), ...){
+  dhc <- as.dendrogram(model)
+  hcdata <- dendrogram_data(dhc, type=type, ...)
+  as.dendro(
+      segments = hcdata$segments,
+      labels = hcdata$labels,
+      class="hclust"
+  )
+} 
+
 
 
 
