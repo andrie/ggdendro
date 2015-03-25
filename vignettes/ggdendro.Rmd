@@ -41,6 +41,17 @@ hc <- hclust(dist(USArrests), "ave")
 ggdendrogram(hc, rotate = FALSE, size = 2)
 ```
 
+## Adding annotation tracks
+
+It is sometimes useful to show additional information about the leaves in a dendrogram by adding annotation tracks.  The function `ggdendrotracks} can be used to do this by supplying a =data.frame= with each annotation track as a column which is matched to the dendrogram data by matching rownames to leaf labels.  In the plot below, we cluster states by arrests alone, then add an annotation track showing the urban population in each state.
+
+```{r dendrotracks}
+head(USArrests)
+hc2 <- hclust(dist(USArrests[,-3]), "ave")
+ggdendrotracks(hc2, USArrests[,3,drop=FALSE], rotate = FALSE, 
+               size = 2, trackheight=10)
+```
+
 
 The next section shows how to take full control over the data extraction and subsequent plotting.
 
