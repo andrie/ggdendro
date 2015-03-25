@@ -20,7 +20,9 @@ BugReports: https://github.com/andrie/ggdendro/issues
 Date: 2014-09-29
 Imports:
     MASS,
-    ggplot2(>= 0.9.2)
+    ggplot2(>= 0.9.2),
+    reshape,
+    scales
 Suggests:
     rpart(>= 4.0-0),
     tree,

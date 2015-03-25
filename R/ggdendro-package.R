@@ -47,6 +47,8 @@
 #' @docType package
 #' @title Tools for creating dendrograms, regresion tree and classification tree plots using ggplot in [R]
 #' @import MASS ggplot2
+#' @importFrom scales pretty_breaks
+#' @importFrom reshape melt melt.data.frame 
 #' @author Andrie de Vries \email{apdevries@@gmail.com}
 #' @keywords package
 #' @seealso \code{\link{dendro_data}}

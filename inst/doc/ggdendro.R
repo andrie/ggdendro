@@ -6,6 +6,12 @@ library(ggdendro)
 hc <- hclust(dist(USArrests), "ave")
 ggdendrogram(hc, rotate = FALSE, size = 2)
 
+## ----dendrotracks--------------------------------------------------------
+head(USArrests)
+hc2 <- hclust(dist(USArrests[,-3]), "ave")
+ggdendrotracks(hc2, USArrests[,3,drop=FALSE], rotate = FALSE, 
+               size = 2, trackheight=10)
+
 ## ----dendro1-------------------------------------------------------------
 hc <- hclust(dist(USArrests), "ave")
 dhc <- as.dendrogram(hc)
