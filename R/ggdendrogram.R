@@ -31,16 +31,7 @@
 #' @export
 #' @return A \code{\link[ggplot2]{ggplot}} object
 #' @seealso \code{\link{dendro_data}}
-#' @examples
-#' library(ggplot2)
-#' hc <- hclust(dist(USArrests), "ave")
-#' ### demonstrate plotting directly from object class hclust
-#' p <- ggdendrogram(hc, rotate=FALSE)
-#' print(p)
-#' ggdendrogram(hc, rotate=TRUE)
-#' ### demonstrate converting hclust to dendro using dendro_data first
-#' hcdata <- dendro_data(hc)
-#' ggdendrogram(hcdata, rotate=TRUE, size=2) + labs(title="Dendrogram in ggplot2")
+#' @example inst/examples/example_ggdendrogram.R
 ggdendrogram <- function(data, segments=TRUE, labels=TRUE, leaf_labels=TRUE, 
     rotate=FALSE, theme_dendro=TRUE, ...){
   dataClass <- if(inherits(data, "dendro")) data$class else class(data)

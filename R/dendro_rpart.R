@@ -41,19 +41,12 @@
 #' \item{segments}{a data frame containing the line segment data}
 #' \item{labels}{a data frame containing the label text data}
 #' \item{leaf_labels}{a data frame containing the leaf label text data}
+#' 
 #' @seealso \code{\link{ggdendrogram}}
 #' @family dendro_data methods
 #' @family rpart functions
-#' @examples
-#' require(rpart)
-#' require(ggplot2)
-#' fit <- rpart(Kyphosis ~ Age + Number + Start, method="class", data=kyphosis)
-#' fitr <- dendro_data(fit)
-#' ggplot() + 
-#'     geom_segment(data=fitr$segments, aes(x=x, y=y, xend=xend, yend=yend)) + 
-#'     geom_text(data=fitr$labels, aes(x=x, y=y, label=label)) +
-#'     geom_text(data=fitr$leaf_labels, aes(x=x, y=y, label=label)) +
-#'     theme_dendro()
+#' @example inst/examples/example_dendro_rpart.R
+#' 
 dendro_data.rpart <- function(model, uniform = FALSE, branch = 1, compress = FALSE,
                               nspace, margin = 0, minbranch = 0.3, ...){
   x <- model

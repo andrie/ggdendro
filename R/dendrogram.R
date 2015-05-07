@@ -21,51 +21,25 @@
 
 #' Extract line segment and label data from dendrogram or hclust object.
 #' 
-#' Extract line segment and label data from dendrogram or hclust object.  Results are stored in a
-#' list of data frames containing line segment data and label data.
+#' Extract line segment and label data from dendrogram or hclust object.  Results are stored in alist of data frames containing line segment data and label data.
 #' 
 #' @param model object of class "dendrogram", e.g. the output of as.dendrogram()
-#' @param type The type of plot, indicating the shape of the dendrogram.  "rectangle" will draw
-#' rectangular lines, while "triangle" will draw triangular lines.
+#' @param type The type of plot, indicating the shape of the dendrogram.  "rectangle" will draw rectangular lines, while "triangle" will draw triangular lines.
 #' @param ... ignored
 #' @aliases dendro_data.dendrogram dendro_data.hclust
 #' @method dendro_data dendrogram
 #' @method dendro_data hclust
 #' @export dendro_data.dendrogram dendro_data.hclust
 #' @return
-#' A list with the following elements:
+#' A list with components:
 #' \item{segments}{Line segment data}
 #' \item{labels}{Label data}
+#' 
 #' @seealso \code{\link{ggdendrogram}}
 #' @family dendro_data methods
 #' @family dendrogram/hclust functions
-#' @examples
-#' require(ggplot2)
-#' #
-#' # Demonstrate dendro_data.dendrogram
-#' #
-#' hc <- hclust(dist(USArrests), "ave")
-#' dhc <- as.dendrogram(hc)
-#' # Rectangular lines
-#' ddata <- dendro_data(dhc, type="rectangle")
-#' ggplot(segment(ddata)) + geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) + 
-#' 		coord_flip() + scale_y_reverse(expand=c(0.2, 0)) + theme_dendro()
-#' # Triangular lines
-#' ddata <- dendro_data(dhc, type="triangle")
-#' ggplot(segment(ddata)) + geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) + theme_dendro()
-#' #
-#' # Demonstrate dendro_data.hclust
-#' #
-#' require(ggplot2)
-#' hc <- hclust(dist(USArrests), "ave")
-#' # Rectangular lines
-#' hcdata <- dendro_data(hc, type="rectangle")
-#' ggplot(segment(hcdata)) + geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) + 
-#'    coord_flip() + scale_y_reverse(expand=c(0.2, 0)) + theme_dendro()
-#' # Triangular lines
-#' hcdata <- dendro_data(hc, type="triangle")
-#' ggplot(segment(hcdata)) + geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) +
-#'   theme_dendro()
+#' @example inst/examples/example_dendro_data.R
+#' 
 dendro_data.dendrogram <- function (model, type = c("rectangle", "triangle"), ...){
 	hcdata <- dendrogram_data(model, type=type, ...)
 	as.dendro(
