@@ -1,6 +1,6 @@
 #
-#  ggdendro/R/dendro_tree.R by Andrie de Vries  Copyright (C) 2011-2013
-#  Contains code from tree/R/tree.R by B. D. Ripley  Copyright (C) 1994-2012
+#  ggdendro/R/dendro_tree.R by Andrie de Vries  Copyright (C) 2011-2015
+#  Contains code from tree/R/tree.R by B. D. Ripley  Copyright (C) 1994-2015
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by

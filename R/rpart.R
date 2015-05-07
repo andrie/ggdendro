@@ -1,5 +1,5 @@
 #
-#  ggdendro/R/dendro_rpart.R by Andrie de Vries and Brian Ripley Copyright (C) 2011-2013
+#  ggdendro/R/dendro_rpart.R by Andrie de Vries and Brian Ripley Copyright (C) 2011-2015
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by

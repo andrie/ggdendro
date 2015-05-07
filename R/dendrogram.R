@@ -1,6 +1,6 @@
 #
-#  ggdendro/R/dendro_tree.R by Andrie de Vries  Copyright (C) 2011-2013
-#  Contains code adapted from stats/hclust.R Copyright (C) 1995-2012 The R Core Team
+#  ggdendro/R/dendro_tree.R by Andrie de Vries  Copyright (C) 2011-2015
+#  Contains code adapted from stats/hclust.R Copyright (C) 1995-2015 The R Core Team
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
