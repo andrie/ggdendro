@@ -26,7 +26,7 @@ ggdendrogram(data, segments = TRUE, labels = TRUE, leaf_labels = TRUE,
 A \code{\link[ggplot2]{ggplot}} object
 }
 \description{
-Creates dendrogram plot using ggplot.
+This is a convenience function
 }
 \examples{
 library(ggplot2)

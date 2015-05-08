@@ -8,7 +8,6 @@ data(cpus, package="MASS")
 require(tree)
 cpus.ltr <- tree(log10(perf) ~ syct + mmin + mmax + cach + chmin + chmax, data = cpus)
 
-# kmeans
 data(iris)
 iris <- iris[, -5]
 

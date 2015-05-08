@@ -8,7 +8,7 @@
 dendro_data(model, ...)
 }
 \arguments{
-\item{model}{object of type hclust, dendrogram, tree or kmeans}
+\item{model}{object of type \code{\link[stats]{hclust}}, \code{\link[stats]{dendrogram}} or \code{\link[stats]{tree}}}
 
 \item{...}{ignored}
 }
@@ -16,14 +16,10 @@ dendro_data(model, ...)
 a list of data frames that contain the data appropriate to each cluster model
 }
 \description{
-This function provides a generic mechanism to extract relevant plotting data,
-typically line segments and labels, from a variety of cluster models.
+This function provides a generic mechanism to extract relevant plotting data, typically line segments and labels, from a variety of cluster models.
 }
 \details{
-In the case of dendrograms and tree models, the function will extract line
-segment data and labels.
-
-In the case of kmeans or Mclust models, the function extracts the cluster allocation.
+For \code{\link[stats]{dendrogram}} and \code{\link[stats]{tree}} models, extracts line segment data and labels.
 }
 \seealso{
 There are several implementations for specific cluster algorithms:
@@ -36,9 +32,9 @@ There are several implementations for specific cluster algorithms:
 }
 To extract the data for line segments, labels or leaf labels use:
 \itemize{
-\item{\code{\link{segment}}}{the line segment data}
-\item{\code{\link{label}}}{the text for each end segment}
-\item{\code{\link{leaf_label}}}{the leaf labels of a tree diagram}
+\item{\code{\link{segment}}}: {the line segment data}
+\item{\code{\link{label}}}: {the text for each end segment}
+\item{\code{\link{leaf_label}}}: {the leaf labels of a tree diagram}
 }
 }
 

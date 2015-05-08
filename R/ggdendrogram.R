@@ -19,7 +19,7 @@
 
 #' Creates dendrogram plot using ggplot.
 #' 
-#' Creates dendrogram plot using ggplot.
+#' This is a convenience function
 #' 
 #' @param data Either a dendro object or an object that can be coerced to class dendro using the \code{\link{dendro_data}} function, i.e. objects of class dendrogram, hclust or tree
 #' @param segments If TRUE, show line segments

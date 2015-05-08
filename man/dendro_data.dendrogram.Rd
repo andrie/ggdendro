@@ -21,7 +21,7 @@ A list with components:
 \item{labels}{Label data}
 }
 \description{
-Extract line segment and label data from dendrogram or hclust object.  Results are stored in alist of data frames containing line segment data and label data.
+Extract line segment and label data from \code{\link[stats]{dendrogram}} or \code{\link[stats]{hclust}} object.  The resulting object is a list of data frames containing line segment data and label data.
 }
 \examples{
 require(ggplot2)

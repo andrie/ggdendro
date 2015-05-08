@@ -21,15 +21,14 @@
 
 #' Extract line segment and label data from dendrogram or hclust object.
 #' 
-#' Extract line segment and label data from dendrogram or hclust object.  Results are stored in alist of data frames containing line segment data and label data.
+#' Extract line segment and label data from \code{\link[stats]{dendrogram}} or \code{\link[stats]{hclust}} object.  The resulting object is a list of data frames containing line segment data and label data.
 #' 
 #' @param model object of class "dendrogram", e.g. the output of as.dendrogram()
 #' @param type The type of plot, indicating the shape of the dendrogram.  "rectangle" will draw rectangular lines, while "triangle" will draw triangular lines.
 #' @param ... ignored
 #' @aliases dendro_data.dendrogram dendro_data.hclust
 #' @method dendro_data dendrogram
-#' @method dendro_data hclust
-#' @export dendro_data.dendrogram dendro_data.hclust
+#' @export
 #' @return
 #' A list with components:
 #' \item{segments}{Line segment data}
@@ -49,6 +48,8 @@ dendro_data.dendrogram <- function (model, type = c("rectangle", "triangle"), ..
   	)
 } 
 
+#' @method dendro_data hclust
+#' @export
 dendro_data.hclust <- function (model, type = c("rectangle", "triangle"), ...){
   dhc <- as.dendrogram(model)
   hcdata <- dendrogram_data(dhc, type=type, ...)
