@@ -3,9 +3,10 @@ Authors@R: c(person("Andrie", "de Vries", role=c("aut", "cre"),
     email="apdevries@gmail.com"), person(c("Brian", "D."), "Ripley", role =
     c("aut"), comment = "author of package tree"))
 License: GPL-2|GPL-3
-Title: Extracts the Plot Data from Dendrograms and Tree Diagrams, to Create 'ggplot2' Plots
+Title: Create Dendrograms and Tree Diagrams using 'ggplot2'
 LazyData: true
 LazyLoad: true
+ByteCompile: true
 Description: This is a set of tools for dendrograms and
     tree plots using 'ggplot2'.  The 'ggplot2' philosophy is to
     clearly separate data from the presentation.

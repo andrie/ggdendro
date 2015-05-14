@@ -8,7 +8,7 @@
 dendro_data(model, ...)
 }
 \arguments{
-\item{model}{object of type \code{\link[stats]{hclust}}, \code{\link[stats]{dendrogram}} or \code{\link[stats]{tree}}}
+\item{model}{object of type \code{\link[stats]{hclust}}, \code{\link[stats]{dendrogram}} or \code{\link[tree]{tree}}}
 
 \item{...}{ignored}
 }
@@ -19,7 +19,7 @@ a list of data frames that contain the data appropriate to each cluster model
 This function provides a generic mechanism to extract relevant plotting data, typically line segments and labels, from a variety of cluster models.
 }
 \details{
-For \code{\link[stats]{dendrogram}} and \code{\link[stats]{tree}} models, extracts line segment data and labels.
+For \code{\link[stats]{dendrogram}} and \code{\link[tree]{tree}} models, extracts line segment data and labels.
 }
 \seealso{
 There are several implementations for specific cluster algorithms:

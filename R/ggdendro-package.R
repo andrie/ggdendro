@@ -22,7 +22,7 @@
 
 
 
-#' Extracts the Plot Data from Dendrograms and Tree Diagrams, to Create 'ggplot2' Plots.
+#' Create Dendrograms and Tree Diagrams using 'ggplot2'
 #'
 #' This package enables you to create dendrograms and tree plots using \code{\link[ggplot2]{ggplot2}}.
 #' 

@@ -21,10 +21,10 @@
 #' 
 #' This function provides a generic mechanism to extract relevant plotting data, typically line segments and labels, from a variety of cluster models. 
 #' 
-#' For \code{\link[stats]{dendrogram}} and \code{\link[stats]{tree}} models, extracts line segment data and labels.
+#' For \code{\link[stats]{dendrogram}} and \code{\link[tree]{tree}} models, extracts line segment data and labels.
 #' 
 #' 
-#' @param model object of type \code{\link[stats]{hclust}}, \code{\link[stats]{dendrogram}} or \code{\link[stats]{tree}}
+#' @param model object of type \code{\link[stats]{hclust}}, \code{\link[stats]{dendrogram}} or \code{\link[tree]{tree}}
 #' @param ... ignored
 #' @export dendro_data dendro_data.default
 #' @aliases dendro_data.default
