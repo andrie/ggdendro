@@ -4,7 +4,7 @@
 \name{ggdendro-package}
 \alias{ggdendro}
 \alias{ggdendro-package}
-\title{Extracts the Plot Data from Dendrograms and Tree Diagrams, to Create 'ggplot2' Plots.}
+\title{Create Dendrograms and Tree Diagrams using 'ggplot2'}
 \description{
 This package enables you to create dendrograms and tree plots using \code{\link[ggplot2]{ggplot2}}.
 }
