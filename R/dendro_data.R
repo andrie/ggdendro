@@ -27,7 +27,7 @@
 #' @param model object of type \code{\link[stats]{hclust}}, \code{\link[stats]{dendrogram}} or \code{\link[tree]{tree}}
 #' @param ... ignored
 #' @export dendro_data dendro_data.default
-#' @aliases dendro_data.default
+# @aliases dendro_data.default
 #' @return a list of data frames that contain the data appropriate to each cluster model
 #' @seealso 
 #' There are several implementations for specific cluster algorithms:
@@ -48,6 +48,8 @@ dendro_data <- function(model, ...){
 	UseMethod("dendro_data", model)
 }
 
+#' @rdname dendro_data
+#' @export
 dendro_data.default <- function(model, ...){
   x <- class(model)
   stop(paste("No dendro_data method defined for class", x))
@@ -59,7 +61,7 @@ dendro_data.default <- function(model, ...){
 #' Is a dendro?  Tests whether an object is of class dendro.
 #' 
 #' @param x Object to check
-#' @method is dendro
+#' @export
 #' @seealso \code{\link{dendro_data}} and \code{\link{ggdendro-package}}
 is.dendro <- function(x){
   inherits(x, "dendro")

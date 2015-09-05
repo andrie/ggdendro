@@ -95,7 +95,7 @@ The `tree()` function in package `tree` creates tree diagrams.  To extract the p
 require(tree)
 data(cpus, package = "MASS")
 model <- tree(log10(perf) ~ syct + mmin + mmax + cach + chmin + chmax, 
-                 data = cpus)
+              data = cpus)
 tree_data <- dendro_data(model)
 ggplot(segment(tree_data)) +
   geom_segment(aes(x = x, y = y, xend = xend, yend = yend, size = n), 
@@ -118,7 +118,7 @@ The `rpart()` function in package `rpart()` creates classification diagrams.  To
 ```{r rpart}
 library(rpart)
 model <- rpart(Kyphosis ~ Age + Number + Start, 
-             method = "class", data = kyphosis)
+               method = "class", data = kyphosis)
 ddata <- dendro_data(model)
 ggplot() + 
   geom_segment(data = ddata$segments, 
@@ -131,6 +131,21 @@ ggplot() +
 ```
 
 
+## Twins diagrams: agnes and diana
+
+The `clusters` package allows you to draw agnes and diana diagrams.
+
+```{r agnes}
+library(cluster)
+model <- agnes(votes.repub, metric = "manhattan", stand = TRUE)
+dg <- as.dendrogram(model)
+ggdendrogram(dg)
+
+model <- diana(votes.repub, metric = "manhattan", stand = TRUE)
+dg <- as.dendrogram(model)
+ggdendrogram(dg)
+
+```
 
 
 ## Conclusion

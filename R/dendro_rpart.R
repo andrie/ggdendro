@@ -34,7 +34,6 @@
 #' @param margin an extra fraction of white space to leave around the borders of the tree. (Long labels sometimes get cut off by the default computation).
 #' @param minbranch	set the minimum length for a branch to minbranch times the average branch length. This parameter is ignored if uniform=TRUE. Sometimes a split will give very little improvement, or even (in the classification case) no improvement at all. A tree with branch lengths strictly proportional to improvement leaves no room to squeeze in node labels.
 #' @param ... ignored
-#' @method dendro_data rpart
 #' @export
 #' @return
 #' A list of three data frames:

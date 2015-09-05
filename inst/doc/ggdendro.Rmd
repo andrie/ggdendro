@@ -1,17 +1,19 @@
 % \VignetteEngine{knitr::knitr}
-% \VignetteIndexEntry{Plotting dendrograms and tree diagrams with ggplot}
+% \VignetteIndexEntry{Create Dendrograms and Tree Diagrams using 'ggplot2'}
 % \VignettePackage{ggdendro}
 
 
-# Using the ggdendro package for plotting dendrograms
+# Using the `ggdendro` package to plot dendrograms
 
-`ggdendro` is a package that makes it easy to extract dendrogram and tree diagrams into a data frame.  
+The `ggdendro` package makes it easy to extract dendrogram and tree diagrams into a list of data frames.  You can then use this list to create these types of plots using the `ggplot2` package
 
 ## Introduction
 
-The `ggdendro` package provides a general framework to extract the plot data for a dendrograms and tree diagrams.
+The `ggdendro` package provides a general framework to extract the plot data for dendrograms and tree diagrams.
 
-It does this by providing generic function `dendrodata()` that will extract the appropriate segment data as well as labels.  This data is returned as a list of data.frames.  These data frames can be extracted using three accessor functions:
+It does this by providing generic function `dendro_data()` that extracts the appropriate segment and label data, returning the data as a list of data frames.  
+
+You can access these data frames using three accessor functions:
 
 - `segment()`
 - `label()`
@@ -20,7 +22,7 @@ It does this by providing generic function `dendrodata()` that will extract the 
 The package also provides two convenient wrapper functions:
 
 
-- `ggdendrogram` is a wrapper around `ggplot` to create a dendrogram using a single line of code.  The resulting object is of class `ggplot`, so can be manipulated using the `ggplot` tools.
+- `ggdendrogram()` is a wrapper around `ggplot()` to create a dendrogram using a single line of code.  The resulting object is of class `ggplot`, so can be manipulated using the `ggplot2` tools.
 - `theme_dendro()` is a `ggplot2` theme with a blank canvas, i.e. no axes, axis labels or tick marks.
 
 The `ggplot2` package doesn't get loaded automatically, so remember to load it first: 
@@ -30,11 +32,11 @@ library(ggplot2)
 library(ggdendro)
 ```
 
-## Using the ggdendrogram() wrapper
+## Using the `ggdendrogram()` wrapper
 
 The `ggdendro` package extracts the plot data from dendrogram objects.  Sometimes it is useful to have fine-grained control over the plot.  Other times it might be more convenient to have a simple wrapper around `ggplot` to produce a dendrogram with a small amount of code.
 
-The function `ggdendrogram} provides such a wrapper to produce a plot with a single line of code.  It provides a few options for controlling the display of line segments, labels and plot rotation (rotated by 90 degrees or not).  
+The function `ggdendrogram` provides such a wrapper to produce a plot with a single line of code.  It provides a few options for controlling the display of line segments, labels and plot rotation (rotated by 90 degrees or not).  
 
 ```{r dendrogram}
 hc <- hclust(dist(USArrests), "ave")
@@ -44,13 +46,13 @@ ggdendrogram(hc, rotate = FALSE, size = 2)
 
 The next section shows how to take full control over the data extraction and subsequent plotting.
 
-## Extracting the dendrogram plot data using dendrodata()
+## Extracting the dendrogram plot data using `dendro_data()`
 
 The `hclust()` and `dendrogram()` functions in R makes it easy to plot the results of hierarchical cluster analysis and other dendrograms in R.  However, it is hard to extract the data from this analysis to customise these plots, since the `plot()` functions for both these classes prints directly without the option of returning the plot data.  
 
 ```{r dendro1}
-hc <- hclust(dist(USArrests), "ave")
-dhc <- as.dendrogram(hc)
+model <- hclust(dist(USArrests), "ave")
+dhc <- as.dendrogram(model)
 # Rectangular lines
 ddata <- dendro_data(dhc, type = "rectangle")
 p <- ggplot(segment(ddata)) + 
@@ -72,7 +74,7 @@ p +
 ```
 
 
-Dendrograms can also be drawn using triangular lines instead of rectangular lines.  For example:
+You can also draw dendrograms with triangular line segments (instead of rectangular segments).  For example:
 
 ```{r dendro-3}
 ddata <- dendro_data(dhc, type = "triangle")
@@ -87,13 +89,14 @@ ggplot(segment(ddata)) +
 
 ## Regression tree diagrams
 
-The `tree()` function in package `tree` creates tree diagrams.  To extract the plot data for these diagrams using `ggdendro` follows the same basic pattern as dendrograms: 
+The `tree()` function in package `tree` creates tree diagrams.  To extract the plot data for these diagrams using `ggdendro`, you use the the same idiom as for plotting dendrograms: 
 
 ```{r tree}
 require(tree)
 data(cpus, package = "MASS")
-cpus.ltr <- tree(log10(perf) ~ syct + mmin + mmax + cach + chmin + chmax, data = cpus)
-tree_data <- dendro_data(cpus.ltr)
+model <- tree(log10(perf) ~ syct + mmin + mmax + cach + chmin + chmax, 
+              data = cpus)
+tree_data <- dendro_data(model)
 ggplot(segment(tree_data)) +
   geom_segment(aes(x = x, y = y, xend = xend, yend = yend, size = n), 
                colour = "blue", alpha = 0.5) +
@@ -114,20 +117,35 @@ The `rpart()` function in package `rpart()` creates classification diagrams.  To
 
 ```{r rpart}
 library(rpart)
-fit <- rpart(Kyphosis ~ Age + Number + Start, 
-             method = "class", data = kyphosis)
-fitr <- dendro_data(fit)
+model <- rpart(Kyphosis ~ Age + Number + Start, 
+               method = "class", data = kyphosis)
+ddata <- dendro_data(model)
 ggplot() + 
-  geom_segment(data = fitr$segments, 
+  geom_segment(data = ddata$segments, 
                aes(x = x, y = y, xend = xend, yend = yend)) + 
-  geom_text(data = fitr$labels, 
+  geom_text(data = ddata$labels, 
             aes(x = x, y = y, label = label), size = 3, vjust = 0) +
-  geom_text(data = fitr$leaf_labels, 
+  geom_text(data = ddata$leaf_labels, 
             aes(x = x, y = y, label = label), size = 3, vjust = 1) +
   theme_dendro()
 ```
 
 
+## Twins diagrams: agnes and diana
+
+The `clusters` package allows you to draw agnes and diana diagrams.
+
+```{r agnes}
+library(cluster)
+model <- agnes(votes.repub, metric = "manhattan", stand = TRUE)
+dg <- as.dendrogram(model)
+ggdendrogram(dg)
+
+model <- diana(votes.repub, metric = "manhattan", stand = TRUE)
+dg <- as.dendrogram(model)
+ggdendrogram(dg)
+
+```
 
 
 ## Conclusion

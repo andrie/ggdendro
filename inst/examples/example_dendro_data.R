@@ -1,12 +1,12 @@
 require(ggplot2)
 
-# Demonstrate dendro_data.dendrogram
+### Demonstrate dendro_data.dendrogram
 
-hc <- hclust(dist(USArrests), "ave")
-dhc <- as.dendrogram(hc)
+model <- hclust(dist(USArrests), "ave")
+dendro <- as.dendrogram(model)
 
 # Rectangular lines
-ddata <- dendro_data(dhc, type="rectangle")
+ddata <- dendro_data(dendro, type="rectangle")
 ggplot(segment(ddata)) + 
   geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) + 
   coord_flip() + 
@@ -14,7 +14,7 @@ ggplot(segment(ddata)) +
   theme_dendro()
 
 # Triangular lines
-ddata <- dendro_data(dhc, type="triangle")
+ddata <- dendro_data(dendro, type="triangle")
 ggplot(segment(ddata)) + 
   geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) + 
   theme_dendro()
@@ -37,3 +37,5 @@ hcdata <- dendro_data(hc, type="triangle")
 ggplot(segment(hcdata)) + 
   geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) +
   theme_dendro()
+
+
