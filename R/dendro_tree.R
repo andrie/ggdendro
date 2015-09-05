@@ -27,7 +27,6 @@ tree_env <- new.env()
 #' @param model object of class "tree", e.g. the output of tree()
 #' @param type Either \code{proportional} or \code{uniform}. If this partially matches "uniform", the branches are of uniform length. Otherwise they are proportional to the decrease in impurity.
 #' @param ... ignored
-#' @method dendro_data tree
 #' @export
 #' @return
 #' A list of three data frames:

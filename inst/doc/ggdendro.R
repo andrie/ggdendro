@@ -7,8 +7,8 @@ hc <- hclust(dist(USArrests), "ave")
 ggdendrogram(hc, rotate = FALSE, size = 2)
 
 ## ----dendro1-------------------------------------------------------------
-hc <- hclust(dist(USArrests), "ave")
-dhc <- as.dendrogram(hc)
+model <- hclust(dist(USArrests), "ave")
+dhc <- as.dendrogram(model)
 # Rectangular lines
 ddata <- dendro_data(dhc, type = "rectangle")
 p <- ggplot(segment(ddata)) + 
@@ -33,8 +33,9 @@ ggplot(segment(ddata)) +
 ## ----tree----------------------------------------------------------------
 require(tree)
 data(cpus, package = "MASS")
-cpus.ltr <- tree(log10(perf) ~ syct + mmin + mmax + cach + chmin + chmax, data = cpus)
-tree_data <- dendro_data(cpus.ltr)
+model <- tree(log10(perf) ~ syct + mmin + mmax + cach + chmin + chmax, 
+              data = cpus)
+tree_data <- dendro_data(model)
 ggplot(segment(tree_data)) +
   geom_segment(aes(x = x, y = y, xend = xend, yend = yend, size = n), 
                colour = "blue", alpha = 0.5) +
@@ -48,15 +49,26 @@ ggplot(segment(tree_data)) +
 
 ## ----rpart---------------------------------------------------------------
 library(rpart)
-fit <- rpart(Kyphosis ~ Age + Number + Start, 
-             method = "class", data = kyphosis)
-fitr <- dendro_data(fit)
+model <- rpart(Kyphosis ~ Age + Number + Start, 
+               method = "class", data = kyphosis)
+ddata <- dendro_data(model)
 ggplot() + 
-  geom_segment(data = fitr$segments, 
+  geom_segment(data = ddata$segments, 
                aes(x = x, y = y, xend = xend, yend = yend)) + 
-  geom_text(data = fitr$labels, 
+  geom_text(data = ddata$labels, 
             aes(x = x, y = y, label = label), size = 3, vjust = 0) +
-  geom_text(data = fitr$leaf_labels, 
+  geom_text(data = ddata$leaf_labels, 
             aes(x = x, y = y, label = label), size = 3, vjust = 1) +
   theme_dendro()
+
+## ----agnes---------------------------------------------------------------
+library(cluster)
+model <- agnes(votes.repub, metric = "manhattan", stand = TRUE)
+dg <- as.dendrogram(model)
+ggdendrogram(dg)
+
+model <- diana(votes.repub, metric = "manhattan", stand = TRUE)
+dg <- as.dendrogram(model)
+ggdendrogram(dg)
+
 

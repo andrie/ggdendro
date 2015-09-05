@@ -35,6 +35,7 @@
 #' \item dendrogram: \code{\link{dendro_data.dendrogram}} 
 #' \item regression trees: \code{\link{dendro_data.tree}} 
 #' \item partition trees: \code{\link{dendro_data.rpart}} 
+#' \item agnes and diana: \code{\link{dendro_data.twins}} 
 #' }
 #' 
 #' These methods create an object of class \code{dendro}, consisting of a list of data frames.  To extract the relevant data frames from the list, you can use the accessor functions:

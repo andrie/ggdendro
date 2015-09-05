@@ -1,3 +1,13 @@
+ggdendro 0.1-16 (Release date: 5/9/2016)
+==============
+
+New functionality:
+
+- Added support for objects of class twins in packages cluster, specifically agnes and diana objects (pull request #14 by @unikum)
+
+Fixes:
+- Many small changes and improvements to documentation
+
 ggdendro 0.1-15 (Release date: 29/09/2014)
 ==============
 

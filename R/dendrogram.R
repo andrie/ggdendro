@@ -23,11 +23,9 @@
 #' 
 #' Extract line segment and label data from \code{\link[stats]{dendrogram}} or \code{\link[stats]{hclust}} object.  The resulting object is a list of data frames containing line segment data and label data.
 #' 
-#' @param model object of class "dendrogram", e.g. the output of as.dendrogram()
+# @param model object of class "dendrogram", e.g. the output of as.dendrogram()
 #' @param type The type of plot, indicating the shape of the dendrogram.  "rectangle" will draw rectangular lines, while "triangle" will draw triangular lines.
-#' @param ... ignored
-#' @aliases dendro_data.dendrogram dendro_data.hclust
-#' @method dendro_data dendrogram
+# @param ... ignored
 #' @export
 #' @return
 #' A list with components:
@@ -35,6 +33,7 @@
 #' \item{labels}{Label data}
 #' 
 #' @seealso \code{\link{ggdendrogram}}
+#' @rdname dendro_data
 #' @family dendro_data methods
 #' @family dendrogram/hclust functions
 #' @example inst/examples/example_dendro_data.R
@@ -48,7 +47,7 @@ dendro_data.dendrogram <- function (model, type = c("rectangle", "triangle"), ..
   	)
 } 
 
-#' @method dendro_data hclust
+#' @rdname dendro_data
 #' @export
 dendro_data.hclust <- function (model, type = c("rectangle", "triangle"), ...){
   dhc <- as.dendrogram(model)
@@ -60,6 +59,9 @@ dendro_data.hclust <- function (model, type = c("rectangle", "triangle"), ...){
   )
 } 
 
+#' @rdname dendro_data
+#' @example inst/examples/example_dendro_twins.R
+#' @export
 dendro_data.twins <- function (model, type = c("rectangle", "triangle"), ...){
   dhc <- as.dendrogram(model)
   hcdata <- dendrogram_data(dhc, type=type, ...)
