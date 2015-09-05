@@ -34,9 +34,9 @@ library(ggdendro)
 
 ## Using the `ggdendrogram()` wrapper
 
-The `ggdendro` package extracts the plot data from dendrogram objects.  Sometimes it is useful to have fine-grained control over the plot.  Other times it might be more convenient to have a simple wrapper around `ggplot` to produce a dendrogram with a small amount of code.
+The `ggdendro` package extracts the plot data from dendrogram objects.  Sometimes it is useful to have fine-grained control over the plot.  Other times it might be more convenient to have a simple wrapper around `ggplot()` to produce a dendrogram with a small amount of code.
 
-The function `ggdendrogram` provides such a wrapper to produce a plot with a single line of code.  It provides a few options for controlling the display of line segments, labels and plot rotation (rotated by 90 degrees or not).  
+The function `ggdendrogram()` provides such a wrapper to produce a plot with a single line of code.  It provides a few options for controlling the display of line segments, labels and plot rotation (rotated by 90 degrees or not).  
 
 ```{r dendrogram}
 hc <- hclust(dist(USArrests), "ave")
@@ -113,7 +113,7 @@ ggplot(segment(tree_data)) +
 
 ## Classification tree diagrams
 
-The `rpart()` function in package `rpart()` creates classification diagrams.  To extract the plot data for these diagrams using `ggdendro` follows the same basic pattern as dendrograms: 
+The `rpart()` function in package `rpart` creates classification diagrams.  To extract the plot data for these diagrams using `ggdendro` follows the same basic pattern as dendrograms: 
 
 ```{r rpart}
 library(rpart)
