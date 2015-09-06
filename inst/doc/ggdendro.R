@@ -31,44 +31,46 @@ ggplot(segment(ddata)) +
   theme_dendro()
 
 ## ----tree----------------------------------------------------------------
-require(tree)
-data(cpus, package = "MASS")
-model <- tree(log10(perf) ~ syct + mmin + mmax + cach + chmin + chmax, 
-              data = cpus)
-tree_data <- dendro_data(model)
-ggplot(segment(tree_data)) +
-  geom_segment(aes(x = x, y = y, xend = xend, yend = yend, size = n), 
-               colour = "blue", alpha = 0.5) +
-  scale_size("n") +
-  geom_text(data = label(tree_data), 
-            aes(x = x, y = y, label = label), vjust = -0.5, size = 3) +
-  geom_text(data = leaf_label(tree_data), 
-            aes(x = x, y = y, label = label), vjust = 0.5, size = 2) +
-  theme_dendro()
-
+if(require(tree)){
+  data(cpus, package = "MASS")
+  model <- tree(log10(perf) ~ syct + mmin + mmax + cach + chmin + chmax, 
+                data = cpus)
+  tree_data <- dendro_data(model)
+  ggplot(segment(tree_data)) +
+    geom_segment(aes(x = x, y = y, xend = xend, yend = yend, size = n), 
+                 colour = "blue", alpha = 0.5) +
+    scale_size("n") +
+    geom_text(data = label(tree_data), 
+              aes(x = x, y = y, label = label), vjust = -0.5, size = 3) +
+    geom_text(data = leaf_label(tree_data), 
+              aes(x = x, y = y, label = label), vjust = 0.5, size = 2) +
+    theme_dendro()
+}
 
 ## ----rpart---------------------------------------------------------------
-library(rpart)
-model <- rpart(Kyphosis ~ Age + Number + Start, 
-               method = "class", data = kyphosis)
-ddata <- dendro_data(model)
-ggplot() + 
-  geom_segment(data = ddata$segments, 
-               aes(x = x, y = y, xend = xend, yend = yend)) + 
-  geom_text(data = ddata$labels, 
-            aes(x = x, y = y, label = label), size = 3, vjust = 0) +
-  geom_text(data = ddata$leaf_labels, 
-            aes(x = x, y = y, label = label), size = 3, vjust = 1) +
-  theme_dendro()
+if(require(rpart)){
+  model <- rpart(Kyphosis ~ Age + Number + Start, 
+                 method = "class", data = kyphosis)
+  ddata <- dendro_data(model)
+  ggplot() + 
+    geom_segment(data = ddata$segments, 
+                 aes(x = x, y = y, xend = xend, yend = yend)) + 
+    geom_text(data = ddata$labels, 
+              aes(x = x, y = y, label = label), size = 3, vjust = 0) +
+    geom_text(data = ddata$leaf_labels, 
+              aes(x = x, y = y, label = label), size = 3, vjust = 1) +
+    theme_dendro()
+}
 
-## ----agnes---------------------------------------------------------------
-library(cluster)
-model <- agnes(votes.repub, metric = "manhattan", stand = TRUE)
-dg <- as.dendrogram(model)
-ggdendrogram(dg)
-
-model <- diana(votes.repub, metric = "manhattan", stand = TRUE)
-dg <- as.dendrogram(model)
-ggdendrogram(dg)
+## ----twins---------------------------------------------------------------
+if(require(cluster)){
+  model <- agnes(votes.repub, metric = "manhattan", stand = TRUE)
+  dg <- as.dendrogram(model)
+  ggdendrogram(dg)
+  
+  model <- diana(votes.repub, metric = "manhattan", stand = TRUE)
+  dg <- as.dendrogram(model)
+  ggdendrogram(dg)
+}
 
 

@@ -54,7 +54,7 @@ dendro_data.rpart <- function(model, uniform = FALSE, branch = 1, compress = FAL
   
   if (compress & missing(nspace)) nspace <- branch
   if (!compress) nspace <- -1L     # means no compression
-  ## if (dev.cur() == 1L) dev.new() # not needed in R
+  if(!interactive()) if (dev.cur() == 1L) dev.new() # not needed in R
   
   parms <- list(uniform = uniform, branch = branch, nspace = nspace,
                 minbranch = minbranch)
@@ -67,7 +67,7 @@ dendro_data.rpart <- function(model, uniform = FALSE, branch = 1, compress = FAL
   temp2 <- range(yy) + diff(range(yy)) * c(-margin, margin)
 #   plot(temp1, temp2, type = "n", axes = FALSE, xlab = "", ylab = "", ...)
   ## Save information per device, once a new device is opened.
-   assign(paste0("device", dev.cur()), parms, envir = rpart_env)
+   assign(paste0("device", dev.cur()), parms, envir = rpart_ggdendro_env)
   
   # Draw a series of horseshoes or V's, left son, up, down to right son
   #   NA's in the vector cause lines() to "lift the pen"
