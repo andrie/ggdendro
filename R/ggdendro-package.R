@@ -52,6 +52,10 @@
 #' @aliases ggdendro
 #' @docType package
 #' @import MASS ggplot2
+#' @importFrom grDevices col2rgb dev.cur dev.new
+#' @importFrom graphics par points polygon text
+#' @importFrom stats as.dendrogram complete.cases is.leaf
+#' @importFrom utils head stack tail
 #' @author Andrie de Vries - \email{apdevries@@gmail.com}
 #' @keywords package
 #' @seealso \code{\link{dendro_data}}
