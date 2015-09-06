@@ -16,10 +16,10 @@ Description: This is a set of tools for dendrograms and
     functions that extract the dendrogram plot data. The package 
     provides implementations for tree, rpart, as well as diana and agnes
     cluster diagrams.
-Version: 0.1-16
+Version: 0.1-17
 URL: https://github.com/andrie/ggdendro
 BugReports: https://github.com/andrie/ggdendro/issues
-Date: 2015-09-05
+Date: 2015-09-06
 Imports:
     MASS,
     ggplot2(>= 0.9.2)

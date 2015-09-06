@@ -1,3 +1,12 @@
+ggdendro 0.1-17 (Release date: 6/9/2016)
+==============
+
+Fixes:
+
+- Use if(require(...)) for tests, examples and vignettes that use Suggested packages
+- Update NAMESPACE to import functions from base R (required by R-devel)
+
+
 ggdendro 0.1-16 (Release date: 5/9/2016)
 ==============
 
