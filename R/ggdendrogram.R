@@ -33,37 +33,29 @@
 #' @seealso \code{\link{dendro_data}}
 #' @example inst/examples/example_ggdendrogram.R
 ggdendrogram <- function(data, segments=TRUE, labels=TRUE, leaf_labels=TRUE, 
-    rotate=FALSE, theme_dendro=TRUE, ...){
+                         rotate=FALSE, theme_dendro=TRUE, ...){
   dataClass <- if(inherits(data, "dendro")) data$class else class(data)
   angle <- if(dataClass %in% c("dendrogram", "hclust")){
-        ifelse(rotate, 0, 90)
-      } else {
-        ifelse(rotate, 90, 0)
-      }
+    ifelse(rotate, 0, 90)
+  } else {
+    ifelse(rotate, 90, 0)
+  }
   hjust <- if(dataClass %in% c("dendrogram", "hclust")){
-        ifelse(rotate, 0, 1)
-      } else {
-        0.5
-      }
+    ifelse(rotate, 0, 1)
+  } else {
+    0.5
+  }
   if(!is.dendro(data)) data <- dendro_data(data)
-  p <- ggplot()
+  p <- ggplot() + geom_blank()
   if(all(segments, !is.null(data$segments))){
     p <- p + geom_segment(data=segment(data), 
-        aes_string(x="x", y="y", xend="xend", yend="yend"))
+                          aes_string(x="x", y="y", xend="xend", yend="yend"))
   }
-#   if(all(labels, !is.null(data$labels))){
-#     p <- p + geom_text(data=label(data), 
-#         aes_string(x="x", y="y", label="label"), hjust=hjust, angle=angle, ...)
-#   }
   if(all(leaf_labels, !is.null(data$leaf_labels))){
     p <- p + geom_text(data=leaf_label(data), 
-        aes_string(x="x", y="y", label="label"), hjust=hjust, angle=angle, ...)
+                       aes_string(x="x", y="y", label="label"), hjust=hjust, angle=angle, ...)
   }
-  if(rotate){
-    p <- p + scale_x_discrete(labels=data$labels$label)
-  } else {
-    p <- p + scale_x_discrete(labels=data$labels$label)
-  }
+  p <- p + scale_x_discrete(labels=data$labels$label)
   if(rotate){
     p <- p + coord_flip()
     p <- p + scale_y_continuous()
@@ -71,9 +63,10 @@ ggdendrogram <- function(data, segments=TRUE, labels=TRUE, leaf_labels=TRUE,
     p <- p + scale_y_continuous()
   }
   if(theme_dendro) p <- p + theme_dendro()
-  p <- p + theme(axis.text.x = element_text(angle=angle, hjust=1))
-  p <- p + theme(axis.text.y = element_text(angle=angle, hjust=1))
-
+  p <- p + 
+    theme(axis.text.x = element_text(angle=angle, hjust=1)) +
+    theme(axis.text.y = element_text(angle=angle, hjust=1))
+  
   p
 }
 
@@ -85,15 +78,15 @@ ggdendrogram <- function(data, segments=TRUE, labels=TRUE, leaf_labels=TRUE,
 theme_dendro <- function(){
   element_blank <- ggplot2::element_blank
   ggplot2::theme(
-      panel.grid.major = element_blank(),
-      panel.grid.minor = element_blank(),
-      panel.background = element_blank(),
-      axis.title.x = element_text(colour=NA),
-      axis.title.y = element_blank(),
-      axis.text.x = element_blank(),
-      axis.text.y = element_blank(),
-      axis.line = element_blank(),
-      axis.ticks = element_blank()
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_blank(),
+    axis.title.x = element_text(colour=NA),
+    axis.title.y = element_blank(),
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.line = element_blank(),
+    axis.ticks = element_blank()
   )
 }
 
