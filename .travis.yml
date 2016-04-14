@@ -1,19 +1,25 @@
 # Integration with travis-ci
-#
 
-language: c
+language: r
+sudo: required
 
-before_install:
-  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
-  - chmod 755 ./travis-tool.sh
-  - ./travis-tool.sh bootstrap
-install:
-  - ./travis-tool.sh install_deps
-script: ./travis-tool.sh run_tests
+env: NOT_CRAN="true"
 
-after_failure:
-  - ./travis-tool.sh dump_logs
+r_binary_packages:
+  - testthat
+  - knitr
+  - ggplot2
+  - scales
+  - rpart
+  - tree
+  - cluster
 
+branches:
+  only:
+    - master
+    - release
+    - dev
+    
 notifications:
   email:
     on_success: change
