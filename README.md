@@ -4,7 +4,14 @@ This is a set of tools for creating dendrograms and tree plots using `ggplot` in
 
 **Build status**
 
-Master: [<img src="https://travis-ci.org/andrie/ggdendro.svg?branch=master" alt="Build Status" />](https://travis-ci.org/andrie/ggdendro)
+master: [<img src="https://travis-ci.org/andrie/ggdendro.svg?branch=master" alt="Build Status" />](https://travis-ci.org/andrie/ggdendro)
+dev: [<img src="https://travis-ci.org/andrie/ggdendro.svg?branch=dev" alt="Build Status" />](https://travis-ci.org/andrie/ggdendro)
+
+
+**Version on CRAN**
+
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggdendro)](http://cran.r-project.org/package=ggdendro)
+
 
 ## Important functions
 
