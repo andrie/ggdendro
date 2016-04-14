@@ -30,4 +30,4 @@ Suggests:
     knitr,
     cluster
 VignetteBuilder: knitr
-
+RoxygenNote: 5.0.1
