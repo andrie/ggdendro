@@ -47,15 +47,18 @@ ggdendrogram <- function(data, segments=TRUE, labels=TRUE, leaf_labels=TRUE,
   }
   if(!is.dendro(data)) data <- dendro_data(data)
   p <- ggplot() + geom_blank()
-  if(all(segments, !is.null(data$segments))){
+  if(segments && !is.null(data$segments)){
     p <- p + geom_segment(data=segment(data), 
                           aes_string(x="x", y="y", xend="xend", yend="yend"))
   }
-  if(all(leaf_labels, !is.null(data$leaf_labels))){
+  if(leaf_labels && !is.null(data$leaf_labels)){
     p <- p + geom_text(data=leaf_label(data), 
                        aes_string(x="x", y="y", label="label"), hjust=hjust, angle=angle, ...)
   }
-  p <- p + scale_x_discrete(labels=data$labels$label)
+  if(labels){
+    p <- p + scale_x_continuous(breaks = seq_along(data$labels$label), 
+                           labels = data$labels$label)
+  }
   if(rotate){
     p <- p + coord_flip()
     p <- p + scale_y_continuous()
