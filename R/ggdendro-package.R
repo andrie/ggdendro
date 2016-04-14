@@ -24,7 +24,7 @@
 
 #' Create Dendrograms and Tree Diagrams using 'ggplot2'
 #'
-#' This package enables you to create dendrograms and tree plots using \code{\link[ggplot2]{ggplot2}}.
+#' This package enables you to create dendrograms and tree plots using \code{\link[ggplot2]{ggplot}}.
 #' 
 #' The \code{ggplot2} philosophy is to clearly separate data from the presentation.  Unfortunately the plot method for dendrograms (\code{\link{plot.dendrogram}}) plots directly to a plot device without exposing the data.  The ggdendro package resolves this by making available functions that extract the dendrogram plot data.  This data can be used with \code{ggplot}.
 #' 
