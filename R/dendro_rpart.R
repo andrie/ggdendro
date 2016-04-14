@@ -55,7 +55,9 @@ dendro_data.rpart <- function(model, uniform = FALSE, branch = 1, compress = FAL
   if (!compress) nspace <- -1L     # means no compression
   if(!interactive()) if (dev.cur() == 1L) dev.new() # not needed in R
   
-  parms <- list(uniform = uniform, branch = branch, nspace = nspace,
+  parms <- list(uniform = uniform, 
+                branch = branch, 
+                nspace = nspace,
                 minbranch = minbranch)
   
   ## define the plot region
@@ -77,7 +79,7 @@ dendro_data.rpart <- function(model, uniform = FALSE, branch = 1, compress = FAL
 #   lines(c(temp$x), c(temp$y))
 #   invisible(list(x = xx, y = yy))
   
-  labels <- text.rpart(x)
+  labels <- text.rpart(x, parms = parms)
   
   segments <- rpart_segments(temp)
 #   labels <- rpart_labels(xx, ...)

@@ -323,11 +323,10 @@ rpartco <- function(tree, parms)
 ## Fancy option has been added in (to mimic post.tree)
 ##
 
-text.rpart <-
-  function(x, splits = TRUE, label, FUN = text, all = FALSE,
+text.rpart <- function(x, splits = TRUE, label, FUN = text, all = FALSE,
            pretty = NULL, digits = getOption("digits") - 3L,
            use.n = FALSE, fancy = FALSE, fwidth = 0.8, fheight = 0.8,
-           bg = par("bg"), minlength = 1L, ...)
+           bg = par("bg"), minlength = 1L, parms, ...)
   {
     string.bounding.box <- NULL
     if (!inherits(x, "rpart")) stop("Not a legitimate \"rpart\" object")
@@ -340,7 +339,7 @@ text.rpart <-
     if (!is.null(ylevels <- attr(x, "ylevels"))) col <- c(col, ylevels)
     cxy <- par("cxy")                   # character width and height
     if (!is.null(srt <- list(...)$srt) && srt == 90) cxy <- rev(cxy)
-    xy <- rpartco(x)
+    xy <- rpartco(x, parms = parms)
     
     node <- as.numeric(row.names(frame))
     is.left <- (node %% 2L == 0L)            # left hand sons
