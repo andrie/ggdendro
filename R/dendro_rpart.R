@@ -31,7 +31,6 @@
 #' @param branch controls the shape of the branches from parent to child node. Any number from 0 to 1 is allowed. A value of 1 gives square shouldered branches, a value of 0 give V shaped branches, with other values being intermediate.
 #' @param compress if FALSE, the leaf nodes will be at the horizontal plot coordinates of 1:nleaves. If TRUE, the routine attempts a more compact arrangement of the tree. The compaction algorithm assumes uniform=TRUE; surprisingly, the result is usually an improvement even when that is not the case.
 #' @param nspace the amount of extra space between a node with children and a leaf, as compared to the minimal space between leaves. Applies to compressed trees only. The default is the value of branch.
-#' @param margin an extra fraction of white space to leave around the borders of the tree. (Long labels sometimes get cut off by the default computation).
 #' @param minbranch	set the minimum length for a branch to minbranch times the average branch length. This parameter is ignored if uniform=TRUE. Sometimes a split will give very little improvement, or even (in the classification case) no improvement at all. A tree with branch lengths strictly proportional to improvement leaves no room to squeeze in node labels.
 #' @param ... ignored
 #' @export
@@ -47,7 +46,7 @@
 #' @example inst/examples/example_dendro_rpart.R
 #' 
 dendro_data.rpart <- function(model, uniform = FALSE, branch = 1, compress = FALSE,
-                              nspace, margin = 0, minbranch = 0.3, ...){
+                              nspace, minbranch = 0.3, ...){
   x <- model
   if (!inherits(x, "rpart")) stop("Not a legitimate \"rpart\" object")
   if (nrow(x$frame) <= 1L) stop("fit is not a tree, just a root")
@@ -56,15 +55,17 @@ dendro_data.rpart <- function(model, uniform = FALSE, branch = 1, compress = FAL
   if (!compress) nspace <- -1L     # means no compression
   if(!interactive()) if (dev.cur() == 1L) dev.new() # not needed in R
   
-  parms <- list(uniform = uniform, branch = branch, nspace = nspace,
+  parms <- list(uniform = uniform, 
+                branch = branch, 
+                nspace = nspace,
                 minbranch = minbranch)
   
   ## define the plot region
   temp <- rpartco(x, parms)
   xx <- temp$x
   yy <- temp$y
-  temp1 <- range(xx) + diff(range(xx)) * c(-margin, margin)
-  temp2 <- range(yy) + diff(range(yy)) * c(-margin, margin)
+  # temp1 <- range(xx) + diff(range(xx)) * c(-margin, margin)
+  # temp2 <- range(yy) + diff(range(yy)) * c(-margin, margin)
 #   plot(temp1, temp2, type = "n", axes = FALSE, xlab = "", ylab = "", ...)
   ## Save information per device, once a new device is opened.
    assign(paste0("device", dev.cur()), parms, envir = rpart_ggdendro_env)
@@ -78,7 +79,7 @@ dendro_data.rpart <- function(model, uniform = FALSE, branch = 1, compress = FAL
 #   lines(c(temp$x), c(temp$y))
 #   invisible(list(x = xx, y = yy))
   
-  labels <- text.rpart(x)
+  labels <- text.rpart(x, parms = parms)
   
   segments <- rpart_segments(temp)
 #   labels <- rpart_labels(xx, ...)

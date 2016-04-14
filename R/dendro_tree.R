@@ -18,7 +18,7 @@
 #
 
 
-tree_env <- new.env()
+tree_ggdendro_env <- new.env()
 
 #' Extract data from regression tree object for plotting using ggplot.
 #' 
@@ -46,7 +46,7 @@ dendro_data.tree <- function(model, type = c("proportional", "uniform"), ...){
   dev <- dev.cur()
   if (dev == 1L) dev <- 2L # as device will be opened.
   
-  assign(paste0("device", dev), uniform, envir = tree_env)
+  assign(paste0("device", dev), uniform, envir = tree_ggdendro_env)
   
 	labels <- tree_labels(model, ...)
 	as.dendro(
@@ -171,8 +171,8 @@ treeco <- function (tree, uniform)
 {
   if (missing(uniform)) {
     pn <- paste0("device", dev.cur())
-    uniform <- if (exists(pn, envir = tree_env, inherits = FALSE)) 
-      get(pn, envir = tree_env, inherits = FALSE)
+    uniform <- if (exists(pn, envir = tree_ggdendro_env, inherits = FALSE)) 
+      get(pn, envir = tree_ggdendro_env, inherits = FALSE)
     else FALSE
   }
   frame <- tree$frame
