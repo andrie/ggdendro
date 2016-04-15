@@ -18,7 +18,7 @@
 #
 
 
-tree_ggdendro_env <- new.env()
+# tree_ggdendro_env <- new.env()
 
 #' Extract data from regression tree object for plotting using ggplot.
 #' 
@@ -43,14 +43,14 @@ dendro_data.tree <- function(model, type = c("proportional", "uniform"), ...){
   type <- match.arg(type)
   uniform <- type == "uniform"
   
-  dev <- dev.cur()
-  if (dev == 1L) dev <- 2L # as device will be opened.
+  # dev <- dev.cur()
+  # if (dev == 1L) dev <- 2L # as device will be opened.
   
-  assign(paste0("device", dev), uniform, envir = tree_ggdendro_env)
+  # assign(paste0("device", dev), uniform, envir = tree_ggdendro_env)
   
-	labels <- tree_labels(model, ...)
+	labels <- tree_labels(model, uniform = uniform, ...)
 	as.dendro(
-    segments = tree_segments(model, ...),
+    segments = tree_segments(model, uniform, ...),
 		labels = labels$labels,
 		leaf_labels = labels$leaf_labels,
     class="tree"
@@ -66,9 +66,10 @@ dendro_data.tree <- function(model, type = c("proportional", "uniform"), ...){
 #' @seealso \code{\link{ggdendrogram}}
 #' @family tree functions
 #' @author Code modified from original by Brian Ripley
-tree_segments <- function(model, ...){
+tree_segments <- function(model, uniform, ...){
+  if(missing(uniform)) stop("specify the uniform argument")
 	# Uses tree:::treeco to extract data frame of plot locations
-	xy <- treeco(model)
+	xy <- treeco(model, uniform = uniform)
 	n <- model$frame$n
 	
 	# Lines copied from tree:::treepl
@@ -92,9 +93,9 @@ tree_segments <- function(model, ...){
 #' @seealso \code{\link{ggdendrogram}}
 #' @family tree functions
 #' @author Code modified from original by Brian Ripley
-tree_labels <- function(model, ...){
+tree_labels <- function(model, uniform, ...){
   # Uses tree:::treeco to extract data frame of plot locations
-  xy <- treeco(model)
+  xy <- treeco(model, uniform = uniform)
   label <- model$frame$var
 	yval  <- model$frame$yval
 	sleft  <- model$frame$splits.cutleft
@@ -138,9 +139,9 @@ tree_labels <- function(model, ...){
 #' @seealso \code{\link{ggdendrogram}}
 #' @family tree functions
 #' @author Code modified from original by Brian Ripley
-get_data_tree_leaf_labels <- function(model, ...){
+get_data_tree_leaf_labels <- function(model, uniform, ...){
   # Uses tree:::treeco to extract data frame of plot locations
-  xy <- treeco(model)
+  xy <- treeco(model, uniform = uniform)
   label <- model$frame$var
   yval  <- model$frame$yval
   sleft  <- model$frame$splits.cutleft
@@ -167,14 +168,15 @@ get_data_tree_leaf_labels <- function(model, ...){
 #' @param tree tree object
 #' @param uniform ???
 #' @keywords internal
-treeco <- function (tree, uniform) 
-{
-  if (missing(uniform)) {
-    pn <- paste0("device", dev.cur())
-    uniform <- if (exists(pn, envir = tree_ggdendro_env, inherits = FALSE)) 
-      get(pn, envir = tree_ggdendro_env, inherits = FALSE)
-    else FALSE
-  }
+treeco <- function (tree, uniform) {
+  # if (missing(uniform)) {
+  #   pn <- paste0("device", dev.cur())
+  #   uniform <- if (exists(pn, envir = tree_ggdendro_env, inherits = FALSE)) 
+  #     get(pn, envir = tree_ggdendro_env, inherits = FALSE)
+  #   else FALSE
+  # }
+  if(missing(uniform)) stop("specify uniform argument")
+  
   frame <- tree$frame
   node <- as.integer(row.names(frame))
   depth <- tree.depth(node)

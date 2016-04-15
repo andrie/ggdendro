@@ -126,7 +126,7 @@ labels.rpart <- function(object, digits = 4, minlength = 1L, pretty,
 
 # rpart_ggdendro_env -------------------------------------------------------------------
 
-rpart_ggdendro_env <- new.env()
+# rpart_ggdendro_env <- new.env()
 
 
 # rpart.branch ------------------------------------------------------------
@@ -139,13 +139,14 @@ rpart_ggdendro_env <- new.env()
 ## most likely this could simply default to branch = 1
 rpart.branch <- function(x, y, node, branch)
 {
-  if (missing(branch)) {
-    pn <- paste0("device", dev.cur())
-    if (!exists(pn, envir = rpart_ggdendro_env, inherits = FALSE))
-      stop("no information available on parameters from previous call to plot()")
-    parms <- get(pn, envir = rpart_ggdendro_env, inherits = FALSE)
-    branch <- parms$branch
-  }
+  # if (missing(branch)) {
+  #   pn <- paste0("device", dev.cur())
+  #   if (!exists(pn, envir = rpart_ggdendro_env, inherits = FALSE))
+  #     stop("no information available on parameters from previous call to plot()")
+  #   parms <- get(pn, envir = rpart_ggdendro_env, inherits = FALSE)
+  #   branch <- parms$branch
+  # }
+  if(missing(branch)) branch <- 1
   
   ## Draw a series of horseshoes, left son, up, over, down to right son
   ##   NA's in the vector cause lines() to "lift the pen"
@@ -179,12 +180,12 @@ tree.depth <- function (nodes)
 #' @keywords internal
 rpartco <- function(tree, parms)
 {
-  if (missing(parms)) {
-    pn <- paste0("device", dev.cur())
-    if (!exists(pn, envir = rpart_ggdendro_env, inherits = FALSE))
-      stop("no information available on parameters from previous call to plot()")
-    parms <- get(pn, envir = rpart_ggdendro_env, inherits = FALSE)
-  }
+  # if (missing(parms)) {
+  #   pn <- paste0("device", dev.cur())
+  #   if (!exists(pn, envir = rpart_ggdendro_env, inherits = FALSE))
+  #     stop("no information available on parameters from previous call to plot()")
+  #   parms <- get(pn, envir = rpart_ggdendro_env, inherits = FALSE)
+  # }
   
   frame <- tree$frame
   node <- as.numeric(row.names(frame))
@@ -386,41 +387,41 @@ text.rpart <- function(x, splits = TRUE, label, FUN = text, all = FALSE,
                        ylevel = ylevels, digits = digits,
                        n = frame$n[leaves], use.n = use.n)
     
-    if (fancy) {
-      if (col2rgb(bg, alpha = TRUE)[4L, 1L] < 255) bg <- "white"
-      oval <- function(middlex, middley, a, b)
-      {
-        theta <- seq(0, 2 * pi, pi/30)
-        newx <- middlex + a * cos(theta)
-        newy <- middley + b * sin(theta)
-        polygon(newx, newy, border = TRUE, col = bg)
-      }
-      
-      ## FIXME: use rect()
-      rectangle <- function(middlex, middley, a, b)
-      {
-        newx <- middlex + c(a, a, -a, -a)
-        newy <- middley + c(b, -b, -b, b)
-        polygon(newx, newy, border = TRUE, col = bg)
-      }
-      
-      ## find maximum length of stat
-      maxlen <- max(string.bounding.box(stat)$columns) + 1L
-      maxht <- max(string.bounding.box(stat)$rows) + 1L
-      
-      a.length <- if (fwidth < 1)  fwidth * cxy[1L] * maxlen else fwidth * cxy[1L]
-      
-      b.length <- if (fheight < 1) fheight * cxy[2L] * maxht else fheight * cxy[2L]
-      
-      ## create ovals and rectangles here
-      ## sqrt(2) creates the smallest oval that fits around the
-      ## best fitting rectangle
-      for (i in parent)
-        oval(xy$x[i], xy$y[i], sqrt(2) * a.length/2, sqrt(2) * b.length/2)
-      child <- match(node[frame$var == "<leaf>"], node)
-      for (i in child)
-        rectangle(xy$x[i], xy$y[i], a.length/2, b.length/2)
-    }
+    # if (fancy) {
+    #   if (col2rgb(bg, alpha = TRUE)[4L, 1L] < 255) bg <- "white"
+    #   oval <- function(middlex, middley, a, b)
+    #   {
+    #     theta <- seq(0, 2 * pi, pi/30)
+    #     newx <- middlex + a * cos(theta)
+    #     newy <- middley + b * sin(theta)
+    #     polygon(newx, newy, border = TRUE, col = bg)
+    #   }
+    #   
+    #   ## FIXME: use rect()
+    #   rectangle <- function(middlex, middley, a, b)
+    #   {
+    #     newx <- middlex + c(a, a, -a, -a)
+    #     newy <- middley + c(b, -b, -b, b)
+    #     polygon(newx, newy, border = TRUE, col = bg)
+    #   }
+    #   
+    #   ## find maximum length of stat
+    #   maxlen <- max(string.bounding.box(stat)$columns) + 1L
+    #   maxht <- max(string.bounding.box(stat)$rows) + 1L
+    #   
+    #   a.length <- if (fwidth < 1)  fwidth * cxy[1L] * maxlen else fwidth * cxy[1L]
+    #   
+    #   b.length <- if (fheight < 1) fheight * cxy[2L] * maxht else fheight * cxy[2L]
+    #   
+    #   ## create ovals and rectangles here
+    #   ## sqrt(2) creates the smallest oval that fits around the
+    #   ## best fitting rectangle
+    #   for (i in parent)
+    #     oval(xy$x[i], xy$y[i], sqrt(2) * a.length/2, sqrt(2) * b.length/2)
+    #   child <- match(node[frame$var == "<leaf>"], node)
+    #   for (i in child)
+    #     rectangle(xy$x[i], xy$y[i], a.length/2, b.length/2)
+    # }
     
     ##if FUN=text then adj=1 puts the split label to the left of the
     ##    split rather than centered

@@ -4,7 +4,7 @@
 \alias{tree_labels}
 \title{Extract labels data frame from tree object for plotting using ggplot.}
 \usage{
-tree_labels(model, ...)
+tree_labels(model, uniform, ...)
 }
 \arguments{
 \item{model}{object of class "tree", e.g. the output of tree()}
