@@ -205,7 +205,7 @@ rpartco <- function(tree, parms)
     y <- (1 + max(depth) - depth) / max(depth, 4L)
   else {                    # make y- (parent y) = change in deviance
     y <- dev <- frame$dev
-    temp <- split(seq(node), depth)     #d epth 0 nodes, then 1, then ...
+    temp <- split(seq(node), depth)     #depth 0 nodes, then 1, then ...
     parent <- match(node %/% 2L, node)
     sibling <- match(ifelse(node %% 2L, node - 1L, node + 1L), node)
     
@@ -338,7 +338,8 @@ text.rpart <- function(x, splits = TRUE, label, FUN = text, all = FALSE,
     col <- names(frame)
     ylevels <- attr(x, "ylevels")
     if (!is.null(ylevels <- attr(x, "ylevels"))) col <- c(col, ylevels)
-    cxy <- par("cxy")                   # character width and height
+    # cxy <- par("cxy")                   # character width and height
+    cxy <- c(0.1, 0.1)
     if (!is.null(srt <- list(...)$srt) && srt == 90) cxy <- rev(cxy)
     xy <- rpartco(x, parms = parms)
     
