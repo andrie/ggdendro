@@ -4,7 +4,7 @@
 \alias{tree_segments}
 \title{Extract data frame from tree object for plotting using ggplot.}
 \usage{
-tree_segments(model, ...)
+tree_segments(model, uniform, ...)
 }
 \arguments{
 \item{model}{object of class "tree", e.g. the output of tree()}
