@@ -1,10 +1,10 @@
 context("tree")
 
 test_that("data_tree() returns the correct classes", {
-  if(!require("tree", quietly = TRUE)) skip("package tree not available")
+  skip_if_not_installed("tree")
   
   data(cpus, package="MASS")
-  cpus.ltr <- tree(log10(perf) ~ syct + mmin + mmax + cach + chmin + chmax, data = cpus)
+  cpus.ltr <- tree::tree(log10(perf) ~ syct + mmin + mmax + cach + chmin + chmax, data = cpus)
 
   expect_that(dendro_data(cpus.ltr), is_a("dendro"))
   tdata <- dendro_data(cpus.ltr)
