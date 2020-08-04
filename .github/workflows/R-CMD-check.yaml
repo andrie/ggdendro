@@ -71,6 +71,12 @@ jobs:
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
         shell: Rscript {0}
+        
+        
+      - name: Set env vars
+        if r < 3.6
+        env: 
+          _R_CHECK_FORCE_SUGGESTS_ = 0
 
       - name: Session info
         run: |
