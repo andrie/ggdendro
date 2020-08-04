@@ -19,7 +19,7 @@ dendro_data(model, ...)
 \method{dendro_data}{twins}(model, type = c("rectangle", "triangle"), ...)
 }
 \arguments{
-\item{model}{object of type \code{\link[stats:hclust]{stats::hclust()}}, \code{\link[stats:dendrogram]{stats::dendrogram()}} or \code{\link[tree:tree]{tree::tree()}}}
+\item{model}{object of type \code{\link[stats:hclust]{stats::hclust()}}, \code{\link[stats:dendrogram]{stats::dendrogram()}} or \code{tree::tree()}}
 
 \item{...}{ignored}
 
@@ -38,7 +38,7 @@ This function provides a generic mechanism to extract relevant plotting data, ty
 Extract line segment and label data from \code{\link[stats:dendrogram]{stats::dendrogram()}} or \code{\link[stats:hclust]{stats::hclust()}} object.  The resulting object is a list of data frames containing line segment data and label data.
 }
 \details{
-For \code{\link[stats:dendrogram]{stats::dendrogram()}} and \code{\link[tree:tree]{tree::tree()}} models, extracts line segment data and labels.
+For \code{\link[stats:dendrogram]{stats::dendrogram()}} and \code{tree::tree()} models, extracts line segment data and labels.
 }
 \examples{
 require(ggplot2)

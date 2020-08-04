@@ -9,7 +9,9 @@
 \arguments{
 \item{model}{object of class "tree", e.g. the output of tree()}
 
-\item{type}{Either \code{proportional} or \code{uniform}. If this partially matches "uniform", the branches are of uniform length. Otherwise they are proportional to the decrease in impurity.}
+\item{type}{Either \code{proportional} or \code{uniform}. If this partially matches
+"uniform", the branches are of uniform length. Otherwise they are
+proportional to the decrease in impurity.}
 
 \item{...}{ignored}
 }
@@ -20,7 +22,8 @@ A list of three data frames:
 \item{leaf_labels}{a data frame containing the leaf label text data}
 }
 \description{
-Extracts data to plot line segments and labels from a \code{tree::tree()} object.  This data can then be manipulated or plotted, e.g. using \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
+Extracts data to plot line segments and labels from a \code{tree::tree()} object.
+This data can then be manipulated or plotted, e.g. using \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
 }
 \examples{
 ### Demonstrate tree
