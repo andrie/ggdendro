@@ -75,8 +75,8 @@ jobs:
         
       - name: Set env vars
         if r < 3.6
-        env: 
-          _R_CHECK_FORCE_SUGGESTS_ = 0
+        with: 
+          _R_CHECK_FORCE_SUGGESTS_ : 0
 
       - name: Session info
         run: |
