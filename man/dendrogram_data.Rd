@@ -18,7 +18,7 @@ rectangular lines, while "triangle" will draw triangular lines.}
 Extract data frame from dendrogram object for plotting using ggplot
 }
 \seealso{
-\code{\link{ggdendrogram}}
+\code{\link[=ggdendrogram]{ggdendrogram()}}
 
 Other dendro_data methods: 
 \code{\link{dendro_data.rpart}()},

@@ -20,7 +20,7 @@ A list of three data frames:
 \item{leaf_labels}{a data frame containing the leaf label text data}
 }
 \description{
-Extracts data to plot line segments and labels from a \code{\link[tree]{tree}} object.  This data can then be manipulated or plotted, e.g. using \code{\link[ggplot2]{ggplot}}.
+Extracts data to plot line segments and labels from a \code{tree::tree()} object.  This data can then be manipulated or plotted, e.g. using \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
 }
 \examples{
 ### Demonstrate tree
@@ -43,7 +43,7 @@ if(require(tree)){
 }
 }
 \seealso{
-\code{\link{ggdendrogram}}
+\code{\link[=ggdendrogram]{ggdendrogram()}}
 
 Other dendro_data methods: 
 \code{\link{dendro_data.rpart}()},

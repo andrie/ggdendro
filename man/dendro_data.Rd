@@ -19,7 +19,7 @@ dendro_data(model, ...)
 \method{dendro_data}{twins}(model, type = c("rectangle", "triangle"), ...)
 }
 \arguments{
-\item{model}{object of type \code{\link[stats]{hclust}}, \code{\link[stats]{dendrogram}} or \code{\link[tree]{tree}}}
+\item{model}{object of type \code{\link[stats:hclust]{stats::hclust()}}, \code{\link[stats:dendrogram]{stats::dendrogram()}} or \code{\link[tree:tree]{tree::tree()}}}
 
 \item{...}{ignored}
 
@@ -35,10 +35,10 @@ A list with components:
 \description{
 This function provides a generic mechanism to extract relevant plotting data, typically line segments and labels, from a variety of cluster models.
 
-Extract line segment and label data from \code{\link[stats]{dendrogram}} or \code{\link[stats]{hclust}} object.  The resulting object is a list of data frames containing line segment data and label data.
+Extract line segment and label data from \code{\link[stats:dendrogram]{stats::dendrogram()}} or \code{\link[stats:hclust]{stats::hclust()}} object.  The resulting object is a list of data frames containing line segment data and label data.
 }
 \details{
-For \code{\link[stats]{dendrogram}} and \code{\link[tree]{tree}} models, extracts line segment data and labels.
+For \code{\link[stats:dendrogram]{stats::dendrogram()}} and \code{\link[tree:tree]{tree::tree()}} models, extracts line segment data and labels.
 }
 \examples{
 require(ggplot2)
@@ -101,20 +101,20 @@ if(require(cluster)){
 \seealso{
 There are several implementations for specific cluster algorithms:
 
-\itemize{ 
-\item \code{\link{dendro_data.hclust}}
-\item \code{\link{dendro_data.dendrogram}}		 
-\item \code{\link{dendro_data.tree}}	
-\item \code{\link{dendro_data.rpart}} 
+\itemize{
+\item \code{\link[=dendro_data.hclust]{dendro_data.hclust()}}
+\item \code{\link[=dendro_data.dendrogram]{dendro_data.dendrogram()}}
+\item \code{\link[=dendro_data.tree]{dendro_data.tree()}}
+\item \code{\link[=dendro_data.rpart]{dendro_data.rpart()}}
 }
 To extract the data for line segments, labels or leaf labels use:
 \itemize{
-\item{\code{\link{segment}}}: {the line segment data}
-\item{\code{\link{label}}}: {the text for each end segment}
-\item{\code{\link{leaf_label}}}: {the leaf labels of a tree diagram}
+\item{\code{\link[=segment]{segment()}}}: {the line segment data}
+\item{\code{\link[=label]{label()}}}: {the text for each end segment}
+\item{\code{\link[=leaf_label]{leaf_label()}}}: {the leaf labels of a tree diagram}
 }
 
-\code{\link{ggdendrogram}}
+\code{\link[=ggdendrogram]{ggdendrogram()}}
 
 Other dendro_data methods: 
 \code{\link{dendro_data.rpart}()},

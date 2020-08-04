@@ -18,7 +18,7 @@ a list with two elements: $labels and $leaf_labels
 Extract labels data frame from tree object for plotting using ggplot.
 }
 \seealso{
-\code{\link{ggdendrogram}}
+\code{\link[=ggdendrogram]{ggdendrogram()}}
 
 Other tree functions: 
 \code{\link{dendro_data.tree}()},

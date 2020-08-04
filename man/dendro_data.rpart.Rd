@@ -52,11 +52,11 @@ A list of three data frames:
 }
 \description{
 Extracts data to plot line segments and labels from a
-\code{\link[rpart]{rpart}} classification tree object.  This data can then be
-manipulated or plotted, e.g. using \code{\link[ggplot2]{ggplot}}.
+\code{\link[rpart:rpart]{rpart::rpart()}} classification tree object.  This data can then be
+manipulated or plotted, e.g. using \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
 }
 \details{
-This code is in essence a copy of \code{\link[rpart]{plot.rpart}}, retaining
+This code is in essence a copy of \code{\link[rpart:plot.rpart]{rpart::plot.rpart()}}, retaining
 the plot data but without plotting to a plot device.
 }
 \examples{
@@ -74,7 +74,7 @@ if(require(rpart)){
 }
 }
 \seealso{
-\code{\link{ggdendrogram}}
+\code{\link[=ggdendrogram]{ggdendrogram()}}
 
 Other dendro_data methods: 
 \code{\link{dendro_data.tree}()},

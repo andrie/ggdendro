@@ -20,10 +20,10 @@
 #' Extract data from classification tree object for plotting using ggplot.
 #'
 #' Extracts data to plot line segments and labels from a
-#' \code{\link[rpart]{rpart}} classification tree object.  This data can then be
-#' manipulated or plotted, e.g. using \code{\link[ggplot2]{ggplot}}.
+#' [rpart::rpart()] classification tree object.  This data can then be
+#' manipulated or plotted, e.g. using [ggplot2::ggplot()].
 #'
-#' This code is in essence a copy of \code{\link[rpart]{plot.rpart}}, retaining
+#' This code is in essence a copy of [rpart::plot.rpart()], retaining
 #' the plot data but without plotting to a plot device.
 #'
 #' @param model object of class "tree", e.g. the output of tree()
@@ -61,7 +61,7 @@
 #' \item{labels}{a data frame containing the label text data}
 #' \item{leaf_labels}{a data frame containing the leaf label text data}
 #' 
-#' @seealso \code{\link{ggdendrogram}}
+#' @seealso [ggdendrogram()]
 #' @family dendro_data methods
 #' @family rpart functions
 #' @example inst/examples/example_dendro_rpart.R
@@ -116,7 +116,7 @@ dendro_data.rpart <- function(model, uniform = FALSE, branch = 1, compress = FAL
 #' @param model object of class "tree", e.g. the output of tree()
 #' @param ... ignored
 #' @keywords internal
-#' @seealso \code{\link{ggdendrogram}}
+#' @seealso [ggdendrogram()]
 #' @family rpart functions
 rpart_segments <- function (x, ...) {
   dat <- data.frame(
@@ -140,7 +140,7 @@ rpart_segments <- function (x, ...) {
 #' @return a list with two elements: $labels and $leaf_labels
 #' @author Original author Brian Ripley
 #' @keywords internal
-#' @seealso \code{\link{ggdendrogram}}
+#' @seealso [ggdendrogram()]
 #' @family dendro_data methods
 #' @family rpart functions
 rpart_labels <- function (x) 

@@ -21,16 +21,16 @@
 #' 
 #' This is a convenience function
 #' 
-#' @param data Either a dendro object or an object that can be coerced to class dendro using the \code{\link{dendro_data}} function, i.e. objects of class dendrogram, hclust or tree
+#' @param data Either a dendro object or an object that can be coerced to class dendro using the [dendro_data()] function, i.e. objects of class dendrogram, hclust or tree
 #' @param segments If TRUE, show line segments
 #' @param labels if TRUE, shows segment labels
 #' @param leaf_labels if TRUE, shows leaf labels
 #' @param rotate if TRUE, rotates plot by 90 degrees
-#' @param theme_dendro if TRUE, applies a blank theme to plot (see \code{\link{theme_dendro}}) 
-#' @param ... other parameters passed to \code{\link[ggplot2]{geom_text}}
+#' @param theme_dendro if TRUE, applies a blank theme to plot (see [theme_dendro()]) 
+#' @param ... other parameters passed to [ggplot2::geom_text()]
 #' @export
-#' @return A \code{\link[ggplot2]{ggplot}} object
-#' @seealso \code{\link{dendro_data}}
+#' @return A [ggplot2::ggplot()] object
+#' @seealso [dendro_data()]
 #' @example inst/examples/example_ggdendrogram.R
 ggdendrogram <- function(data, segments=TRUE, labels=TRUE, leaf_labels=TRUE, 
                          rotate=FALSE, theme_dendro=TRUE, ...){
@@ -76,7 +76,7 @@ ggdendrogram <- function(data, segments=TRUE, labels=TRUE, leaf_labels=TRUE,
 
 #' Creates completely blank theme in ggplot.
 #' 
-#' Sets most of the \code{ggplot} options to blank, by returning blank \code{theme} elements for the panel grid, panel background, axis title, axis text, axis line and axis ticks.
+#' Sets most of the `ggplot` options to blank, by returning blank `theme` elements for the panel grid, panel background, axis title, axis text, axis line and axis ticks.
 #' @export
 theme_dendro <- function(){
   element_blank <- ggplot2::element_blank

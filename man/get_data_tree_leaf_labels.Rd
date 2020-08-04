@@ -15,7 +15,7 @@ get_data_tree_leaf_labels(model, uniform, ...)
 Extract labels data frame from tree object for plotting using ggplot
 }
 \seealso{
-\code{\link{ggdendrogram}}
+\code{\link[=ggdendrogram]{ggdendrogram()}}
 
 Other tree functions: 
 \code{\link{dendro_data.tree}()},

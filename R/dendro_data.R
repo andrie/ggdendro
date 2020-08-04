@@ -21,10 +21,10 @@
 #' 
 #' This function provides a generic mechanism to extract relevant plotting data, typically line segments and labels, from a variety of cluster models. 
 #' 
-#' For \code{\link[stats]{dendrogram}} and \code{\link[tree]{tree}} models, extracts line segment data and labels.
+#' For [stats::dendrogram()] and [tree::tree()] models, extracts line segment data and labels.
 #' 
 #' 
-#' @param model object of type \code{\link[stats]{hclust}}, \code{\link[stats]{dendrogram}} or \code{\link[tree]{tree}}
+#' @param model object of type [stats::hclust()], [stats::dendrogram()] or [tree::tree()]
 #' @param ... ignored
 #' @export dendro_data dendro_data.default
 # @aliases dendro_data.default
@@ -33,16 +33,16 @@
 #' There are several implementations for specific cluster algorithms:
 #'
 #' \itemize{ 
-#' \item \code{\link{dendro_data.hclust}}
-#' \item \code{\link{dendro_data.dendrogram}}		 
-#' \item \code{\link{dendro_data.tree}}	
-#' \item \code{\link{dendro_data.rpart}} 
+#' \item [dendro_data.hclust()]
+#' \item [dendro_data.dendrogram()]		 
+#' \item [dendro_data.tree()]	
+#' \item [dendro_data.rpart()] 
 #' }
 #' To extract the data for line segments, labels or leaf labels use:
 #' \itemize{
-#' \item{\code{\link{segment}}}: {the line segment data}
-#' \item{\code{\link{label}}}: {the text for each end segment}
-#' \item{\code{\link{leaf_label}}}: {the leaf labels of a tree diagram}
+#' \item{[segment()]}: {the line segment data}
+#' \item{[label()]}: {the text for each end segment}
+#' \item{[leaf_label()]}: {the leaf labels of a tree diagram}
 #' }
 dendro_data <- function(model, ...){
 	UseMethod("dendro_data", model)
@@ -62,7 +62,7 @@ dendro_data.default <- function(model, ...){
 #' 
 #' @param x Object to check
 #' @export
-#' @seealso \code{\link{dendro_data}} and \code{\link{ggdendro-package}}
+#' @seealso [dendro_data()] and [ggdendro-package()]
 is.dendro <- function(x){
   inherits(x, "dendro")
 }
@@ -78,10 +78,10 @@ is.dendro <- function(x){
 #' @param leaf_labels data.frame with leaf label data
 #' 
 #' @param class The class of the original model object, e.g. "hclust".  This is
-#'   used by \code{\link{ggdendrogram}} to determine the angle and justification
+#'   used by [ggdendrogram()] to determine the angle and justification
 #'   of labels
 #' 
-#' @seealso \code{\link{dendro_data}} and \code{\link{ggdendro-package}}
+#' @seealso [dendro_data()] and [ggdendro-package()]
 #' 
 #' @export 
 as.dendro <- function(segments, labels, leaf_labels=NULL, class){
@@ -100,11 +100,11 @@ as.dendro <- function(segments, labels, leaf_labels=NULL, class){
 
 #' Returns segment, label or leaf-label data from dendro object.
 #' 
-#' \code{segment} extracts line segments, \code{label} extracts labels, and \code{leaf_label} extracts leaf labels from a dendro object.
+#' `segment` extracts line segments, `label` extracts labels, and `leaf_label` extracts leaf labels from a dendro object.
 #' 
 #' @param x dendro object
 #' @aliases segment label leaf_label
-#' @seealso \code{\link{dendro_data}}
+#' @seealso [dendro_data()]
 #' @export
 segment <- function(x){
   x$segments

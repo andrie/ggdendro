@@ -18,7 +18,7 @@ a list with two elements: $labels and $leaf_labels
 This code is modified from the original plot.rpart in package rpart.
 }
 \seealso{
-\code{\link{ggdendrogram}}
+\code{\link[=ggdendrogram]{ggdendrogram()}}
 
 Other dendro_data methods: 
 \code{\link{dendro_data.rpart}()},

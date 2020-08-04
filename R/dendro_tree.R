@@ -21,20 +21,27 @@
 # tree_ggdendro_env <- new.env()
 
 #' Extract data from regression tree object for plotting using ggplot.
-#' 
-#' Extracts data to plot line segments and labels from a \code{\link[tree]{tree}} object.  This data can then be manipulated or plotted, e.g. using \code{\link[ggplot2]{ggplot}}.
-#' 
+#'
+#' Extracts data to plot line segments and labels from a `tree::tree()` object.
+#' This data can then be manipulated or plotted, e.g. using [ggplot2::ggplot()].
+#'
 #' @param model object of class "tree", e.g. the output of tree()
-#' @param type Either \code{proportional} or \code{uniform}. If this partially matches "uniform", the branches are of uniform length. Otherwise they are proportional to the decrease in impurity.
+#'
+#' @param type Either `proportional` or `uniform`. If this partially matches
+#'   "uniform", the branches are of uniform length. Otherwise they are
+#'   proportional to the decrease in impurity.
+#' 
 #' @param ... ignored
+#' 
 #' @export
+#' 
 #' @return
 #' A list of three data frames:
 #' \item{segments}{a data frame containing the line segment data}
 #' \item{labels}{a data frame containing the label text data}
 #' \item{leaf_labels}{a data frame containing the leaf label text data}
 #' 
-#' @seealso \code{\link{ggdendrogram}}
+#' @seealso [ggdendrogram()]
 #' @family dendro_data methods
 #' @family tree functions
 #' @author Andrie de Vries, using code modified from original by Brian Ripley
@@ -63,7 +70,7 @@ dendro_data.tree <- function(model, type = c("proportional", "uniform"), ...){
 #' @param model object of class "tree", e.g. the output of tree()
 #' @param ... ignored
 #' @keywords internal
-#' @seealso \code{\link{ggdendrogram}}
+#' @seealso [ggdendrogram()]
 #' @family tree functions
 #' @author Code modified from original by Brian Ripley
 tree_segments <- function(model, uniform, ...){
@@ -90,7 +97,7 @@ tree_segments <- function(model, uniform, ...){
 #' @param ... ignored
 #' @return a list with two elements: $labels and $leaf_labels
 #' @keywords internal
-#' @seealso \code{\link{ggdendrogram}}
+#' @seealso [ggdendrogram()]
 #' @family tree functions
 #' @author Code modified from original by Brian Ripley
 tree_labels <- function(model, uniform, ...){
@@ -136,7 +143,7 @@ tree_labels <- function(model, uniform, ...){
 #' @param model object of class "tree", e.g. the output of tree()
 #' @param ... ignored
 #' @keywords internal
-#' @seealso \code{\link{ggdendrogram}}
+#' @seealso [ggdendrogram()]
 #' @family tree functions
 #' @author Code modified from original by Brian Ripley
 get_data_tree_leaf_labels <- function(model, uniform, ...){

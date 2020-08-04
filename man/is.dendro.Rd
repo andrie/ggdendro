@@ -13,5 +13,5 @@ is.dendro(x)
 Is a dendro?  Tests whether an object is of class dendro.
 }
 \seealso{
-\code{\link{dendro_data}} and \code{\link{ggdendro-package}}
+\code{\link[=dendro_data]{dendro_data()}} and \code{\link[=ggdendro-package]{ggdendro-package()}}
 }
