@@ -41,7 +41,7 @@
 
 <meta property="og:title" content="Extract cluster data from a model into a list of data frames. — dendro_data" />
 <meta property="og:description" content="This function provides a generic mechanism to extract relevant plotting data, typically line segments and labels, from a variety of cluster models.
-Extract line segment and label data from dendrogram or hclust object.  The resulting object is a list of data frames containing line segment data and label data." />
+Extract line segment and label data from stats::dendrogram() or stats::hclust() object.  The resulting object is a list of data frames containing line segment data and label data." />
 
 
 
@@ -119,7 +119,7 @@ Extract line segment and label data from dendrogram or hclust object.  The resul
 
     <div class="ref-description">
     <p>This function provides a generic mechanism to extract relevant plotting data, typically line segments and labels, from a variety of cluster models.</p>
-<p>Extract line segment and label data from <code><a href='https://rdrr.io/r/stats/dendrogram.html'>dendrogram</a></code> or <code><a href='https://rdrr.io/r/stats/hclust.html'>hclust</a></code> object.  The resulting object is a list of data frames containing line segment data and label data.</p>
+<p>Extract line segment and label data from <code><a href='https://rdrr.io/r/stats/dendrogram.html'>stats::dendrogram()</a></code> or <code><a href='https://rdrr.io/r/stats/hclust.html'>stats::hclust()</a></code> object.  The resulting object is a list of data frames containing line segment data and label data.</p>
     </div>
 
     <pre class="usage"><span class='fu'>dendro_data</span>(<span class='no'>model</span>, <span class='no'>...</span>)
@@ -141,7 +141,7 @@ Extract line segment and label data from dendrogram or hclust object.  The resul
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>model</th>
-      <td><p>object of type <code><a href='https://rdrr.io/r/stats/hclust.html'>hclust</a></code>, <code><a href='https://rdrr.io/r/stats/dendrogram.html'>dendrogram</a></code> or <code><a href='https://rdrr.io/pkg/tree/man/tree.html'>tree</a></code></p></td>
+      <td><p>object of type <code><a href='https://rdrr.io/r/stats/hclust.html'>stats::hclust()</a></code>, <code><a href='https://rdrr.io/r/stats/dendrogram.html'>stats::dendrogram()</a></code> or <code><a href='https://rdrr.io/pkg/tree/man/tree.html'>tree::tree()</a></code></p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -162,22 +162,22 @@ Extract line segment and label data from dendrogram or hclust object.  The resul
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>For <code><a href='https://rdrr.io/r/stats/dendrogram.html'>dendrogram</a></code> and <code><a href='https://rdrr.io/pkg/tree/man/tree.html'>tree</a></code> models, extracts line segment data and labels.</p>
+    <p>For <code><a href='https://rdrr.io/r/stats/dendrogram.html'>stats::dendrogram()</a></code> and <code><a href='https://rdrr.io/pkg/tree/man/tree.html'>tree::tree()</a></code> models, extracts line segment data and labels.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>There are several implementations for specific cluster algorithms:</p>
 <ul>
-<li><p><code>dendro_data.hclust</code></p></li>
-<li><p><code>dendro_data.dendrogram</code></p></li>
-<li><p><code><a href='dendro_data.tree.html'>dendro_data.tree</a></code></p></li>
-<li><p><code><a href='dendro_data.rpart.html'>dendro_data.rpart</a></code></p></li>
+<li><p><code>dendro_data.hclust()</code></p></li>
+<li><p><code>dendro_data.dendrogram()</code></p></li>
+<li><p><code><a href='dendro_data.tree.html'>dendro_data.tree()</a></code></p></li>
+<li><p><code><a href='dendro_data.rpart.html'>dendro_data.rpart()</a></code></p></li>
 </ul><p>To extract the data for line segments, labels or leaf labels use:</p><ul>
-<li><p><code><a href='segment.html'>segment</a></code>: the line segment data</p></li>
-<li><p><code><a href='segment.html'>label</a></code>: the text for each end segment</p></li>
-<li><p><code><a href='segment.html'>leaf_label</a></code>: the leaf labels of a tree diagram</p></li>
+<li><p><code><a href='segment.html'>segment()</a></code>: the line segment data</p></li>
+<li><p><code><a href='segment.html'>label()</a></code>: the text for each end segment</p></li>
+<li><p><code><a href='segment.html'>leaf_label()</a></code>: the leaf labels of a tree diagram</p></li>
 </ul>
 
-<p><code><a href='ggdendrogram.html'>ggdendrogram</a></code></p>
+<p><code><a href='ggdendrogram.html'>ggdendrogram()</a></code></p>
 <p>Other dendro_data methods: 
 <code><a href='dendro_data.rpart.html'>dendro_data.rpart</a>()</code>,
 <code><a href='dendro_data.tree.html'>dendro_data.tree</a>()</code>,
