@@ -2,8 +2,8 @@
 % Please edit documentation in R/ggdendro-package.R
 \docType{package}
 \name{ggdendro-package}
-\alias{ggdendro}
 \alias{ggdendro-package}
+\alias{ggdendro}
 \title{Create Dendrograms and Tree Diagrams using 'ggplot2'}
 \description{
 This package enables you to create dendrograms and tree plots using \code{\link[ggplot2]{ggplot}}.
@@ -31,11 +31,10 @@ These methods create an object of class \code{dendro}, consisting of a list of d
 
 To plot a dendrogram, either construct a plot with \code{\link[ggplot2]{ggplot}} or use the function \code{\link{ggdendrogram}}.
 }
-\author{
-Andrie de Vries - \email{apdevries@gmail.com}
-}
 \seealso{
 \code{\link{dendro_data}}
 }
+\author{
+Andrie de Vries - \email{apdevries@gmail.com}
+}
 \keyword{package}
-

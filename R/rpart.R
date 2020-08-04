@@ -23,10 +23,19 @@
 #' Make the nice labels used by print and summary.
 #' 
 #' @param digits obvious
-#' @param minlength 0 = don't abbrev factors; 1 = use single letters; 2+= the same arg as the "abbreviate" function
-#' @param collapse an oddly named argument: FALSE = return a matrix with two columns, containing the labels of the left and right descendants of each node; TRUE = return a vector of 1 column, with the label of the parent
-#' @param pretty: for historical compatability: 0   -> minlength = 0; NULL -> minlength = 1; TRUE   -> minlength = 4
+#' 
+#' @param minlength 0 = don't abbrev factors; 1 = use single letters; 2+= the
+#'   same arg as the "abbreviate" function
+#'
+#' @param collapse an oddly named argument: FALSE = return a matrix with two
+#'   columns, containing the labels of the left and right descendants of each
+#'   node; TRUE = return a vector of 1 column, with the label of the parent
+#'
+#' @param pretty: for historical compatibility: 0   -> minlength = 0; NULL ->
+#'   minlength = 1; TRUE   -> minlength = 4
+#'
 #' @param ... = other args for abbreviate()
+#' 
 #' @keywords internal
 labels.rpart <- function(object, digits = 4, minlength = 1L, pretty,
                          collapse = TRUE, ...)
@@ -176,7 +185,7 @@ tree.depth <- function (nodes)
 #' Compute the x-y coordinates for a tree.
 #' 
 #' @param tree Tree model
-#' @param parms Graphics paramters
+#' @param parms Graphics parameters
 #' @keywords internal
 rpartco <- function(tree, parms)
 {

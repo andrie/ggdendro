@@ -15,4 +15,3 @@ treeco(tree, uniform)
 Function copied from tree:::treeco.
 }
 \keyword{internal}
-

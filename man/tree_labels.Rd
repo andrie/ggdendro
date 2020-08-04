@@ -17,15 +17,16 @@ a list with two elements: $labels and $leaf_labels
 \description{
 Extract labels data frame from tree object for plotting using ggplot.
 }
-\author{
-Code modified from original by Brian Ripley
-}
 \seealso{
 \code{\link{ggdendrogram}}
 
-Other tree functions: \code{\link{dendro_data.tree}},
-  \code{\link{get_data_tree_leaf_labels}},
-  \code{\link{tree_segments}}
+Other tree functions: 
+\code{\link{dendro_data.tree}()},
+\code{\link{get_data_tree_leaf_labels}()},
+\code{\link{tree_segments}()}
 }
+\author{
+Code modified from original by Brian Ripley
+}
+\concept{tree functions}
 \keyword{internal}
-

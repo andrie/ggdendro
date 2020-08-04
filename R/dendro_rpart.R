@@ -14,24 +14,45 @@
 #  A copy of the GNU General Public License is available at
 #  http://www.r-project.org/Licenses/
 #
-#
-
-
 # Classification Tree with rpart
 
 
 #' Extract data from classification tree object for plotting using ggplot.
-#' 
-#' Extracts data to plot line segments and labels from a \code{\link[rpart]{rpart}} classification tree object.  This data can then be manipulated or plotted, e.g. using \code{\link[ggplot2]{ggplot}}.
-#' 
-#' This code is in essence a copy of \code{\link[rpart]{plot.rpart}}, retaining the plot data but without plotting toa plot device.
-#' 
+#'
+#' Extracts data to plot line segments and labels from a
+#' \code{\link[rpart]{rpart}} classification tree object.  This data can then be
+#' manipulated or plotted, e.g. using \code{\link[ggplot2]{ggplot}}.
+#'
+#' This code is in essence a copy of \code{\link[rpart]{plot.rpart}}, retaining
+#' the plot data but without plotting to a plot device.
+#'
 #' @param model object of class "tree", e.g. the output of tree()
-#' @param uniform if TRUE, uniform vertical spacing of the nodes is used; this may be less cluttered when fitting a large plot onto a page. The default is to use a non-uniform spacing proportional to the error in the fit.
-#' @param branch controls the shape of the branches from parent to child node. Any number from 0 to 1 is allowed. A value of 1 gives square shouldered branches, a value of 0 give V shaped branches, with other values being intermediate.
-#' @param compress if FALSE, the leaf nodes will be at the horizontal plot coordinates of 1:nleaves. If TRUE, the routine attempts a more compact arrangement of the tree. The compaction algorithm assumes uniform=TRUE; surprisingly, the result is usually an improvement even when that is not the case.
-#' @param nspace the amount of extra space between a node with children and a leaf, as compared to the minimal space between leaves. Applies to compressed trees only. The default is the value of branch.
-#' @param minbranch	set the minimum length for a branch to minbranch times the average branch length. This parameter is ignored if uniform=TRUE. Sometimes a split will give very little improvement, or even (in the classification case) no improvement at all. A tree with branch lengths strictly proportional to improvement leaves no room to squeeze in node labels.
+#'
+#' @param uniform if TRUE, uniform vertical spacing of the nodes is used; this
+#'   may be less cluttered when fitting a large plot onto a page. The default is
+#'   to use a non-uniform spacing proportional to the error in the fit.
+#'
+#' @param branch controls the shape of the branches from parent to child node.
+#'   Any number from 0 to 1 is allowed. A value of 1 gives square shouldered
+#'   branches, a value of 0 give V shaped branches, with other values being
+#'   intermediate.
+#'
+#' @param compress if FALSE, the leaf nodes will be at the horizontal plot
+#'   coordinates of 1:nleaves. If TRUE, the routine attempts a more compact
+#'   arrangement of the tree. The compaction algorithm assumes uniform=TRUE;
+#'   surprisingly, the result is usually an improvement even when that is not
+#'   the case.
+#'
+#' @param nspace the amount of extra space between a node with children and a
+#'   leaf, as compared to the minimal space between leaves. Applies to
+#'   compressed trees only. The default is the value of branch.
+#'
+#' @param minbranch	set the minimum length for a branch to minbranch times the
+#'   average branch length. This parameter is ignored if uniform=TRUE. Sometimes
+#'   a split will give very little improvement, or even (in the classification
+#'   case) no improvement at all. A tree with branch lengths strictly
+#'   proportional to improvement leaves no room to squeeze in node labels.
+#' 
 #' @param ... ignored
 #' @export
 #' @return

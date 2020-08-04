@@ -42,17 +42,22 @@ if(require(tree)){
     theme_dendro()
 }
 }
-\author{
-Andrie de Vries, using code modified from original by Brian Ripley
-}
 \seealso{
 \code{\link{ggdendrogram}}
 
-Other dendro_data methods: \code{\link{dendro_data.rpart}},
-  \code{\link{dendro_data}}, \code{\link{dendrogram_data}},
-  \code{\link{rpart_labels}}
+Other dendro_data methods: 
+\code{\link{dendro_data.rpart}()},
+\code{\link{dendro_data}()},
+\code{\link{dendrogram_data}()},
+\code{\link{rpart_labels}()}
 
-Other tree functions: \code{\link{get_data_tree_leaf_labels}},
-  \code{\link{tree_labels}}, \code{\link{tree_segments}}
+Other tree functions: 
+\code{\link{get_data_tree_leaf_labels}()},
+\code{\link{tree_labels}()},
+\code{\link{tree_segments}()}
 }
-
+\author{
+Andrie de Vries, using code modified from original by Brian Ripley
+}
+\concept{dendro_data methods}
+\concept{tree functions}

@@ -17,18 +17,22 @@ a list with two elements: $labels and $leaf_labels
 \description{
 This code is modified from the original plot.rpart in package rpart.
 }
-\author{
-Original author Brian Ripley
-}
 \seealso{
 \code{\link{ggdendrogram}}
 
-Other dendro_data methods: \code{\link{dendro_data.rpart}},
-  \code{\link{dendro_data.tree}},
-  \code{\link{dendro_data}}, \code{\link{dendrogram_data}}
+Other dendro_data methods: 
+\code{\link{dendro_data.rpart}()},
+\code{\link{dendro_data.tree}()},
+\code{\link{dendro_data}()},
+\code{\link{dendrogram_data}()}
 
-Other rpart functions: \code{\link{dendro_data.rpart}},
-  \code{\link{rpart_segments}}
+Other rpart functions: 
+\code{\link{dendro_data.rpart}()},
+\code{\link{rpart_segments}()}
 }
+\author{
+Original author Brian Ripley
+}
+\concept{dendro_data methods}
+\concept{rpart functions}
 \keyword{internal}
-

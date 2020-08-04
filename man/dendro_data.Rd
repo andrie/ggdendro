@@ -12,8 +12,7 @@ dendro_data(model, ...)
 
 \method{dendro_data}{default}(model, ...)
 
-\method{dendro_data}{dendrogram}(model, type = c("rectangle", "triangle"),
-  ...)
+\method{dendro_data}{dendrogram}(model, type = c("rectangle", "triangle"), ...)
 
 \method{dendro_data}{hclust}(model, type = c("rectangle", "triangle"), ...)
 
@@ -117,10 +116,14 @@ To extract the data for line segments, labels or leaf labels use:
 
 \code{\link{ggdendrogram}}
 
-Other dendro_data methods: \code{\link{dendro_data.rpart}},
-  \code{\link{dendro_data.tree}},
-  \code{\link{dendrogram_data}}, \code{\link{rpart_labels}}
+Other dendro_data methods: 
+\code{\link{dendro_data.rpart}()},
+\code{\link{dendro_data.tree}()},
+\code{\link{dendrogram_data}()},
+\code{\link{rpart_labels}()}
 
-Other dendrogram/hclust functions: \code{\link{dendrogram_data}}
+Other dendrogram/hclust functions: 
+\code{\link{dendrogram_data}()}
 }
-
+\concept{dendro_data methods}
+\concept{dendrogram/hclust functions}

@@ -17,8 +17,9 @@ Extract data frame from rpart object for plotting using ggplot.
 \seealso{
 \code{\link{ggdendrogram}}
 
-Other rpart functions: \code{\link{dendro_data.rpart}},
-  \code{\link{rpart_labels}}
+Other rpart functions: 
+\code{\link{dendro_data.rpart}()},
+\code{\link{rpart_labels}()}
 }
+\concept{rpart functions}
 \keyword{internal}
-

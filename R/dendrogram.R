@@ -59,7 +59,7 @@ dendro_data.hclust <- function (model, type = c("rectangle", "triangle"), ...){
   )
 } 
 
-#' @method dendro_data hclust
+#' @rdname dendro_data
 #' @example inst/examples/example_dendro_twins.R
 #' @export
 dendro_data.twins <- function (model, type = c("rectangle", "triangle"), ...){

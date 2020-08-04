@@ -4,8 +4,15 @@
 \alias{ggdendrogram}
 \title{Creates dendrogram plot using ggplot.}
 \usage{
-ggdendrogram(data, segments = TRUE, labels = TRUE, leaf_labels = TRUE,
-  rotate = FALSE, theme_dendro = TRUE, ...)
+ggdendrogram(
+  data,
+  segments = TRUE,
+  labels = TRUE,
+  leaf_labels = TRUE,
+  rotate = FALSE,
+  theme_dendro = TRUE,
+  ...
+)
 }
 \arguments{
 \item{data}{Either a dendro object or an object that can be coerced to class dendro using the \code{\link{dendro_data}} function, i.e. objects of class dendrogram, hclust or tree}
@@ -46,4 +53,3 @@ ggdendrogram(hcdata, rotate=TRUE, size=2) + labs(title="Dendrogram in ggplot2")
 \seealso{
 \code{\link{dendro_data}}
 }
-

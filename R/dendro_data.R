@@ -72,10 +72,17 @@ is.dendro <- function(x){
 #' Method for coercing object to class dendro.
 #' 
 #' @param segments data.frame with segment data
+#' 
 #' @param labels data.frame with labels data
+#' 
 #' @param leaf_labels data.frame with leaf label data
-#' @param class The class of the original model object, e.g. "hclust".  This is used by \code{\link{ggdendrogram}} to determine the angle and jutification of labels
+#' 
+#' @param class The class of the original model object, e.g. "hclust".  This is
+#'   used by \code{\link{ggdendrogram}} to determine the angle and justification
+#'   of labels
+#' 
 #' @seealso \code{\link{dendro_data}} and \code{\link{ggdendro-package}}
+#' 
 #' @export 
 as.dendro <- function(segments, labels, leaf_labels=NULL, class){
   #stopifnot(inherits(x, list))

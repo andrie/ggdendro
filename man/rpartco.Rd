@@ -9,10 +9,9 @@ rpartco(tree, parms)
 \arguments{
 \item{tree}{Tree model}
 
-\item{parms}{Graphics paramters}
+\item{parms}{Graphics parameters}
 }
 \description{
 Compute the x-y coordinates for a tree.
 }
 \keyword{internal}
-

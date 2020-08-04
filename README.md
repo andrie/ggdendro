@@ -3,11 +3,13 @@
 This is a set of tools for creating dendrograms and tree plots using `ggplot` in R.
 
 
+<!-- badges: start -->
+[![R build status](https://github.com/andrie/ggdendro/workflows/R-CMD-check/badge.svg)](https://github.com/andrie/ggdendro/actions)
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
-master: [<img src="https://travis-ci.org/andrie/ggdendro.svg?branch=master" alt="Build Status" />](https://travis-ci.org/andrie/ggdendro)
-dev: [<img src="https://travis-ci.org/andrie/ggdendro.svg?branch=dev" alt="Build Status" />](https://travis-ci.org/andrie/ggdendro) 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggdendro)](http://cran.r-project.org/package=ggdendro)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/ggdendro)](http://www.r-pkg.org/pkg/ggdendro)
+<!-- badges: end -->
+
 
 
 ## Important functions

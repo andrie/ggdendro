@@ -15,4 +15,3 @@ Is a dendro?  Tests whether an object is of class dendro.
 \seealso{
 \code{\link{dendro_data}} and \code{\link{ggdendro-package}}
 }
-

@@ -20,11 +20,15 @@ Extract data frame from dendrogram object for plotting using ggplot
 \seealso{
 \code{\link{ggdendrogram}}
 
-Other dendro_data methods: \code{\link{dendro_data.rpart}},
-  \code{\link{dendro_data.tree}},
-  \code{\link{dendro_data}}, \code{\link{rpart_labels}}
+Other dendro_data methods: 
+\code{\link{dendro_data.rpart}()},
+\code{\link{dendro_data.tree}()},
+\code{\link{dendro_data}()},
+\code{\link{rpart_labels}()}
 
-Other dendrogram/hclust functions: \code{\link{dendro_data}}
+Other dendrogram/hclust functions: 
+\code{\link{dendro_data}()}
 }
+\concept{dendro_data methods}
+\concept{dendrogram/hclust functions}
 \keyword{internal}
-

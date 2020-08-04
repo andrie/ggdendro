@@ -1,12 +1,6 @@
 Package: ggdendro
-Authors@R: c(person("Andrie", "de Vries", role=c("aut", "cre"),
-    email="apdevries@gmail.com"), person(c("Brian", "D."), "Ripley", role =
-    c("aut"), comment = "author of package tree"))
-License: GPL-2|GPL-3
+Version: 0.1.20.9000
 Title: Create Dendrograms and Tree Diagrams Using 'ggplot2'
-LazyData: true
-LazyLoad: true
-ByteCompile: true
 Description: This is a set of tools for dendrograms and
     tree plots using 'ggplot2'.  The 'ggplot2' philosophy is to
     clearly separate data from the presentation.
@@ -16,19 +10,27 @@ Description: This is a set of tools for dendrograms and
     functions that extract the dendrogram plot data. The package
     provides implementations for tree, rpart, as well as diana and agnes
     cluster diagrams.
-Version: 0.1-20
+Authors@R: c(person("Andrie", "de Vries", role=c("aut", "cre"),
+    email="apdevries@gmail.com"), person(c("Brian", "D."), "Ripley", role =
+    c("aut"), comment = "author of package tree"))
+License: GPL-2|GPL-3
+LazyData: true
+LazyLoad: true
+ByteCompile: true
 URL: https://github.com/andrie/ggdendro
 BugReports: https://github.com/andrie/ggdendro/issues
-Date: 2016-04-27
 Imports:
     MASS,
     ggplot2(>= 0.9.2)
 Suggests:
-    rpart(>= 4.0-0),
+    rpart (>= 4.0-0),
     tree,
     testthat,
     knitr,
     cluster,
-    scales
+    scales,
+    spelling
 VignetteBuilder: knitr
-RoxygenNote: 5.0.1
+RoxygenNote: 7.1.1
+Language: en-US
+Encoding: UTF-8
