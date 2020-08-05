@@ -1,3 +1,11 @@
+ggdendro dev
+============
+
+Bug fixes:
+
+* Fix alignment of leaf labels when rotate=FALSE #28
+
+
 ggdendro 0.1-16 (Release date: )
 ==============
 

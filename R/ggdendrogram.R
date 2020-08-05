@@ -41,7 +41,7 @@ ggdendrogram <- function(data, segments=TRUE, labels=TRUE, leaf_labels=TRUE,
     ifelse(rotate, 90, 0)
   }
   hjust <- if(dataClass %in% c("dendrogram", "hclust")){
-    ifelse(rotate, 0, 1)
+    ifelse(rotate, 1, 1)
   } else {
     0.5
   }
@@ -67,7 +67,7 @@ ggdendrogram <- function(data, segments=TRUE, labels=TRUE, leaf_labels=TRUE,
   }
   if(theme_dendro) p <- p + theme_dendro()
   p <- p + 
-    theme(axis.text.x = element_text(angle=angle, hjust=1)) +
+    theme(axis.text.x = element_text(angle=angle, hjust=1, vjust = 0.5)) +
     theme(axis.text.y = element_text(angle=angle, hjust=1))
   
   p
