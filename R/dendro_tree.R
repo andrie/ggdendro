@@ -30,38 +30,38 @@
 #' @param type Either `proportional` or `uniform`. If this partially matches
 #'   "uniform", the branches are of uniform length. Otherwise they are
 #'   proportional to the decrease in impurity.
-#' 
+#'
 #' @param ... ignored
-#' 
+#'
 #' @export
-#' 
+#'
 #' @return
 #' A list of three data frames:
 #' \item{segments}{a data frame containing the line segment data}
 #' \item{labels}{a data frame containing the label text data}
 #' \item{leaf_labels}{a data frame containing the leaf label text data}
-#' 
+#'
 #' @seealso [ggdendrogram()]
 #' @family dendro_data methods
 #' @family tree functions
 #' @author Andrie de Vries, using code modified from original by Brian Ripley
 #' @example inst/examples/example_dendro_tree.R
-dendro_data.tree <- function(model, type = c("proportional", "uniform"), ...){
+dendro_data.tree <- function(model, type = c("proportional", "uniform"), ...) {
   type <- match.arg(type)
   uniform <- type == "uniform"
-  
+
   # dev <- dev.cur()
   # if (dev == 1L) dev <- 2L # as device will be opened.
-  
+
   # assign(paste0("device", dev), uniform, envir = tree_ggdendro_env)
-  
-	labels <- tree_labels(model, uniform = uniform, ...)
-	as.dendro(
+
+  labels <- tree_labels(model, uniform = uniform, ...)
+  as.dendro(
     segments = tree_segments(model, uniform, ...),
-		labels = labels$labels,
-		leaf_labels = labels$leaf_labels,
-    class="tree"
-	)
+    labels = labels$labels,
+    leaf_labels = labels$leaf_labels,
+    class = "tree"
+  )
 }
 
 
@@ -73,23 +73,24 @@ dendro_data.tree <- function(model, type = c("proportional", "uniform"), ...){
 #' @seealso [ggdendrogram()]
 #' @family tree functions
 #' @author Code modified from original by Brian Ripley
-tree_segments <- function(model, uniform, ...){
-  if(missing(uniform)) stop("specify the uniform argument")
-	# Uses tree:::treeco to extract data frame of plot locations
-	xy <- treeco(model, uniform = uniform)
-	n <- model$frame$n
-	
-	# Lines copied from tree:::treepl
-	x <- xy$x
-	y <- xy$y
-	node = as.numeric(row.names(model$frame))
-	parent <- match((node%/%2), node)
-	sibling <- match(ifelse(node%%2, node - 1L, node + 1L), node)
-	
-	linev <- data.frame(x=x, y=y, xend=x, yend=y[parent], n=n)
-	lineh <- data.frame(x=x[parent], y=y[parent], xend=x, yend=y[parent], n=n)
-	
-	rbind(linev[-1,], lineh[-1,])
+tree_segments <- function(model, uniform, ...) {
+  if (missing(uniform)) stop("specify the uniform argument")
+  # Uses tree:::treeco to extract data frame of plot locations
+  xy <- treeco(model, uniform = uniform)
+  n <- model$frame$n
+
+  # Lines copied from tree:::treepl
+  x <- xy$x
+  y <- xy$y
+  node <- as.numeric(row.names(model$frame))
+  parent <- match((node %/% 2), node)
+  sibling <- match(ifelse(node %% 2, node - 1L, node + 1L), node)
+
+  linev <- data.frame(x = x, y = y, xend = x, yend = y[parent], n = n)
+  lineh <- data.frame(x = x[parent], y = y[parent], xend = x, yend = y[parent], 
+                      n = n)
+
+  rbind(linev[-1, ], lineh[-1, ])
 }
 
 #' Extract labels data frame from tree object for plotting using ggplot.
@@ -100,69 +101,69 @@ tree_segments <- function(model, uniform, ...){
 #' @seealso [ggdendrogram()]
 #' @family tree functions
 #' @author Code modified from original by Brian Ripley
-tree_labels <- function(model, uniform, ...){
+tree_labels <- function(model, uniform, ...) {
   # Uses tree:::treeco to extract data frame of plot locations
   xy <- treeco(model, uniform = uniform)
   label <- model$frame$var
-	yval  <- model$frame$yval
-	sleft  <- model$frame$splits.cutleft
+  yval <- model$frame$yval
+  sleft <- model$frame$splits.cutleft
   sright <- model$frame$splits.right
 
   # Lines copied from tree:::treepl
   x <- xy$x
   y <- xy$y
-  node = as.numeric(row.names(model$frame))
-  parent <- match((node%/%2), node)
-  sibling <- match(ifelse(node%%2, node - 1L, node + 1L), node)
+  node <- as.numeric(row.names(model$frame))
+  parent <- match((node %/% 2), node)
+  sibling <- match(ifelse(node %% 2, node - 1L, node + 1L), node)
 
-	# Extract labels
-  data <- data.frame(x=x, y=y, label=label)
-  data <- data[data$label != "<leaf>",]
-	labels <- as.data.frame(data)
-	
-	# Extract leaf labels
-	data <- data.frame(x, y, label, yval)
-	data <- data[data$label == "<leaf>",]
-  if(is.numeric(data$yval)){
-	  data$label <- round(data$yval, 2)
+  # Extract labels
+  data <- data.frame(x = x, y = y, label = label)
+  data <- data[data$label != "<leaf>", ]
+  labels <- as.data.frame(data)
+
+  # Extract leaf labels
+  data <- data.frame(x, y, label, yval)
+  data <- data[data$label == "<leaf>", ]
+  if (is.numeric(data$yval)) {
+    data$label <- round(data$yval, 2)
   } else {
     data$label <- data$yval
   }
-	leaf_labels <- as.data.frame(data)
-	
-	list(
-			labels      = labels,
-			leaf_labels = leaf_labels
-	)
+  leaf_labels <- as.data.frame(data)
+
+  list(
+    labels = labels,
+    leaf_labels = leaf_labels
+  )
 }
 
 #' Extract labels data frame from tree object for plotting using ggplot.
-#' 
+#'
 #' Extract labels data frame from tree object for plotting using ggplot
-#' 
+#'
 #' @param model object of class "tree", e.g. the output of tree()
 #' @param ... ignored
 #' @keywords internal
 #' @seealso [ggdendrogram()]
 #' @family tree functions
 #' @author Code modified from original by Brian Ripley
-get_data_tree_leaf_labels <- function(model, uniform, ...){
+get_data_tree_leaf_labels <- function(model, uniform, ...) {
   # Uses tree:::treeco to extract data frame of plot locations
   xy <- treeco(model, uniform = uniform)
   label <- model$frame$var
-  yval  <- model$frame$yval
-  sleft  <- model$frame$splits.cutleft
+  yval <- model$frame$yval
+  sleft <- model$frame$splits.cutleft
   sright <- model$frame$splits.right
 
   # Lines copied from tree:::treepl
   x <- xy$x
   y <- xy$y
-  node = as.numeric(row.names(model$frame))
-  parent <- match((node%/%2), node)
-  sibling <- match(ifelse(node%%2, node - 1L, node + 1L), node)
+  node <- as.numeric(row.names(model$frame))
+  parent <- match((node %/% 2), node)
+  sibling <- match(ifelse(node %% 2, node - 1L, node + 1L), node)
 
   data <- data.frame(x, y, label, yval)
-  data <- data[data$label == "<leaf>",]
+  data <- data[data$label == "<leaf>", ]
   data$label <- round(data$yval, 2)
   data
 }
@@ -171,33 +172,37 @@ get_data_tree_leaf_labels <- function(model, uniform, ...){
 # treeco ------------------------------------------------------------------
 
 #' Function copied from tree:::treeco.
-#' 
+#'
 #' @param tree tree object
 #' @param uniform ???
 #' @keywords internal
-treeco <- function (tree, uniform) {
+treeco <- function(tree, uniform) {
   # if (missing(uniform)) {
   #   pn <- paste0("device", dev.cur())
-  #   uniform <- if (exists(pn, envir = tree_ggdendro_env, inherits = FALSE)) 
+  #   uniform <- if (exists(pn, envir = tree_ggdendro_env, inherits = FALSE))
   #     get(pn, envir = tree_ggdendro_env, inherits = FALSE)
   #   else FALSE
   # }
-  if(missing(uniform)) stop("specify uniform argument")
-  
+  if (missing(uniform)) stop("specify uniform argument")
+
   frame <- tree$frame
   node <- as.integer(row.names(frame))
   depth <- tree.depth(node)
   x <- -depth
-  if (uniform) 
+  if (uniform) {
     y <- x
-  else {
+  } else {
     y <- dev <- frame$dev
     depth <- split(seq(node), depth)
-    parent <- match(node%/%2L, node)
-    sibling <- match(ifelse(node%%2L, node - 1L, node + 1L), 
-                     node)
-    for (i in depth[-1L]) y[i] <- y[parent[i]] - dev[parent[i]] + 
-      dev[i] + dev[sibling[i]]
+    parent <- match(node %/% 2L, node)
+    sibling <- match(
+      ifelse(node %% 2L, node - 1L, node + 1L),
+      node
+    )
+    for (i in depth[-1L]) {
+      y[i] <- y[parent[i]] - dev[parent[i]] +
+        dev[i] + dev[sibling[i]]
+    }
   }
   depth <- -x
   leaves <- frame$var == "<leaf>"
@@ -208,4 +213,3 @@ treeco <- function (tree, uniform) {
   for (i in rev(depth)) x[i] <- 0.5 * (x[left.child[i]] + x[right.child[i]])
   list(x = x, y = y)
 }
-

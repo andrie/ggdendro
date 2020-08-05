@@ -60,16 +60,19 @@ This code is in essence a copy of \code{\link[rpart:plot.rpart]{rpart::plot.rpar
 the plot data but without plotting to a plot device.
 }
 \examples{
-### Demionstrate rpart
+### Demonstrate rpart
 
-if(require(rpart)){
+if (require(rpart)) {
   require(ggplot2)
-  fit <- rpart(Kyphosis ~ Age + Number + Start, method="class", data=kyphosis)
+  fit <- rpart(Kyphosis ~ Age + Number + Start, method = "class", 
+               data = kyphosis)
   fitr <- dendro_data(fit)
-  ggplot() + 
-    geom_segment(data=fitr$segments, aes(x=x, y=y, xend=xend, yend=yend)) + 
-    geom_text(data=fitr$labels, aes(x=x, y=y, label=label)) +
-    geom_text(data=fitr$leaf_labels, aes(x=x, y=y, label=label)) +
+  ggplot() +
+    geom_segment(data = fitr$segments, 
+                 aes(x = x, y = y, xend = xend, yend = yend)
+    ) +
+    geom_text(data = fitr$labels, aes(x = x, y = y, label = label)) +
+    geom_text(data = fitr$leaf_labels, aes(x = x, y = y, label = label)) +
     theme_dendro()
 }
 }
