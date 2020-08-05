@@ -19,26 +19,30 @@ dendro_data(model, ...)
 \method{dendro_data}{twins}(model, type = c("rectangle", "triangle"), ...)
 }
 \arguments{
-\item{model}{object of type \code{\link[stats:hclust]{stats::hclust()}}, \code{\link[stats:dendrogram]{stats::dendrogram()}} or \code{tree::tree()}}
+\item{model}{object of type \code{\link[stats:hclust]{stats::hclust()}}, \code{\link[stats:dendrogram]{stats::dendrogram()}} or
+\code{tree::tree()}}
 
 \item{...}{ignored}
 
 \item{type}{The type of plot, indicating the shape of the dendrogram.  "rectangle" will draw rectangular lines, while "triangle" will draw triangular lines.}
 }
 \value{
-a list of data frames that contain the data appropriate to each cluster model
+a list of data frames that contain the data appropriate to each
+cluster model
 
 A list with components:
 \item{segments}{Line segment data}
 \item{labels}{Label data}
 }
 \description{
-This function provides a generic mechanism to extract relevant plotting data, typically line segments and labels, from a variety of cluster models.
+This function provides a generic mechanism to extract relevant plotting data,
+typically line segments and labels, from a variety of cluster models.
 
 Extract line segment and label data from \code{\link[stats:dendrogram]{stats::dendrogram()}} or \code{\link[stats:hclust]{stats::hclust()}} object.  The resulting object is a list of data frames containing line segment data and label data.
 }
 \details{
-For \code{\link[stats:dendrogram]{stats::dendrogram()}} and \code{tree::tree()} models, extracts line segment data and labels.
+For \code{\link[stats:dendrogram]{stats::dendrogram()}} and \code{tree::tree()} models, extracts line segment
+data and labels.
 }
 \examples{
 require(ggplot2)
@@ -49,17 +53,17 @@ model <- hclust(dist(USArrests), "ave")
 dendro <- as.dendrogram(model)
 
 # Rectangular lines
-ddata <- dendro_data(dendro, type="rectangle")
-ggplot(segment(ddata)) + 
-  geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) + 
-  coord_flip() + 
-  scale_y_reverse(expand=c(0.2, 0)) + 
+ddata <- dendro_data(dendro, type = "rectangle")
+ggplot(segment(ddata)) +
+  geom_segment(aes(x = x, y = y, xend = xend, yend = yend)) +
+  coord_flip() +
+  scale_y_reverse(expand = c(0.2, 0)) +
   theme_dendro()
 
 # Triangular lines
-ddata <- dendro_data(dendro, type="triangle")
-ggplot(segment(ddata)) + 
-  geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) + 
+ddata <- dendro_data(dendro, type = "triangle")
+ggplot(segment(ddata)) +
+  geom_segment(aes(x = x, y = y, xend = xend, yend = yend)) +
   theme_dendro()
 
 # Demonstrate dendro_data.hclust
@@ -68,51 +72,41 @@ require(ggplot2)
 hc <- hclust(dist(USArrests), "ave")
 
 # Rectangular lines
-hcdata <- dendro_data(hc, type="rectangle")
-ggplot(segment(hcdata)) + 
-  geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) + 
-  coord_flip() + 
-  scale_y_reverse(expand=c(0.2, 0)) + 
+hcdata <- dendro_data(hc, type = "rectangle")
+ggplot(segment(hcdata)) +
+  geom_segment(aes(x = x, y = y, xend = xend, yend = yend)) +
+  coord_flip() +
+  scale_y_reverse(expand = c(0.2, 0)) +
   theme_dendro()
 
 # Triangular lines
-hcdata <- dendro_data(hc, type="triangle")
-ggplot(segment(hcdata)) + 
-  geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) +
+hcdata <- dendro_data(hc, type = "triangle")
+ggplot(segment(hcdata)) +
+  geom_segment(aes(x = x, y = y, xend = xend, yend = yend)) +
   theme_dendro()
-
-
 ### Demonstrate the twins of agnes and diana, from package cluster
 
-if(require(cluster)){
+if (require(cluster)) {
   model <- agnes(votes.repub, metric = "manhattan", stand = TRUE)
   dg <- as.dendrogram(model)
   ggdendrogram(dg)
 }
 
 
-if(require(cluster)){
+if (require(cluster)) {
   model <- diana(votes.repub, metric = "manhattan", stand = TRUE)
   dg <- as.dendrogram(model)
   ggdendrogram(dg)
 }
-
 }
 \seealso{
 There are several implementations for specific cluster algorithms:
 
-\itemize{
-\item \code{\link[=dendro_data.hclust]{dendro_data.hclust()}}
-\item \code{\link[=dendro_data.dendrogram]{dendro_data.dendrogram()}}
-\item \code{\link[=dendro_data.tree]{dendro_data.tree()}}
-\item \code{\link[=dendro_data.rpart]{dendro_data.rpart()}}
-}
-To extract the data for line segments, labels or leaf labels use:
-\itemize{
-\item{\code{\link[=segment]{segment()}}}: {the line segment data}
-\item{\code{\link[=label]{label()}}}: {the text for each end segment}
-\item{\code{\link[=leaf_label]{leaf_label()}}}: {the leaf labels of a tree diagram}
-}
+\itemize{ \item \code{\link[=dendro_data.hclust]{dendro_data.hclust()}} \item \code{\link[=dendro_data.dendrogram]{dendro_data.dendrogram()}} \item
+\code{\link[=dendro_data.tree]{dendro_data.tree()}} \item \code{\link[=dendro_data.rpart]{dendro_data.rpart()}} } To extract the data for
+line segments, labels or leaf labels use: \itemize{ \item{\code{\link[=segment]{segment()}}}: {the
+line segment data} \item{\code{\link[=label]{label()}}}: {the text for each end segment}
+\item{\code{\link[=leaf_label]{leaf_label()}}}: {the leaf labels of a tree diagram} }
 
 \code{\link[=ggdendrogram]{ggdendrogram()}}
 

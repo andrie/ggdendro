@@ -16,7 +16,8 @@ leaf_label(x)
 \item{x}{dendro object}
 }
 \description{
-\code{segment} extracts line segments, \code{label} extracts labels, and \code{leaf_label} extracts leaf labels from a dendro object.
+\code{segment} extracts line segments, \code{label} extracts labels, and \code{leaf_label}
+extracts leaf labels from a dendro object.
 }
 \seealso{
 \code{\link[=dendro_data]{dendro_data()}}

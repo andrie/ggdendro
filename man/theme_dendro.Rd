@@ -7,5 +7,7 @@
 theme_dendro()
 }
 \description{
-Sets most of the \code{ggplot} options to blank, by returning blank \code{theme} elements for the panel grid, panel background, axis title, axis text, axis line and axis ticks.
+Sets most of the \code{ggplot} options to blank, by returning blank \code{theme}
+elements for the panel grid, panel background, axis title, axis text, axis
+line and axis ticks.
 }

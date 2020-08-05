@@ -1,5 +1,5 @@
 # Test functionality using testthat library
-# 
+#
 # Author: Andrie
 #------------------------------------------------------------------------------
 
@@ -13,23 +13,21 @@
 context("dendrogram")
 
 test_that("data_dendrogram() returns a correct classes", {
+  hc <- hclust(dist(USArrests), "ave")
+  dhc <- as.dendrogram(hc)
 
-			hc <- hclust(dist(USArrests), "ave")
-			dhc <- as.dendrogram(hc)
-			
-			expect_is(dendro_data(dhc, type="rectangle"), "dendro")
+  expect_is(dendro_data(dhc, type = "rectangle"), "dendro")
 
-			ddata <- dendro_data(dhc, type="rectangle")
-			expect_that(ddata$segments, is_a("data.frame"))
-			expect_that(ddata$labels, is_a("data.frame"))
-			expect_that(nrow(ddata$segments), equals(196))
-			
-			ddata <- dendro_data(dhc, type="triangle")
-			expect_that(ddata$segments, is_a("data.frame"))
-			expect_that(ddata$labels, is_a("data.frame"))
-			expect_that(nrow(ddata$segments), equals(98))
-			
-		})
+  ddata <- dendro_data(dhc, type = "rectangle")
+  expect_that(ddata$segments, is_a("data.frame"))
+  expect_that(ddata$labels, is_a("data.frame"))
+  expect_that(nrow(ddata$segments), equals(196))
+
+  ddata <- dendro_data(dhc, type = "triangle")
+  expect_that(ddata$segments, is_a("data.frame"))
+  expect_that(ddata$labels, is_a("data.frame"))
+  expect_that(nrow(ddata$segments), equals(98))
+})
 
 #------------------------------------------------------------------------------
 

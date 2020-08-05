@@ -3,8 +3,8 @@
 
 # ggdendro
 
-This is a set of tools for creating dendrograms and tree plots using
-`ggplot` in R.
+Provides functions for creating dendrograms and tree plots using
+`ggplot2`.
 
 <!-- badges: start -->
 
@@ -17,8 +17,6 @@ developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repo
 [![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/ggdendro)](http://www.r-pkg.org/pkg/ggdendro)
 <!-- badges: end -->
-
-## Important functions
 
 The `ggdendro` package offers a generic function to extract data and
 text from the various clustering models:
@@ -50,12 +48,17 @@ plotting.
 library(ggplot2)
 library(ggdendro)
 hc <- hclust(dist(USArrests), "ave")
-hcdata <- dendro_data(hc, type="rectangle")
-ggplot() + 
-  geom_segment(data=segment(hcdata), aes(x=x, y=y, xend=xend, yend=yend)) +
-  geom_text(data=label(hcdata), aes(x=x, y=y, label=label, hjust=0), size=3) +
-  coord_flip() + 
-  scale_y_reverse(expand=c(0.2, 0))
+hcdata <- dendro_data(hc, type = "rectangle")
+ggplot() +
+  geom_segment(data = segment(hcdata), 
+               aes(x = x, y = y, xend = xend, yend = yend)
+  ) +
+  geom_text(data = label(hcdata), 
+            aes(x = x, y = y, label = label, hjust = 0), 
+            size = 3
+  ) +
+  coord_flip() +
+  scale_y_reverse(expand = c(0.2, 0))
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
@@ -69,7 +72,7 @@ ggdendrogram(hc)
 <img src="man/figures/README-unnamed-chunk-2-2.png" width="100%" />
 
 ``` r
-ggdendrogram(hc, rotate=TRUE)
+ggdendrogram(hc, rotate = TRUE)
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-3.png" width="100%" />
@@ -78,8 +81,8 @@ ggdendrogram(hc, rotate=TRUE)
 
 ### demonstrate converting hclust to dendro using dendro_data first
 hcdata <- dendro_data(hc)
-ggdendrogram(hcdata, rotate=TRUE) + 
-  labs(title="Dendrogram in ggplot2")
+ggdendrogram(hcdata, rotate = TRUE) +
+  labs(title = "Dendrogram in ggplot2")
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-4.png" width="100%" />
