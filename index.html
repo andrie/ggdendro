@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">ggdendro</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.20.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.20.9001</span>
       </span>
     </div>
 
@@ -80,12 +80,9 @@
 <div id="ggdendro" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#ggdendro" class="anchor"></a>ggdendro</h1></div>
-<p>This is a set of tools for creating dendrograms and tree plots using <code>ggplot</code> in R.</p>
+<p>Provides functions for creating dendrograms and tree plots using <code>ggplot2</code>.</p>
 <!-- badges: start -->
 <p><a href="https://github.com/andrie/ggdendro/actions"><img src="https://github.com/andrie/ggdendro/workflows/R-CMD-check/badge.svg" alt="R build status"></a> <a href="http://www.repostatus.org/#active"><img src="http://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active - The project has reached a stable, usable state and is being actively developed."></a> <a href="http://cran.r-project.org/package=ggdendro"><img src="http://www.r-pkg.org/badges/version/ggdendro" alt="CRAN_Status_Badge"></a> <a href="http://www.r-pkg.org/pkg/ggdendro"><img src="http://cranlogs.r-pkg.org/badges/ggdendro" alt="CRAN RStudio mirror downloads"></a> <!-- badges: end --></p>
-<div id="important-functions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#important-functions" class="anchor"></a>Important functions</h2>
 <p>The <code>ggdendro</code> package offers a generic function to extract data and text from the various clustering models:</p>
 <ul>
 <li>
@@ -108,31 +105,35 @@
 <code><a href="reference/segment.html">leaf_label()</a></code> for the leaf labels of a tree diagram</li>
 </ul>
 <p>The results of these functions can then be passed to <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> for plotting.</p>
-</div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
 <div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggdendro</span>)
 <span class="no">hc</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html">hclust</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/dist.html">dist</a></span>(<span class="no">USArrests</span>), <span class="st">"ave"</span>)
-<span class="no">hcdata</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/dendro_data.html">dendro_data</a></span>(<span class="no">hc</span>, <span class="kw">type</span><span class="kw">=</span><span class="st">"rectangle"</span>)
+<span class="no">hcdata</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/dendro_data.html">dendro_data</a></span>(<span class="no">hc</span>, <span class="kw">type</span> <span class="kw">=</span> <span class="st">"rectangle"</span>)
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() +
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span>(<span class="kw">data</span><span class="kw">=</span><span class="fu"><a href="reference/segment.html">segment</a></span>(<span class="no">hcdata</span>), <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span><span class="kw">=</span><span class="no">x</span>, <span class="kw">y</span><span class="kw">=</span><span class="no">y</span>, <span class="kw">xend</span><span class="kw">=</span><span class="no">xend</span>, <span class="kw">yend</span><span class="kw">=</span><span class="no">yend</span>)) +
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span>(<span class="kw">data</span><span class="kw">=</span><span class="fu"><a href="reference/segment.html">label</a></span>(<span class="no">hcdata</span>), <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span><span class="kw">=</span><span class="no">x</span>, <span class="kw">y</span><span class="kw">=</span><span class="no">y</span>, <span class="kw">label</span><span class="kw">=</span><span class="no">label</span>, <span class="kw">hjust</span><span class="kw">=</span><span class="fl">0</span>), <span class="kw">size</span><span class="kw">=</span><span class="fl">3</span>) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="fu"><a href="reference/segment.html">segment</a></span>(<span class="no">hcdata</span>),
+               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">x</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="no">y</span>, <span class="kw">xend</span> <span class="kw">=</span> <span class="no">xend</span>, <span class="kw">yend</span> <span class="kw">=</span> <span class="no">yend</span>)
+  ) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="fu"><a href="reference/segment.html">label</a></span>(<span class="no">hcdata</span>),
+            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">x</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="no">y</span>, <span class="kw">label</span> <span class="kw">=</span> <span class="no">label</span>, <span class="kw">hjust</span> <span class="kw">=</span> <span class="fl">0</span>),
+            <span class="kw">size</span> <span class="kw">=</span> <span class="fl">3</span>
+  ) +
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span>() +
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_reverse</a></span>(<span class="kw">expand</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.2</span>, <span class="fl">0</span>))</pre></div>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_reverse</a></span>(<span class="kw">expand</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.2</span>, <span class="fl">0</span>))</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
 <div class="sourceCode" id="cb2"><pre class="r">
 <span class="co">### demonstrate plotting directly from object class hclust</span>
 <span class="fu"><a href="reference/ggdendrogram.html">ggdendrogram</a></span>(<span class="no">hc</span>)</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-2.png" width="100%"></p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="reference/ggdendrogram.html">ggdendrogram</a></span>(<span class="no">hc</span>, <span class="kw">rotate</span><span class="kw">=</span><span class="fl">TRUE</span>)</pre></div>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="reference/ggdendrogram.html">ggdendrogram</a></span>(<span class="no">hc</span>, <span class="kw">rotate</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-3.png" width="100%"></p>
 <div class="sourceCode" id="cb4"><pre class="r">
 <span class="co">### demonstrate converting hclust to dendro using dendro_data first</span>
 <span class="no">hcdata</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/dendro_data.html">dendro_data</a></span>(<span class="no">hc</span>)
-<span class="fu"><a href="reference/ggdendrogram.html">ggdendrogram</a></span>(<span class="no">hcdata</span>, <span class="kw">rotate</span><span class="kw">=</span><span class="fl">TRUE</span>) +
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="kw">title</span><span class="kw">=</span><span class="st">"Dendrogram in ggplot2"</span>)</pre></div>
+<span class="fu"><a href="reference/ggdendrogram.html">ggdendrogram</a></span>(<span class="no">hcdata</span>, <span class="kw">rotate</span> <span class="kw">=</span> <span class="fl">TRUE</span>) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Dendrogram in ggplot2"</span>)</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-4.png" width="100%"></p>
 </div>
 </div>

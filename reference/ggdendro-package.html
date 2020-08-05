@@ -40,7 +40,8 @@
 
 
 <meta property="og:title" content="Create Dendrograms and Tree Diagrams using 'ggplot2' — ggdendro-package" />
-<meta property="og:description" content="This package enables you to create dendrograms and tree plots using ggplot2::ggplot()." />
+<meta property="og:description" content="This package enables you to create dendrograms and tree plots using
+ggplot2::ggplot()." />
 
 
 
@@ -72,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ggdendro</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.20.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.20.9001</span>
       </span>
     </div>
 
@@ -117,15 +118,21 @@
     </div>
 
     <div class="ref-description">
-    <p>This package enables you to create dendrograms and tree plots using <code><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot2::ggplot()</a></code>.</p>
+    <p>This package enables you to create dendrograms and tree plots using
+<code><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot2::ggplot()</a></code>.</p>
     </div>
 
 
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The <code>ggplot2</code> philosophy is to clearly separate data from the presentation.  Unfortunately the plot method for dendrograms (<code><a href='https://rdrr.io/r/stats/dendrogram.html'>plot.dendrogram()</a></code>) plots directly to a plot device without exposing the data.  The ggdendro package resolves this by making available functions that extract the dendrogram plot data.  This data can be used with <code>ggplot</code>.</p>
-<p>The function <code><a href='dendro_data.html'>dendro_data()</a></code> extracts data from different objects that contain dendrogram information.  It is a generic function with methods for:</p>
+    <p>The <code>ggplot2</code> philosophy is to clearly separate data from the presentation.
+Unfortunately the plot method for dendrograms (<code><a href='https://rdrr.io/r/stats/dendrogram.html'>plot.dendrogram()</a></code>) plots
+directly to a plot device without exposing the data.  The ggdendro package
+resolves this by making available functions that extract the dendrogram plot
+data.  This data can be used with <code>ggplot</code>.</p>
+<p>The function <code><a href='dendro_data.html'>dendro_data()</a></code> extracts data from different objects that
+contain dendrogram information.  It is a generic function with methods for:</p>
 <ul>
 <li><p>hclust: <code><a href='dendro_data.html'>dendro_data.hclust()</a></code></p></li>
 <li><p>dendrogram: <code><a href='dendro_data.html'>dendro_data.dendrogram()</a></code></p></li>
@@ -134,14 +141,17 @@
 <li><p>agnes and diana: <code><a href='dendro_data.html'>dendro_data.twins()</a></code></p></li>
 </ul>
 
-<p>These methods create an object of class <code>dendro</code>, consisting of a list of data frames.  To extract the relevant data frames from the list, you can use the accessor functions:</p>
+<p>These methods create an object of class <code>dendro</code>, consisting of a list of
+data frames.  To extract the relevant data frames from the list, you can use
+the accessor functions:</p>
 <ul>
 <li><p><code><a href='segment.html'>segment()</a></code>: the line segment data</p></li>
 <li><p><code><a href='segment.html'>label()</a></code>: the text for each end segment</p></li>
 <li><p><code><a href='segment.html'>leaf_label()</a></code>: the leaf labels of a tree diagram</p></li>
 </ul>
 
-<p>To plot a dendrogram, either construct a plot with <code><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot2::ggplot()</a></code> or use the function <code><a href='ggdendrogram.html'>ggdendrogram()</a></code>.</p>
+<p>To plot a dendrogram, either construct a plot with <code><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot2::ggplot()</a></code> or use
+the function <code><a href='ggdendrogram.html'>ggdendrogram()</a></code>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='dendro_data.html'>dendro_data()</a></code></p></div>

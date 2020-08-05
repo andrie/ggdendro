@@ -73,7 +73,7 @@ This data can then be manipulated or plotted, e.g. using ggplot2::ggplot()." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ggdendro</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.20.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.20.9001</span>
       </span>
     </div>
 
@@ -167,20 +167,26 @@ proportional to the decrease in impurity.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>### Demonstrate tree</span>
 
-<span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>tree</span>)){
+<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>tree</span>)) {
   <span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>ggplot2</span>)
   <span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>MASS</span>)
-  <span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>cpus</span>, <span class='kw'>package</span><span class='kw'>=</span><span class='st'>"MASS"</span>)
-  <span class='no'>cpus.ltr</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/tree/man/tree.html'>tree</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log10</a></span>(<span class='no'>perf</span>) ~ <span class='no'>syct</span>+<span class='no'>mmin</span>+<span class='no'>mmax</span>+<span class='no'>cach</span>+<span class='no'>chmin</span>+<span class='no'>chmax</span>, <span class='no'>cpus</span>)
+  <span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>cpus</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"MASS"</span>)
+  <span class='no'>cpus.ltr</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/tree/man/tree.html'>tree</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log10</a></span>(<span class='no'>perf</span>) ~ <span class='no'>syct</span> + <span class='no'>mmin</span> + <span class='no'>mmax</span> + <span class='no'>cach</span> + <span class='no'>chmin</span> + <span class='no'>chmax</span>,
+                   <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cpus</span>)
   <span class='no'>tree_data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dendro_data.html'>dendro_data</a></span>(<span class='no'>cpus.ltr</span>)
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='segment.html'>segment</a></span>(<span class='no'>tree_data</span>)) +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_segment.html'>geom_segment</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>x</span>, <span class='kw'>y</span><span class='kw'>=</span><span class='no'>y</span>, <span class='kw'>xend</span><span class='kw'>=</span><span class='no'>xend</span>, <span class='kw'>yend</span><span class='kw'>=</span><span class='no'>yend</span>, <span class='kw'>size</span><span class='kw'>=</span><span class='no'>n</span>),
-                 <span class='kw'>colour</span><span class='kw'>=</span><span class='st'>"lightblue"</span>) +
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_segment.html'>geom_segment</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>xend</span> <span class='kw'>=</span> <span class='no'>xend</span>, <span class='kw'>yend</span> <span class='kw'>=</span> <span class='no'>yend</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>n</span>),
+      <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"lightblue"</span>
+    ) +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_size.html'>scale_size</a></span>(<span class='st'>"n"</span>) +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span>(<span class='kw'>data</span><span class='kw'>=</span><span class='fu'><a href='segment.html'>label</a></span>(<span class='no'>tree_data</span>),
-              <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>x</span>, <span class='kw'>y</span><span class='kw'>=</span><span class='no'>y</span>, <span class='kw'>label</span><span class='kw'>=</span><span class='no'>label</span>), <span class='kw'>vjust</span><span class='kw'>=</span>-<span class='fl'>0.5</span>, <span class='kw'>size</span><span class='kw'>=</span><span class='fl'>4</span>) +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span>(<span class='kw'>data</span><span class='kw'>=</span><span class='fu'><a href='segment.html'>leaf_label</a></span>(<span class='no'>tree_data</span>),
-              <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>x</span>, <span class='kw'>y</span><span class='kw'>=</span><span class='no'>y</span>, <span class='kw'>label</span><span class='kw'>=</span><span class='no'>label</span>), <span class='kw'>vjust</span><span class='kw'>=</span><span class='fl'>0.5</span>, <span class='kw'>size</span><span class='kw'>=</span><span class='fl'>3</span>) +
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span>(
+      <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='segment.html'>label</a></span>(<span class='no'>tree_data</span>),
+      <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>label</span>), <span class='kw'>vjust</span> <span class='kw'>=</span> -<span class='fl'>0.5</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>4</span>
+    ) +
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span>(
+      <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='segment.html'>leaf_label</a></span>(<span class='no'>tree_data</span>),
+      <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>label</span>), <span class='kw'>vjust</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>
+    ) +
     <span class='fu'><a href='theme_dendro.html'>theme_dendro</a></span>()
 }</div><div class='output co'>#&gt; <span class='message'>Loading required package: tree</span></div><div class='output co'>#&gt; <span class='message'>Registered S3 method overwritten by 'tree':</span>
 #&gt; <span class='message'>  method     from</span>
