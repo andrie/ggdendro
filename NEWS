@@ -1,23 +1,54 @@
-ggdendro dev
-============
+ggdendro 0.1.21 (Release date: 2020-08-08)
+===============
 
 Bug fixes:
 
 * Fix alignment of leaf labels when rotate=FALSE #28
 
+Other changes
 
-ggdendro 0.1-16 (Release date: )
-==============
+* Re-styled all files to follow tidyverse style guide
+* Added pkgdown site at http://andrie.github.io/ggdendro/
+* Added spellcheck and fixed spelling mistakes
+
+
+ggdendro 0.1-20 (Release date: 2016-04-27)
+===============
+
+Enhancements:
+
+* Don't open plot device during calculation of segment data #25
+
+
+ggdendro 0.1-19 (Release date: 2016-04-27)
+===============
+
+Bug fix release
+
+Functional changes:
+
+* Removed margin argument from dendro_data.rpart, since this had no effect on plot.
+
+Bug fixes:
+
+* Fixed issue #20: Plot data is dependent on device, causing errors and spurious new devices
+* Fixed issue #24: Labels don't print in `ggdendrogram()` with package scales_0.4
+* Fixed issue #22: Margin not working for `dendro_data.rpart`
+
+
+ggdendro 0.1-16 (Release date: 2016-09-06)
+===============
 
 New functionality:
 
-- Added support for objects of class twins in packages cluster, specifically agnes and diana objects (pull request #14 by @unikum)
+- Added support for objects of class `twins` in packages `cluster`, specifically `agnes` and `diana` objects (pull request #14 by @unikum)
 
 Fixes:
 - Many small changes and improvements to documentation
 
+
 ggdendro 0.1-15 (Release date: 29/09/2014)
-==============
+===============
 
 New functionality:
 - None
@@ -29,7 +60,7 @@ Changes:
 
 
 ggdendro 0.1-14 (Release date: 2013-09-03)
-==============
+===============
 
 New functionality
 * Added support for rpart
@@ -42,7 +73,7 @@ Changes:
 
 
 ggdendro 0.1-12 (Release date: 2013-01-27)
-==============
+===============
 
 New functionality
 * None
@@ -52,7 +83,7 @@ Changes:
 * Added Brian D. Ripley as author (original author of package tree)
 
 ggdendro 0.1-09 (Release date: 2012-12-25)
-==============
+===============
 
 New functionality
 * None
@@ -62,7 +93,7 @@ Changes:
 * Changed Licence from GPL (>=2) to GPL-2|GPL-3 to conform with rtree license conditions
 
 ggdendro 0.1-07 (Release date: 2012-08-30)
-==============
+===============
 
 New functionality
 * None
@@ -72,7 +103,7 @@ Changes:
 
 
 ggdendro 0.1-04 (Release date: 2012-02-02)
-==============
+===============
 
 New functionality
 * None
@@ -80,7 +111,7 @@ New functionality
 
 
 ggdendro 0.1-02 (Release date: 19/10/2011)
-==============
+===============
 
 New functionality
 * Added support for classification trees using `package:rpart` 
