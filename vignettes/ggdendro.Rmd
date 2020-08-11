@@ -165,7 +165,3 @@ if(require(cluster)){
 ## Summary
 
 The `ggdendro` package makes it easy to extract the line segment and label data from `hclust`, `dendrogram` and `tree` objects.
-
-
-
-

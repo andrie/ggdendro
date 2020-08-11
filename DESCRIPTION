@@ -8,8 +8,8 @@ Description: This is a set of tools for dendrograms and
     directly to a plot device without exposing the data.
     The 'ggdendro' package resolves this by making available
     functions that extract the dendrogram plot data. The package
-    provides implementations for tree, rpart, as well as diana and agnes
-    cluster diagrams.
+    provides implementations for 'tree', 'rpart', as well as diana and agnes
+    (from 'cluster') diagrams.
 Authors@R: c(person("Andrie", "de Vries", role=c("aut", "cre"),
     email="apdevries@gmail.com"), person(c("Brian", "D."), "Ripley", role =
     c("aut"), comment = "author of package tree"))
@@ -31,7 +31,7 @@ Suggests:
     scales,
     spelling,
     rmarkdown
-VignetteBuilder: rmarkdown
+VignetteBuilder: knitr
 RoxygenNote: 7.1.1
 Language: en-US
 Encoding: UTF-8
