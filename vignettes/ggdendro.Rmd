@@ -1,11 +1,23 @@
-% \VignetteEngine{knitr::knitr}
-% \VignetteIndexEntry{Create Dendrograms and Tree Diagrams using 'ggplot2'}
-% \VignettePackage{ggdendro}
+---
+title: "Introduction_to_ggdendro"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction_to_ggdendro}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
 
 # Using the `ggdendro` package to plot dendrograms
 
-The `ggdendro` package makes it easy to extract dendrogram and tree diagrams into a list of data frames.  You can then use this list to create these types of plots using the `ggplot2` package
+The `ggdendro` package makes it easy to extract dendrogram and tree diagrams into a list of data frames.  You can then use this list to recreate these types of plots using the `ggplot2` package.
 
 ## Introduction
 
@@ -48,7 +60,7 @@ The next section shows how to take full control over the data extraction and sub
 
 ## Extracting the dendrogram plot data using `dendro_data()`
 
-The `hclust()` and `dendrogram()` functions in R makes it easy to plot the results of hierarchical cluster analysis and other dendrograms in R.  However, it is hard to extract the data from this analysis to customise these plots, since the `plot()` functions for both these classes prints directly without the option of returning the plot data.  
+The `hclust()` and `dendrogram()` functions in R makes it easy to plot the results of hierarchical cluster analysis and other dendrograms in R.  However, it is hard to extract the data from this analysis to customize these plots, since the `plot()` functions for both these classes prints directly without the option of returning the plot data.  
 
 ```{r dendro1}
 model <- hclust(dist(USArrests), "ave")
@@ -134,7 +146,7 @@ if(require(rpart)){
 
 ## Twins diagrams: agnes and diana
 
-The `clusters` package allows you to draw agnes and diana diagrams.
+The `cluster` package allows you to draw `agnes` and `diana` diagrams.
 
 ```{r twins}
 if(require(cluster)){
@@ -150,7 +162,7 @@ if(require(cluster)){
 ```
 
 
-## Conclusion
+## Summary
 
 The `ggdendro` package makes it easy to extract the line segment and label data from `hclust`, `dendrogram` and `tree` objects.
 
