@@ -74,7 +74,7 @@ Extract line segment and label data from stats::dendrogram() or stats::hclust() 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ggdendro</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.21</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.22</span>
       </span>
     </div>
 
@@ -124,19 +124,19 @@ typically line segments and labels, from a variety of cluster models.</p>
 <p>Extract line segment and label data from <code><a href='https://rdrr.io/r/stats/dendrogram.html'>stats::dendrogram()</a></code> or <code><a href='https://rdrr.io/r/stats/hclust.html'>stats::hclust()</a></code> object.  The resulting object is a list of data frames containing line segment data and label data.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>dendro_data</span>(<span class='no'>model</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>dendro_data</span>(<span class='kw'>model</span>, <span class='kw'>...</span>)
 
 <span class='co'># S3 method for default</span>
-<span class='fu'>dendro_data</span>(<span class='no'>model</span>, <span class='no'>...</span>)
+<span class='fu'>dendro_data</span>(<span class='kw'>model</span>, <span class='kw'>...</span>)
 
 <span class='co'># S3 method for dendrogram</span>
-<span class='fu'>dendro_data</span>(<span class='no'>model</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rectangle"</span>, <span class='st'>"triangle"</span>), <span class='no'>...</span>)
+<span class='fu'>dendro_data</span>(<span class='kw'>model</span>, type = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rectangle"</span>, <span class='st'>"triangle"</span>), <span class='kw'>...</span>)
 
 <span class='co'># S3 method for hclust</span>
-<span class='fu'>dendro_data</span>(<span class='no'>model</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rectangle"</span>, <span class='st'>"triangle"</span>), <span class='no'>...</span>)
+<span class='fu'>dendro_data</span>(<span class='kw'>model</span>, type = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rectangle"</span>, <span class='st'>"triangle"</span>), <span class='kw'>...</span>)
 
 <span class='co'># S3 method for twins</span>
-<span class='fu'>dendro_data</span>(<span class='no'>model</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rectangle"</span>, <span class='st'>"triangle"</span>), <span class='no'>...</span>)</pre>
+<span class='fu'>dendro_data</span>(<span class='kw'>model</span>, type = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rectangle"</span>, <span class='st'>"triangle"</span>), <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -194,53 +194,60 @@ line segment data</p></li>
 <code><a href='dendrogram_data.html'>dendrogram_data</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>ggplot2</span>)</div><div class='output co'>#&gt; <span class='message'>Loading required package: ggplot2</span></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='kw'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span>)
+</div><div class='output co'>#&gt; <span class='message'>Loading required package: ggplot2</span></div><div class='input'>
 <span class='co'>### Demonstrate dendro_data.dendrogram</span>
 
-<span class='no'>model</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/hclust.html'>hclust</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/dist.html'>dist</a></span>(<span class='no'>USArrests</span>), <span class='st'>"ave"</span>)
-<span class='no'>dendro</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/dendrogram.html'>as.dendrogram</a></span>(<span class='no'>model</span>)
+<span class='kw'>model</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/hclust.html'>hclust</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/dist.html'>dist</a></span>(<span class='kw'>USArrests</span>), <span class='st'>"ave"</span>)
+<span class='kw'>dendro</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/dendrogram.html'>as.dendrogram</a></span>(<span class='kw'>model</span>)
 
 <span class='co'># Rectangular lines</span>
-<span class='no'>ddata</span> <span class='kw'>&lt;-</span> <span class='fu'>dendro_data</span>(<span class='no'>dendro</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"rectangle"</span>)
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='segment.html'>segment</a></span>(<span class='no'>ddata</span>)) +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_segment.html'>geom_segment</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>xend</span> <span class='kw'>=</span> <span class='no'>xend</span>, <span class='kw'>yend</span> <span class='kw'>=</span> <span class='no'>yend</span>)) +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span>() +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_reverse</a></span>(<span class='kw'>expand</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.2</span>, <span class='fl'>0</span>)) +
-  <span class='fu'><a href='theme_dendro.html'>theme_dendro</a></span>()</div><div class='img'><img src='dendro_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>ddata</span> <span class='op'>&lt;-</span> <span class='fu'>dendro_data</span>(<span class='kw'>dendro</span>, type = <span class='st'>"rectangle"</span>)
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='segment.html'>segment</a></span>(<span class='kw'>ddata</span>)) <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_segment.html'>geom_segment</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(x = <span class='kw'>x</span>, y = <span class='kw'>y</span>, xend = <span class='kw'>xend</span>, yend = <span class='kw'>yend</span>)) <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span>() <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_reverse</a></span>(expand = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.2</span>, <span class='fl'>0</span>)) <span class='op'>+</span>
+  <span class='fu'><a href='theme_dendro.html'>theme_dendro</a></span>()
+</div><div class='img'><img src='dendro_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Triangular lines</span>
-<span class='no'>ddata</span> <span class='kw'>&lt;-</span> <span class='fu'>dendro_data</span>(<span class='no'>dendro</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"triangle"</span>)
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='segment.html'>segment</a></span>(<span class='no'>ddata</span>)) +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_segment.html'>geom_segment</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>xend</span> <span class='kw'>=</span> <span class='no'>xend</span>, <span class='kw'>yend</span> <span class='kw'>=</span> <span class='no'>yend</span>)) +
-  <span class='fu'><a href='theme_dendro.html'>theme_dendro</a></span>()</div><div class='img'><img src='dendro_data-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>ddata</span> <span class='op'>&lt;-</span> <span class='fu'>dendro_data</span>(<span class='kw'>dendro</span>, type = <span class='st'>"triangle"</span>)
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='segment.html'>segment</a></span>(<span class='kw'>ddata</span>)) <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_segment.html'>geom_segment</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(x = <span class='kw'>x</span>, y = <span class='kw'>y</span>, xend = <span class='kw'>xend</span>, yend = <span class='kw'>yend</span>)) <span class='op'>+</span>
+  <span class='fu'><a href='theme_dendro.html'>theme_dendro</a></span>()
+</div><div class='img'><img src='dendro_data-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Demonstrate dendro_data.hclust</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>ggplot2</span>)
-<span class='no'>hc</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/hclust.html'>hclust</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/dist.html'>dist</a></span>(<span class='no'>USArrests</span>), <span class='st'>"ave"</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='kw'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span>)
+<span class='kw'>hc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/hclust.html'>hclust</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/dist.html'>dist</a></span>(<span class='kw'>USArrests</span>), <span class='st'>"ave"</span>)
 
 <span class='co'># Rectangular lines</span>
-<span class='no'>hcdata</span> <span class='kw'>&lt;-</span> <span class='fu'>dendro_data</span>(<span class='no'>hc</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"rectangle"</span>)
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='segment.html'>segment</a></span>(<span class='no'>hcdata</span>)) +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_segment.html'>geom_segment</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>xend</span> <span class='kw'>=</span> <span class='no'>xend</span>, <span class='kw'>yend</span> <span class='kw'>=</span> <span class='no'>yend</span>)) +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span>() +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_reverse</a></span>(<span class='kw'>expand</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.2</span>, <span class='fl'>0</span>)) +
-  <span class='fu'><a href='theme_dendro.html'>theme_dendro</a></span>()</div><div class='img'><img src='dendro_data-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>hcdata</span> <span class='op'>&lt;-</span> <span class='fu'>dendro_data</span>(<span class='kw'>hc</span>, type = <span class='st'>"rectangle"</span>)
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='segment.html'>segment</a></span>(<span class='kw'>hcdata</span>)) <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_segment.html'>geom_segment</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(x = <span class='kw'>x</span>, y = <span class='kw'>y</span>, xend = <span class='kw'>xend</span>, yend = <span class='kw'>yend</span>)) <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span>() <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_reverse</a></span>(expand = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.2</span>, <span class='fl'>0</span>)) <span class='op'>+</span>
+  <span class='fu'><a href='theme_dendro.html'>theme_dendro</a></span>()
+</div><div class='img'><img src='dendro_data-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Triangular lines</span>
-<span class='no'>hcdata</span> <span class='kw'>&lt;-</span> <span class='fu'>dendro_data</span>(<span class='no'>hc</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"triangle"</span>)
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='segment.html'>segment</a></span>(<span class='no'>hcdata</span>)) +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_segment.html'>geom_segment</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>xend</span> <span class='kw'>=</span> <span class='no'>xend</span>, <span class='kw'>yend</span> <span class='kw'>=</span> <span class='no'>yend</span>)) +
-  <span class='fu'><a href='theme_dendro.html'>theme_dendro</a></span>()</div><div class='img'><img src='dendro_data-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>### Demonstrate the twins of agnes and diana, from package cluster</span>
+<span class='kw'>hcdata</span> <span class='op'>&lt;-</span> <span class='fu'>dendro_data</span>(<span class='kw'>hc</span>, type = <span class='st'>"triangle"</span>)
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='segment.html'>segment</a></span>(<span class='kw'>hcdata</span>)) <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_segment.html'>geom_segment</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(x = <span class='kw'>x</span>, y = <span class='kw'>y</span>, xend = <span class='kw'>xend</span>, yend = <span class='kw'>yend</span>)) <span class='op'>+</span>
+  <span class='fu'><a href='theme_dendro.html'>theme_dendro</a></span>()
+</div><div class='img'><img src='dendro_data-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>### Demonstrate the twins of agnes and diana, from package cluster</span>
 
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>cluster</span>)) {
-  <span class='no'>model</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/cluster/man/agnes.html'>agnes</a></span>(<span class='no'>votes.repub</span>, <span class='kw'>metric</span> <span class='kw'>=</span> <span class='st'>"manhattan"</span>, <span class='kw'>stand</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-  <span class='no'>dg</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/dendrogram.html'>as.dendrogram</a></span>(<span class='no'>model</span>)
-  <span class='fu'><a href='ggdendrogram.html'>ggdendrogram</a></span>(<span class='no'>dg</span>)
-}</div><div class='output co'>#&gt; <span class='message'>Loading required package: cluster</span></div><div class='img'><img src='dendro_data-5.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='kw'><a href='https://svn.r-project.org/R-packages/trunk/cluster'>cluster</a></span>)) {
+  <span class='kw'>model</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/cluster/man/agnes.html'>agnes</a></span>(<span class='kw'>votes.repub</span>, metric = <span class='st'>"manhattan"</span>, stand = <span class='fl'>TRUE</span>)
+  <span class='kw'>dg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/dendrogram.html'>as.dendrogram</a></span>(<span class='kw'>model</span>)
+  <span class='fu'><a href='ggdendrogram.html'>ggdendrogram</a></span>(<span class='kw'>dg</span>)
+}
+</div><div class='output co'>#&gt; <span class='message'>Loading required package: cluster</span></div><div class='img'><img src='dendro_data-5.png' alt='' width='700' height='433' /></div><div class='input'>
 
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>cluster</span>)) {
-  <span class='no'>model</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/cluster/man/diana.html'>diana</a></span>(<span class='no'>votes.repub</span>, <span class='kw'>metric</span> <span class='kw'>=</span> <span class='st'>"manhattan"</span>, <span class='kw'>stand</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-  <span class='no'>dg</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/dendrogram.html'>as.dendrogram</a></span>(<span class='no'>model</span>)
-  <span class='fu'><a href='ggdendrogram.html'>ggdendrogram</a></span>(<span class='no'>dg</span>)
-}</div><div class='img'><img src='dendro_data-6.png' alt='' width='700' height='433' /></div></pre>
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='kw'><a href='https://svn.r-project.org/R-packages/trunk/cluster'>cluster</a></span>)) {
+  <span class='kw'>model</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/cluster/man/diana.html'>diana</a></span>(<span class='kw'>votes.repub</span>, metric = <span class='st'>"manhattan"</span>, stand = <span class='fl'>TRUE</span>)
+  <span class='kw'>dg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/dendrogram.html'>as.dendrogram</a></span>(<span class='kw'>model</span>)
+  <span class='fu'><a href='ggdendrogram.html'>ggdendrogram</a></span>(<span class='kw'>dg</span>)
+}
+</div><div class='img'><img src='dendro_data-6.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -256,7 +263,7 @@ line segment data</p></li>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ggdendro</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.21</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.22</span>
       </span>
     </div>
 
@@ -121,13 +121,13 @@
     </div>
 
     <pre class="usage"><span class='fu'>ggdendrogram</span>(
-  <span class='no'>data</span>,
-  <span class='kw'>segments</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>leaf_labels</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>rotate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>theme_dendro</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
+  <span class='kw'>data</span>,
+  segments = <span class='fl'>TRUE</span>,
+  labels = <span class='fl'>TRUE</span>,
+  leaf_labels = <span class='fl'>TRUE</span>,
+  rotate = <span class='fl'>FALSE</span>,
+  theme_dendro = <span class='fl'>TRUE</span>,
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -176,16 +176,19 @@ dendrogram, hclust or tree</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>### Demonstrate ggdendrogram</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
-<span class='no'>hc</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/hclust.html'>hclust</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/dist.html'>dist</a></span>(<span class='no'>USArrests</span>), <span class='st'>"ave"</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span>)
+<span class='kw'>hc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/hclust.html'>hclust</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/dist.html'>dist</a></span>(<span class='kw'>USArrests</span>), <span class='st'>"ave"</span>)
 
 <span class='co'># Demonstrate plotting directly from object class hclust</span>
-<span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'>ggdendrogram</span>(<span class='no'>hc</span>, <span class='kw'>rotate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>p</span>)</div><div class='img'><img src='ggdendrogram-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>ggdendrogram</span>(<span class='no'>hc</span>, <span class='kw'>rotate</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='ggdendrogram-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>p</span> <span class='op'>&lt;-</span> <span class='fu'>ggdendrogram</span>(<span class='kw'>hc</span>, rotate = <span class='fl'>FALSE</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>p</span>)
+</div><div class='img'><img src='ggdendrogram-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>ggdendrogram</span>(<span class='kw'>hc</span>, rotate = <span class='fl'>TRUE</span>)
+</div><div class='img'><img src='ggdendrogram-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># demonstrate converting hclust to dendro using dendro_data first</span>
-<span class='no'>hcdata</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dendro_data.html'>dendro_data</a></span>(<span class='no'>hc</span>)
-<span class='fu'>ggdendrogram</span>(<span class='no'>hcdata</span>, <span class='kw'>rotate</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>) +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Dendrogram in ggplot2"</span>)</div><div class='img'><img src='ggdendrogram-3.png' alt='' width='700' height='433' /></div></pre>
+<span class='kw'>hcdata</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dendro_data.html'>dendro_data</a></span>(<span class='kw'>hc</span>)
+<span class='fu'>ggdendrogram</span>(<span class='kw'>hcdata</span>, rotate = <span class='fl'>TRUE</span>, size = <span class='fl'>2</span>) <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span>(title = <span class='st'>"Dendrogram in ggplot2"</span>)
+</div><div class='img'><img src='ggdendrogram-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -201,7 +204,7 @@ dendrogram, hclust or tree</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

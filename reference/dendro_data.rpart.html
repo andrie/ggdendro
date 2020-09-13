@@ -74,7 +74,7 @@ manipulated or plotted, e.g. using ggplot2::ggplot()." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ggdendro</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.21</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.22</span>
       </span>
     </div>
 
@@ -126,13 +126,13 @@ manipulated or plotted, e.g. using <code><a href='https://ggplot2.tidyverse.org/
 
     <pre class="usage"><span class='co'># S3 method for rpart</span>
 <span class='fu'><a href='dendro_data.html'>dendro_data</a></span>(
-  <span class='no'>model</span>,
-  <span class='kw'>uniform</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>branch</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>compress</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='no'>nspace</span>,
-  <span class='kw'>minbranch</span> <span class='kw'>=</span> <span class='fl'>0.3</span>,
-  <span class='no'>...</span>
+  <span class='kw'>model</span>,
+  uniform = <span class='fl'>FALSE</span>,
+  branch = <span class='fl'>1</span>,
+  compress = <span class='fl'>FALSE</span>,
+  <span class='kw'>nspace</span>,
+  minbranch = <span class='fl'>0.3</span>,
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -209,19 +209,20 @@ the plot data but without plotting to a plot device.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>### Demonstrate rpart</span>
 
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>rpart</span>)) {
-  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>ggplot2</span>)
-  <span class='no'>fit</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span>(<span class='no'>Kyphosis</span> ~ <span class='no'>Age</span> + <span class='no'>Number</span> + <span class='no'>Start</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"class"</span>,
-               <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>kyphosis</span>)
-  <span class='no'>fitr</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dendro_data.html'>dendro_data</a></span>(<span class='no'>fit</span>)
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>() +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_segment.html'>geom_segment</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>fitr</span>$<span class='no'>segments</span>,
-                 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>xend</span> <span class='kw'>=</span> <span class='no'>xend</span>, <span class='kw'>yend</span> <span class='kw'>=</span> <span class='no'>yend</span>)
-    ) +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>fitr</span>$<span class='no'>labels</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>label</span>)) +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>fitr</span>$<span class='no'>leaf_labels</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='no'>label</span>)) +
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='kw'><a href='https://github.com/bethatkinson/rpart'>rpart</a></span>)) {
+  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='kw'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span>)
+  <span class='kw'>fit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span>(<span class='kw'>Kyphosis</span> <span class='op'>~</span> <span class='kw'>Age</span> <span class='op'>+</span> <span class='kw'>Number</span> <span class='op'>+</span> <span class='kw'>Start</span>, method = <span class='st'>"class"</span>, 
+               data = <span class='kw'>kyphosis</span>)
+  <span class='kw'>fitr</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dendro_data.html'>dendro_data</a></span>(<span class='kw'>fit</span>)
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>() <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_segment.html'>geom_segment</a></span>(data = <span class='kw'>fitr</span><span class='op'>$</span><span class='kw'>segments</span>, 
+                 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(x = <span class='kw'>x</span>, y = <span class='kw'>y</span>, xend = <span class='kw'>xend</span>, yend = <span class='kw'>yend</span>)
+    ) <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span>(data = <span class='kw'>fitr</span><span class='op'>$</span><span class='kw'>labels</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(x = <span class='kw'>x</span>, y = <span class='kw'>y</span>, label = <span class='kw'>label</span>)) <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span>(data = <span class='kw'>fitr</span><span class='op'>$</span><span class='kw'>leaf_labels</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(x = <span class='kw'>x</span>, y = <span class='kw'>y</span>, label = <span class='kw'>label</span>)) <span class='op'>+</span>
     <span class='fu'><a href='theme_dendro.html'>theme_dendro</a></span>()
-}</div><div class='output co'>#&gt; <span class='message'>Loading required package: rpart</span></div><div class='img'><img src='dendro_data.rpart-1.png' alt='' width='700' height='433' /></div></pre>
+}
+</div><div class='output co'>#&gt; <span class='message'>Loading required package: rpart</span></div><div class='img'><img src='dendro_data.rpart-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -237,7 +238,7 @@ the plot data but without plotting to a plot device.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
