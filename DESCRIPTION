@@ -1,5 +1,5 @@
 Package: ggdendro
-Version: 0.1.21
+Version: 0.1.21.9000
 Title: Create Dendrograms and Tree Diagrams Using 'ggplot2'
 Description: This is a set of tools for dendrograms and
     tree plots using 'ggplot2'.  The 'ggplot2' philosophy is to
@@ -36,3 +36,4 @@ RoxygenNote: 7.1.1
 Language: en-US
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
+Config/testthat/edition: 3

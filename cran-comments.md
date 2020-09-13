@@ -8,4 +8,4 @@
 
 0 errors | 0 warnings | 0 notes
 
-* This is a bug fix release.
+* This is a bug fix release, and also fixes the previous note on CRAN submission, by changing the vignette engine to rmarkdown

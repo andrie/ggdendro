@@ -1,4 +1,3 @@
-context("clusterplots and dendrograms")
 
 test_that("dendrogram plots", {
   require(ggplot2)
@@ -9,6 +8,5 @@ test_that("dendrogram plots", {
     geom_text(data = label(hcdata), aes(x = x, y = y, label = text)) +
     coord_flip() +
     scale_y_reverse(expand = c(0.2, 0))
-  expect_that(p, is_a("ggplot"))
-  # print(p)
+  expect_s3_class(p, "ggplot")
 })

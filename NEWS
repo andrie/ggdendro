@@ -1,3 +1,10 @@
+ggdendro 0.1.21.9000 (Release date: 2020-09-13)
+===============
+
+* No functional changes
+* Update tests to conform with `testthat_3.0.0`
+
+
 ggdendro 0.1.21 (Release date: 2020-08-08)
 ===============
 
