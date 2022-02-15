@@ -29,7 +29,8 @@ Suggests:
     cluster,
     scales,
     spelling,
-    rmarkdown
+    rmarkdown,
+    covr
 VignetteBuilder: knitr
 RoxygenNote: 7.1.2
 Language: en-US

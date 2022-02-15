@@ -11,10 +11,12 @@ Provides functions for creating dendrograms and tree plots using
 [![R-CMD-check](https://github.com/andrie/ggdendro/workflows/R-CMD-check/badge.svg)](https://github.com/andrie/ggdendro/actions)
 [![Project Status: Active - The project has reached a stable, usable
 state and is being actively
-developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#inactive)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggdendro)](http://cran.r-project.org/package=ggdendro)
 [![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/ggdendro)](http://www.r-pkg.org/pkg/ggdendro)
+[![Codecov test
+coverage](https://codecov.io/gh/andrie/ggdendro/branch/main/graph/badge.svg)](https://app.codecov.io/gh/andrie/ggdendro?branch=main)
 <!-- badges: end -->
 
 The `ggdendro` package offers a generic function to extract data and
