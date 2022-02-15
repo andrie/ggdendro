@@ -1,8 +1,8 @@
 ---
-title: "Introduction_to_ggdendro"
+title: "Introduction to ggdendro"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Introduction_to_ggdendro}
+  %\VignetteIndexEntry{Introduction to ggdendro}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
