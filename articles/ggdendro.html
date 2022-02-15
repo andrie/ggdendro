@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +33,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ggdendro</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.22</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.23</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../articles/ggdendro.html">Get started</a>
 </li>
@@ -52,8 +48,8 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/andrie/ggdendro/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/andrie/ggdendro/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -73,20 +69,20 @@
       <h1 data-toc-skip>Introduction_to_ggdendro</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/andrie/ggdendro/blob/master/vignettes/ggdendro.Rmd"><code>vignettes/ggdendro.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/andrie/ggdendro/blob/HEAD/vignettes/ggdendro.Rmd" class="external-link"><code>vignettes/ggdendro.Rmd</code></a></small>
       <div class="hidden name"><code>ggdendro.Rmd</code></div>
 
     </div>
 
     
     
-<div id="using-the-ggdendro-package-to-plot-dendrograms" class="section level1">
-<h1 class="hasAnchor">
-<a href="#using-the-ggdendro-package-to-plot-dendrograms" class="anchor"></a>Using the <code>ggdendro</code> package to plot dendrograms</h1>
+<div class="section level2">
+<h2 id="using-the-ggdendro-package-to-plot-dendrograms">Using the <code>ggdendro</code> package to plot dendrograms<a class="anchor" aria-label="anchor" href="#using-the-ggdendro-package-to-plot-dendrograms"></a>
+</h2>
 <p>The <code>ggdendro</code> package makes it easy to extract dendrogram and tree diagrams into a list of data frames. You can then use this list to recreate these types of plots using the <code>ggplot2</code> package.</p>
-<div id="introduction" class="section level2">
-<h2 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>Introduction</h2>
+<div class="section level3">
+<h3 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h3>
 <p>The <code>ggdendro</code> package provides a general framework to extract the plot data for dendrograms and tree diagrams.</p>
 <p>It does this by providing generic function <code><a href="../reference/dendro_data.html">dendro_data()</a></code> that extracts the appropriate segment and label data, returning the data as a list of data frames.</p>
 <p>You can access these data frames using three accessor functions:</p>
@@ -98,131 +94,122 @@
 <p>The package also provides two convenient wrapper functions:</p>
 <ul>
 <li>
-<code><a href="../reference/ggdendrogram.html">ggdendrogram()</a></code> is a wrapper around <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> to create a dendrogram using a single line of code. The resulting object is of class <code>ggplot</code>, so can be manipulated using the <code>ggplot2</code> tools.</li>
+<code><a href="../reference/ggdendrogram.html">ggdendrogram()</a></code> is a wrapper around <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot()</a></code> to create a dendrogram using a single line of code. The resulting object is of class <code>ggplot</code>, so can be manipulated using the <code>ggplot2</code> tools.</li>
 <li>
 <code><a href="../reference/theme_dendro.html">theme_dendro()</a></code> is a <code>ggplot2</code> theme with a blank canvas, i.e. no axes, axis labels or tick marks.</li>
 </ul>
 <p>The <code>ggplot2</code> package doesn’t get loaded automatically, so remember to load it first:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/andrie/ggdendro">ggdendro</a></span>)
-</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/andrie/ggdendro" class="external-link">ggdendro</a></span><span class="op">)</span></code></pre></div>
 </div>
-<div id="using-the-ggdendrogram-wrapper" class="section level2">
-<h2 class="hasAnchor">
-<a href="#using-the-ggdendrogram-wrapper" class="anchor"></a>Using the <code>ggdendrogram()</code> wrapper</h2>
-<p>The <code>ggdendro</code> package extracts the plot data from dendrogram objects. Sometimes it is useful to have fine-grained control over the plot. Other times it might be more convenient to have a simple wrapper around <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> to produce a dendrogram with a small amount of code.</p>
+<div class="section level3">
+<h3 id="using-the-ggdendrogram-wrapper">Using the <code>ggdendrogram()</code> wrapper<a class="anchor" aria-label="anchor" href="#using-the-ggdendrogram-wrapper"></a>
+</h3>
+<p>The <code>ggdendro</code> package extracts the plot data from dendrogram objects. Sometimes it is useful to have fine-grained control over the plot. Other times it might be more convenient to have a simple wrapper around <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot()</a></code> to produce a dendrogram with a small amount of code.</p>
 <p>The function <code><a href="../reference/ggdendrogram.html">ggdendrogram()</a></code> provides such a wrapper to produce a plot with a single line of code. It provides a few options for controlling the display of line segments, labels and plot rotation (rotated by 90 degrees or not).</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="kw">hc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html">hclust</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/dist.html">dist</a></span>(<span class="kw">USArrests</span>), <span class="st">"ave"</span>)
-<span class="fu"><a href="../reference/ggdendrogram.html">ggdendrogram</a></span>(<span class="kw">hc</span>, rotate = <span class="fl">FALSE</span>, size = <span class="fl">2</span>)
-</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">hc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/dist.html" class="external-link">dist</a></span><span class="op">(</span><span class="va">USArrests</span><span class="op">)</span>, <span class="st">"ave"</span><span class="op">)</span>
+<span class="fu"><a href="../reference/ggdendrogram.html">ggdendrogram</a></span><span class="op">(</span><span class="va">hc</span>, rotate <span class="op">=</span> <span class="cn">FALSE</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <p><img src="ggdendro_files/figure-html/dendrogram-1.png" width="700"></p>
 <p>The next section shows how to take full control over the data extraction and subsequent plotting.</p>
 </div>
-<div id="extracting-the-dendrogram-plot-data-using-dendro_data" class="section level2">
-<h2 class="hasAnchor">
-<a href="#extracting-the-dendrogram-plot-data-using-dendro_data" class="anchor"></a>Extracting the dendrogram plot data using <code>dendro_data()</code>
-</h2>
-<p>The <code><a href="https://rdrr.io/r/stats/hclust.html">hclust()</a></code> and <code><a href="https://rdrr.io/r/stats/dendrogram.html">dendrogram()</a></code> functions in R makes it easy to plot the results of hierarchical cluster analysis and other dendrograms in R. However, it is hard to extract the data from this analysis to customize these plots, since the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> functions for both these classes prints directly without the option of returning the plot data.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="kw">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html">hclust</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/dist.html">dist</a></span>(<span class="kw">USArrests</span>), <span class="st">"ave"</span>)
-<span class="kw">dhc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/dendrogram.html">as.dendrogram</a></span>(<span class="kw">model</span>)
+<div class="section level3">
+<h3 id="extracting-the-dendrogram-plot-data-using-dendro_data">Extracting the dendrogram plot data using <code>dendro_data()</code><a class="anchor" aria-label="anchor" href="#extracting-the-dendrogram-plot-data-using-dendro_data"></a>
+</h3>
+<p>The <code><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust()</a></code> and <code><a href="https://rdrr.io/r/stats/dendrogram.html" class="external-link">dendrogram()</a></code> functions in R makes it easy to plot the results of hierarchical cluster analysis and other dendrograms in R. However, it is hard to extract the data from this analysis to customize these plots, since the <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code> functions for both these classes prints directly without the option of returning the plot data.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/dist.html" class="external-link">dist</a></span><span class="op">(</span><span class="va">USArrests</span><span class="op">)</span>, <span class="st">"ave"</span><span class="op">)</span>
+<span class="va">dhc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/dendrogram.html" class="external-link">as.dendrogram</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span>
 <span class="co"># Rectangular lines</span>
-<span class="kw">ddata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dendro_data.html">dendro_data</a></span>(<span class="kw">dhc</span>, type = <span class="st">"rectangle"</span>)
-<span class="kw">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="../reference/segment.html">segment</a></span>(<span class="kw">ddata</span>)) <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">x</span>, y = <span class="kw">y</span>, xend = <span class="kw">xend</span>, yend = <span class="kw">yend</span>)) <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span>() <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_reverse</a></span>(expand = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.2</span>, <span class="fl">0</span>))
-<span class="kw">p</span>
-</pre></div>
+<span class="va">ddata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dendro_data.html">dendro_data</a></span><span class="op">(</span><span class="va">dhc</span>, type <span class="op">=</span> <span class="st">"rectangle"</span><span class="op">)</span>
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="../reference/segment.html">segment</a></span><span class="op">(</span><span class="va">ddata</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html" class="external-link">geom_segment</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, xend <span class="op">=</span> <span class="va">xend</span>, yend <span class="op">=</span> <span class="va">yend</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html" class="external-link">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_reverse</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span>
+<span class="va">p</span></code></pre></div>
 <p><img src="ggdendro_files/figure-html/dendro1-1.png" width="700"></p>
 <p>Of course, using <code>ggplot2</code> to create the dendrogram means one has full control over the appearance of the plot. For example, here is the same data, but this time plotted horizontally with a clean background. In <code>ggplot2</code> this means passing a number of options to <code>theme</code>. The <code>ggdendro</code> packages exports a function, <code><a href="../reference/theme_dendro.html">theme_dendro()</a></code> that wraps these options into a convenient function.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="kw">p</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span>() <span class="op">+</span> 
-  <span class="fu"><a href="../reference/theme_dendro.html">theme_dendro</a></span>()
-<span class="co">#&gt; Coordinate system already present. Adding new coordinate system, which will replace the existing one.</span>
-</pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html" class="external-link">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="../reference/theme_dendro.html">theme_dendro</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; Coordinate system already present. Adding new coordinate system, which will replace the existing one.</span></code></pre></div>
 <p><img src="ggdendro_files/figure-html/dendro-2-1.png" width="700"></p>
 <p>You can also draw dendrograms with triangular line segments (instead of rectangular segments). For example:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit">
-<span class="kw">ddata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dendro_data.html">dendro_data</a></span>(<span class="kw">dhc</span>, type = <span class="st">"triangle"</span>)
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="../reference/segment.html">segment</a></span>(<span class="kw">ddata</span>)) <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">x</span>, y = <span class="kw">y</span>, xend = <span class="kw">xend</span>, yend = <span class="kw">yend</span>)) <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span>() <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_reverse</a></span>(expand = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.2</span>, <span class="fl">0</span>)) <span class="op">+</span>
-  <span class="fu"><a href="../reference/theme_dendro.html">theme_dendro</a></span>()
-</pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ddata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dendro_data.html">dendro_data</a></span><span class="op">(</span><span class="va">dhc</span>, type <span class="op">=</span> <span class="st">"triangle"</span><span class="op">)</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="../reference/segment.html">segment</a></span><span class="op">(</span><span class="va">ddata</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html" class="external-link">geom_segment</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, xend <span class="op">=</span> <span class="va">xend</span>, yend <span class="op">=</span> <span class="va">yend</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html" class="external-link">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_reverse</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="../reference/theme_dendro.html">theme_dendro</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="ggdendro_files/figure-html/dendro-3-1.png" width="700"></p>
 </div>
-<div id="regression-tree-diagrams" class="section level2">
-<h2 class="hasAnchor">
-<a href="#regression-tree-diagrams" class="anchor"></a>Regression tree diagrams</h2>
-<p>The <code><a href="https://rdrr.io/pkg/tree/man/tree.html">tree()</a></code> function in package <code>tree</code> creates tree diagrams. To extract the plot data for these diagrams using <code>ggdendro</code>, you use the the same idiom as for plotting dendrograms:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit">
-<span class="co">if</span>(<span class="fu"><a href="https://rdrr.io/r/base/library.html">require</a></span>(<span class="kw">tree</span>)){
-  <span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="kw">cpus</span>, package = <span class="st">"MASS"</span>)
-  <span class="kw">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tree/man/tree.html">tree</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span>(<span class="kw">perf</span>) <span class="op">~</span> <span class="kw">syct</span> <span class="op">+</span> <span class="kw">mmin</span> <span class="op">+</span> <span class="kw">mmax</span> <span class="op">+</span> <span class="kw">cach</span> <span class="op">+</span> <span class="kw">chmin</span> <span class="op">+</span> <span class="kw">chmax</span>, 
-                data = <span class="kw">cpus</span>)
-  <span class="kw">tree_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dendro_data.html">dendro_data</a></span>(<span class="kw">model</span>)
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="../reference/segment.html">segment</a></span>(<span class="kw">tree_data</span>)) <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">x</span>, y = <span class="kw">y</span>, xend = <span class="kw">xend</span>, yend = <span class="kw">yend</span>, size = <span class="kw">n</span>), 
-                 colour = <span class="st">"blue"</span>, alpha = <span class="fl">0.5</span>) <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_size.html">scale_size</a></span>(<span class="st">"n"</span>) <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span>(data = <span class="fu"><a href="../reference/segment.html">label</a></span>(<span class="kw">tree_data</span>), 
-              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">x</span>, y = <span class="kw">y</span>, label = <span class="kw">label</span>), vjust = <span class="op">-</span><span class="fl">0.5</span>, size = <span class="fl">3</span>) <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span>(data = <span class="fu"><a href="../reference/segment.html">leaf_label</a></span>(<span class="kw">tree_data</span>), 
-              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">x</span>, y = <span class="kw">y</span>, label = <span class="kw">label</span>), vjust = <span class="fl">0.5</span>, size = <span class="fl">2</span>) <span class="op">+</span>
-    <span class="fu"><a href="../reference/theme_dendro.html">theme_dendro</a></span>()
-}
-<span class="co">#&gt; Loading required package: tree</span>
-</pre></div>
+<div class="section level3">
+<h3 id="regression-tree-diagrams">Regression tree diagrams<a class="anchor" aria-label="anchor" href="#regression-tree-diagrams"></a>
+</h3>
+<p>The <code><a href="https://rdrr.io/pkg/tree/man/tree.html" class="external-link">tree()</a></code> function in package <code>tree</code> creates tree diagrams. To extract the plot data for these diagrams using <code>ggdendro</code>, you use the the same idiom as for plotting dendrograms:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">if</span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va">tree</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">cpus</span>, package <span class="op">=</span> <span class="st">"MASS"</span><span class="op">)</span>
+  <span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tree/man/tree.html" class="external-link">tree</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log10</a></span><span class="op">(</span><span class="va">perf</span><span class="op">)</span> <span class="op">~</span> <span class="va">syct</span> <span class="op">+</span> <span class="va">mmin</span> <span class="op">+</span> <span class="va">mmax</span> <span class="op">+</span> <span class="va">cach</span> <span class="op">+</span> <span class="va">chmin</span> <span class="op">+</span> <span class="va">chmax</span>, 
+                data <span class="op">=</span> <span class="va">cpus</span><span class="op">)</span>
+  <span class="va">tree_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dendro_data.html">dendro_data</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="../reference/segment.html">segment</a></span><span class="op">(</span><span class="va">tree_data</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html" class="external-link">geom_segment</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, xend <span class="op">=</span> <span class="va">xend</span>, yend <span class="op">=</span> <span class="va">yend</span>, size <span class="op">=</span> <span class="va">n</span><span class="op">)</span>, 
+                 colour <span class="op">=</span> <span class="st">"blue"</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_size.html" class="external-link">scale_size</a></span><span class="op">(</span><span class="st">"n"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="../reference/segment.html">label</a></span><span class="op">(</span><span class="va">tree_data</span><span class="op">)</span>, 
+              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, label <span class="op">=</span> <span class="va">label</span><span class="op">)</span>, vjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="../reference/segment.html">leaf_label</a></span><span class="op">(</span><span class="va">tree_data</span><span class="op">)</span>, 
+              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, label <span class="op">=</span> <span class="va">label</span><span class="op">)</span>, vjust <span class="op">=</span> <span class="fl">0.5</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="../reference/theme_dendro.html">theme_dendro</a></span><span class="op">(</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="co">#&gt; Loading required package: tree</span></code></pre></div>
 <p><img src="ggdendro_files/figure-html/tree-1.png" width="700"></p>
 </div>
-<div id="classification-tree-diagrams" class="section level2">
-<h2 class="hasAnchor">
-<a href="#classification-tree-diagrams" class="anchor"></a>Classification tree diagrams</h2>
-<p>The <code><a href="https://rdrr.io/pkg/rpart/man/rpart.html">rpart()</a></code> function in package <code>rpart</code> creates classification diagrams. To extract the plot data for these diagrams using <code>ggdendro</code> follows the same basic pattern as dendrograms:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit">
-<span class="co">if</span>(<span class="fu"><a href="https://rdrr.io/r/base/library.html">require</a></span>(<span class="kw"><a href="https://github.com/bethatkinson/rpart">rpart</a></span>)){
-  <span class="kw">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rpart/man/rpart.html">rpart</a></span>(<span class="kw">Kyphosis</span> <span class="op">~</span> <span class="kw">Age</span> <span class="op">+</span> <span class="kw">Number</span> <span class="op">+</span> <span class="kw">Start</span>, 
-                 method = <span class="st">"class"</span>, data = <span class="kw">kyphosis</span>)
-  <span class="kw">ddata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dendro_data.html">dendro_data</a></span>(<span class="kw">model</span>)
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span> 
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span>(data = <span class="kw">ddata</span><span class="op">$</span><span class="kw">segments</span>, 
-                 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">x</span>, y = <span class="kw">y</span>, xend = <span class="kw">xend</span>, yend = <span class="kw">yend</span>)) <span class="op">+</span> 
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span>(data = <span class="kw">ddata</span><span class="op">$</span><span class="kw">labels</span>, 
-              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">x</span>, y = <span class="kw">y</span>, label = <span class="kw">label</span>), size = <span class="fl">3</span>, vjust = <span class="fl">0</span>) <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span>(data = <span class="kw">ddata</span><span class="op">$</span><span class="kw">leaf_labels</span>, 
-              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">x</span>, y = <span class="kw">y</span>, label = <span class="kw">label</span>), size = <span class="fl">3</span>, vjust = <span class="fl">1</span>) <span class="op">+</span>
-    <span class="fu"><a href="../reference/theme_dendro.html">theme_dendro</a></span>()
-}
-<span class="co">#&gt; Loading required package: rpart</span>
-</pre></div>
+<div class="section level3">
+<h3 id="classification-tree-diagrams">Classification tree diagrams<a class="anchor" aria-label="anchor" href="#classification-tree-diagrams"></a>
+</h3>
+<p>The <code><a href="https://rdrr.io/pkg/rpart/man/rpart.html" class="external-link">rpart()</a></code> function in package <code>rpart</code> creates classification diagrams. To extract the plot data for these diagrams using <code>ggdendro</code> follows the same basic pattern as dendrograms:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">if</span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/bethatkinson/rpart" class="external-link">rpart</a></span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rpart/man/rpart.html" class="external-link">rpart</a></span><span class="op">(</span><span class="va">Kyphosis</span> <span class="op">~</span> <span class="va">Age</span> <span class="op">+</span> <span class="va">Number</span> <span class="op">+</span> <span class="va">Start</span>, 
+                 method <span class="op">=</span> <span class="st">"class"</span>, data <span class="op">=</span> <span class="va">kyphosis</span><span class="op">)</span>
+  <span class="va">ddata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dendro_data.html">dendro_data</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html" class="external-link">geom_segment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ddata</span><span class="op">$</span><span class="va">segments</span>, 
+                 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, xend <span class="op">=</span> <span class="va">xend</span>, yend <span class="op">=</span> <span class="va">yend</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ddata</span><span class="op">$</span><span class="va">labels</span>, 
+              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, label <span class="op">=</span> <span class="va">label</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span>, vjust <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ddata</span><span class="op">$</span><span class="va">leaf_labels</span>, 
+              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, label <span class="op">=</span> <span class="va">label</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span>, vjust <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="../reference/theme_dendro.html">theme_dendro</a></span><span class="op">(</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="co">#&gt; Loading required package: rpart</span></code></pre></div>
 <p><img src="ggdendro_files/figure-html/rpart-1.png" width="700"></p>
 </div>
-<div id="twins-diagrams-agnes-and-diana" class="section level2">
-<h2 class="hasAnchor">
-<a href="#twins-diagrams-agnes-and-diana" class="anchor"></a>Twins diagrams: agnes and diana</h2>
+<div class="section level3">
+<h3 id="twins-diagrams-agnes-and-diana">Twins diagrams: agnes and diana<a class="anchor" aria-label="anchor" href="#twins-diagrams-agnes-and-diana"></a>
+</h3>
 <p>The <code>cluster</code> package allows you to draw <code>agnes</code> and <code>diana</code> diagrams.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit">
-<span class="co">if</span>(<span class="fu"><a href="https://rdrr.io/r/base/library.html">require</a></span>(<span class="kw"><a href="https://svn.r-project.org/R-packages/trunk/cluster">cluster</a></span>)){
-  <span class="kw">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cluster/man/agnes.html">agnes</a></span>(<span class="kw">votes.repub</span>, metric = <span class="st">"manhattan"</span>, stand = <span class="fl">TRUE</span>)
-  <span class="kw">dg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/dendrogram.html">as.dendrogram</a></span>(<span class="kw">model</span>)
-  <span class="fu"><a href="../reference/ggdendrogram.html">ggdendrogram</a></span>(<span class="kw">dg</span>)
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">if</span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://svn.r-project.org/R-packages/trunk/cluster/" class="external-link">cluster</a></span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cluster/man/agnes.html" class="external-link">agnes</a></span><span class="op">(</span><span class="va">votes.repub</span>, metric <span class="op">=</span> <span class="st">"manhattan"</span>, stand <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+  <span class="va">dg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/dendrogram.html" class="external-link">as.dendrogram</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span>
+  <span class="fu"><a href="../reference/ggdendrogram.html">ggdendrogram</a></span><span class="op">(</span><span class="va">dg</span><span class="op">)</span>
   
-  <span class="kw">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cluster/man/diana.html">diana</a></span>(<span class="kw">votes.repub</span>, metric = <span class="st">"manhattan"</span>, stand = <span class="fl">TRUE</span>)
-  <span class="kw">dg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/dendrogram.html">as.dendrogram</a></span>(<span class="kw">model</span>)
-  <span class="fu"><a href="../reference/ggdendrogram.html">ggdendrogram</a></span>(<span class="kw">dg</span>)
-}
-<span class="co">#&gt; Loading required package: cluster</span>
-</pre></div>
+  <span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cluster/man/diana.html" class="external-link">diana</a></span><span class="op">(</span><span class="va">votes.repub</span>, metric <span class="op">=</span> <span class="st">"manhattan"</span>, stand <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+  <span class="va">dg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/dendrogram.html" class="external-link">as.dendrogram</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span>
+  <span class="fu"><a href="../reference/ggdendrogram.html">ggdendrogram</a></span><span class="op">(</span><span class="va">dg</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="co">#&gt; Loading required package: cluster</span></code></pre></div>
 <p><img src="ggdendro_files/figure-html/twins-1.png" width="700"></p>
 </div>
-<div id="summary" class="section level2">
-<h2 class="hasAnchor">
-<a href="#summary" class="anchor"></a>Summary</h2>
+<div class="section level3">
+<h3 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
+</h3>
 <p>The <code>ggdendro</code> package makes it easy to extract the line segment and label data from <code>hclust</code>, <code>dendrogram</code> and <code>tree</code> objects.</p>
 </div>
 </div>
@@ -239,11 +226,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Andrie de Vries, Brian D. Ripley.</p>
+  <p></p>
+<p>Developed by Andrie de Vries, Brian D. Ripley.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -251,6 +240,8 @@
 
   
 
+
+  
 
   </body>
 </html>

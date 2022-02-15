@@ -27,6 +27,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -39,18 +41,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">ggdendro</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.22</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.23</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="articles/ggdendro.html">Get started</a>
 </li>
@@ -60,8 +56,8 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/andrie/ggdendro/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/andrie/ggdendro/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -77,12 +73,13 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="ggdendro" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#ggdendro" class="anchor"></a>ggdendro</h1></div>
+
+<div class="section level1">
+<div class="page-header"><h1 id="ggdendro">ggdendro<a class="anchor" aria-label="anchor" href="#ggdendro"></a>
+</h1></div>
 <p>Provides functions for creating dendrograms and tree plots using <code>ggplot2</code>.</p>
 <!-- badges: start -->
-<p><a href="https://github.com/andrie/ggdendro/actions"><img src="https://github.com/andrie/ggdendro/workflows/R-CMD-check/badge.svg" alt="R build status"></a> <a href="http://www.repostatus.org/#active"><img src="http://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active - The project has reached a stable, usable state and is being actively developed."></a> <a href="http://cran.r-project.org/package=ggdendro"><img src="http://www.r-pkg.org/badges/version/ggdendro" alt="CRAN_Status_Badge"></a> <a href="http://www.r-pkg.org/pkg/ggdendro"><img src="http://cranlogs.r-pkg.org/badges/ggdendro" alt="CRAN RStudio mirror downloads"></a> <!-- badges: end --></p>
+
 <p>The <code>ggdendro</code> package offers a generic function to extract data and text from the various clustering models:</p>
 <ul>
 <li>
@@ -104,75 +101,94 @@
 <li>
 <code><a href="reference/segment.html">leaf_label()</a></code> for the leaf labels of a tree diagram</li>
 </ul>
-<p>The results of these functions can then be passed to <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> for plotting.</p>
-<div id="example" class="section level2">
-<h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/andrie/ggdendro">ggdendro</a></span>)
-<span class="kw">hc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html">hclust</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/dist.html">dist</a></span>(<span class="kw">USArrests</span>), <span class="st">"ave"</span>)
-<span class="kw">hcdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/dendro_data.html">dendro_data</a></span>(<span class="kw">hc</span>, type = <span class="st">"rectangle"</span>)
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span>(data = <span class="fu"><a href="reference/segment.html">segment</a></span>(<span class="kw">hcdata</span>), 
-               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">x</span>, y = <span class="kw">y</span>, xend = <span class="kw">xend</span>, yend = <span class="kw">yend</span>)
-  ) <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span>(data = <span class="fu"><a href="reference/segment.html">label</a></span>(<span class="kw">hcdata</span>), 
-            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">x</span>, y = <span class="kw">y</span>, label = <span class="kw">label</span>, hjust = <span class="fl">0</span>), 
-            size = <span class="fl">3</span>
-  ) <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span>() <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_reverse</a></span>(expand = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.2</span>, <span class="fl">0</span>))
-</pre></div>
+<p>The results of these functions can then be passed to <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot()</a></code> for plotting.</p>
+<div class="section level2">
+<h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
+</h2>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/andrie/ggdendro" class="external-link">ggdendro</a></span><span class="op">)</span>
+<span class="va">hc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/dist.html" class="external-link">dist</a></span><span class="op">(</span><span class="va">USArrests</span><span class="op">)</span>, <span class="st">"ave"</span><span class="op">)</span>
+<span class="va">hcdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/dendro_data.html">dendro_data</a></span><span class="op">(</span><span class="va">hc</span>, type <span class="op">=</span> <span class="st">"rectangle"</span><span class="op">)</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html" class="external-link">geom_segment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="reference/segment.html">segment</a></span><span class="op">(</span><span class="va">hcdata</span><span class="op">)</span>, 
+               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, xend <span class="op">=</span> <span class="va">xend</span>, yend <span class="op">=</span> <span class="va">yend</span><span class="op">)</span>
+  <span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="reference/segment.html">label</a></span><span class="op">(</span><span class="va">hcdata</span><span class="op">)</span>, 
+            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, label <span class="op">=</span> <span class="va">label</span>, hjust <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>, 
+            size <span class="op">=</span> <span class="fl">3</span>
+  <span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html" class="external-link">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_reverse</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-
-<span class="co">### demonstrate plotting directly from object class hclust</span>
-<span class="fu"><a href="reference/ggdendrogram.html">ggdendrogram</a></span>(<span class="kw">hc</span>)
-</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">### demonstrate plotting directly from object class hclust</span>
+<span class="fu"><a href="reference/ggdendrogram.html">ggdendrogram</a></span><span class="op">(</span><span class="va">hc</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-2.png" width="100%"></p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="fu"><a href="reference/ggdendrogram.html">ggdendrogram</a></span>(<span class="kw">hc</span>, rotate = <span class="fl">TRUE</span>)
-</pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/ggdendrogram.html">ggdendrogram</a></span><span class="op">(</span><span class="va">hc</span>, rotate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-3.png" width="100%"></p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-
-<span class="co">### demonstrate converting hclust to dendro using dendro_data first</span>
-<span class="kw">hcdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/dendro_data.html">dendro_data</a></span>(<span class="kw">hc</span>)
-<span class="fu"><a href="reference/ggdendrogram.html">ggdendrogram</a></span>(<span class="kw">hcdata</span>, rotate = <span class="fl">TRUE</span>) <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(title = <span class="st">"Dendrogram in ggplot2"</span>)
-</pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">### demonstrate converting hclust to dendro using dendro_data first</span>
+<span class="va">hcdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/dendro_data.html">dendro_data</a></span><span class="op">(</span><span class="va">hc</span><span class="op">)</span>
+<span class="fu"><a href="reference/ggdendrogram.html">ggdendrogram</a></span><span class="op">(</span><span class="va">hcdata</span>, rotate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Dendrogram in ggplot2"</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-4.png" width="100%"></p>
 </div>
 </div>
+<div class="section level1">
+<h1 id="use-dendextend-instead">Use <code>dendextend</code> instead<a class="anchor" aria-label="anchor" href="#use-dendextend-instead"></a>
+</h1>
+<p>Most of the functionality in <code>ggdendro</code> is included in the excellent <code>dendextend</code> package. In most cases, if you need additional functionality, please use the <code>dendextend</code> package instead.</p>
+<p>The <code>ggdendro</code> package will only get minimal maintenance in future.</p>
+<p>Refer to <a href="https://cran.r-project.org/web/packages/dendextend/index.html" class="external-link uri">https://cran.r-project.org/web/packages/dendextend/index.html</a></p>
+</div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=ggdendro">https://​cloud.r-project.org/​package=ggdendro</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/andrie/ggdendro/">https://​github.com/​andrie/​ggdendro/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/andrie/ggdendro/issues">https://​github.com/​andrie/​ggdendro/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=ggdendro" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/andrie/ggdendro/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/andrie/ggdendro/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://www.r-project.org/Licenses/GPL-2">GPL-2</a>|<a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a>
+<a href="https://www.r-project.org/Licenses/GPL-2" class="external-link">GPL-2</a>|<a href="https://www.r-project.org/Licenses/GPL-3" class="external-link">GPL-3</a>
 </li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing ggdendro</a></li>
+</ul>
+</div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Andrie de Vries <br><small class="roles"> Author, maintainer </small>  </li>
-<li>Brian D. Ripley <br><small class="roles"> Author </small>  <br><small>(author of package tree)</small>
-</li>
+<li>Brian D. Ripley <br><small class="roles"> Author </small>  </li>
+<li><a href="authors.html">More about authors...</a></li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/andrie/ggdendro/actions" class="external-link"><img src="https://github.com/andrie/ggdendro/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="http://www.repostatus.org/#active" class="external-link"><img src="http://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active - The project has reached a stable, usable state and is being actively developed."></a></li>
+<li><a href="http://cran.r-project.org/package=ggdendro" class="external-link"><img src="http://www.r-pkg.org/badges/version/ggdendro" alt="CRAN_Status_Badge"></a></li>
+<li><a href="http://www.r-pkg.org/pkg/ggdendro" class="external-link"><img src="http://cranlogs.r-pkg.org/badges/ggdendro" alt="CRAN RStudio mirror downloads"></a></li>
 </ul>
 </div>
 
@@ -181,11 +197,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Andrie de Vries, Brian D. Ripley.</p>
+  <p></p>
+<p>Developed by Andrie de Vries, Brian D. Ripley.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -193,6 +211,8 @@
 
   
 
+
+  
 
   </body>
 </html>
