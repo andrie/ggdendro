@@ -1,6 +1,7 @@
 
 test_that("dendrogram plots", {
-  require(ggplot2)
+  skip_if_not_installed("ggplot2")
+  require(ggplot2, quietly = TRUE)
   hc <- hclust(dist(USArrests), "ave")
   hcdata <- dendro_data(hc, type = "rectangle")
   p <- ggplot() +

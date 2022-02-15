@@ -19,7 +19,7 @@ Provides functions for creating dendrograms and tree plots using `ggplot2`.
 
 
 <!-- badges: start -->
-[![R build status](https://github.com/andrie/ggdendro/workflows/R-CMD-check/badge.svg)](https://github.com/andrie/ggdendro/actions)
+[![R-CMD-check](https://github.com/andrie/ggdendro/workflows/R-CMD-check/badge.svg)](https://github.com/andrie/ggdendro/actions)
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggdendro)](http://cran.r-project.org/package=ggdendro)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/ggdendro)](http://www.r-pkg.org/pkg/ggdendro)
@@ -48,7 +48,7 @@ These methods create an object of class `dendro`, which is essentially a list of
 
 The results of these functions can then be passed to `ggplot()` for plotting.
 
-## Example
+## Examples
 
 ```{r}
 library(ggplot2)
@@ -76,4 +76,11 @@ ggdendrogram(hcdata, rotate = TRUE) +
   labs(title = "Dendrogram in ggplot2")
 ```
 	    
-    
+# Use `dendextend` instead
+
+Most of the functionality in `ggdendro` is included in the excellent `dendextend` package.  In most cases, if you need additional functionality, please use the `dendextend` package instead.
+
+The `ggdendro` package will only get minimal maintenance in future.
+
+Refer to <https://cran.r-project.org/web/packages/dendextend/index.html>
+

@@ -14,7 +14,6 @@ Authors@R: c(person("Andrie", "de Vries", role=c("aut", "cre"),
     email="apdevries@gmail.com"), person(c("Brian", "D."), "Ripley", role =
     c("aut"), comment = "author of package tree"))
 License: GPL-2|GPL-3
-LazyData: true
 LazyLoad: true
 ByteCompile: true
 URL: https://github.com/andrie/ggdendro
@@ -32,7 +31,7 @@ Suggests:
     spelling,
     rmarkdown
 VignetteBuilder: knitr
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Language: en-US
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
