@@ -1,0 +1,17 @@
+url: ~
+template:
+  bootstrap: 5
+  
+reference:
+- title: "Main functions"
+  contents:
+  - starts_with("gg")
+- title: "Extract data"
+  contents:
+  - starts_with("dendro")
+  - segment
+- title: "Helper functions"
+  contents:
+  - as.dendro
+  - is.dendro
+  - theme_dendro

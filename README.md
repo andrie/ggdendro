@@ -1,17 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ggdendro
+# ggdendro <img src='man/figures/logo.png' align="right" height="139" />
 
 Provides functions for creating dendrograms and tree plots using
 `ggplot2`.
 
 <!-- badges: start -->
 
-[![Project Status: Inactive – The project has reached a stable, usable
-state but is no longer being actively developed; support/maintenance
-will be provided as time
-allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ggdendro)](https://CRAN.R-project.org/package=ggdendro)
 [![R-CMD-check](https://github.com/andrie/ggdendro/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/andrie/ggdendro/actions/workflows/R-CMD-check.yaml)
@@ -19,6 +15,10 @@ status](https://www.r-pkg.org/badges/version/ggdendro)](https://CRAN.R-project.o
 downloads](http://cranlogs.r-pkg.org/badges/ggdendro)](http://www.r-pkg.org/pkg/ggdendro)
 [![Codecov test
 coverage](https://codecov.io/gh/andrie/ggdendro/branch/main/graph/badge.svg)](https://app.codecov.io/gh/andrie/ggdendro?branch=main)
+[![Project Status: Inactive – The project has reached a stable, usable
+state but is no longer being actively developed; support/maintenance
+will be provided as time
+allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 <!-- badges: end -->
 
 The `ggdendro` package offers a generic function to extract data and
