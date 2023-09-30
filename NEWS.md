@@ -1,6 +1,15 @@
 # ggdendro 0.1.23.9000
 
-- Fix deprecated ggplot aes usage
+Bug fix:
+
+- Fix longstanding bug with plotting large amounts of data that used to caused a node overflow (#27)
+
+Other:
+
+- Fix deprecated `ggplot()` `aes` usage
+
+
+
 
 
 # ggdendro 0.1.23

@@ -19,13 +19,22 @@
 
 
 
+
 #' Extract line segment and label data from dendrogram or hclust object.
 #'
-#' Extract line segment and label data from [stats::dendrogram()] or [stats::hclust()] object.  The resulting object is a list of data frames containing line segment data and label data.
+#' Extract line segment and label data from [stats::dendrogram()] or
+#' [stats::hclust()] object.  The resulting object is a list of data frames
+#' containing line segment data and label data.
 #'
-# @param model object of class "dendrogram", e.g. the output of as.dendrogram()
-#' @param type The type of plot, indicating the shape of the dendrogram.  "rectangle" will draw rectangular lines, while "triangle" will draw triangular lines.
-# @param ... ignored
+#' @param model object of class "dendrogram", e.g. the output of as.dendrogram()
+#'
+#' @param type The type of plot, indicating the shape of the dendrogram.
+#'   "rectangle" will draw rectangular lines, while "triangle" will draw
+#'   triangular lines.
+#' 
+#' @param ... ignored
+#' 
+#' 
 #' @export
 #' @return
 #' A list with components:
@@ -81,8 +90,11 @@ dendro_data.twins <- function(model, type = c("rectangle", "triangle"), ...) {
 #' Extract data frame from dendrogram object for plotting using ggplot
 #'
 #' @param x object of class "dendrogram", e.g. the output of as.dendrogram()
-#' @param type The type of plot, indicating the shape of the dendrogram.  "Rectangle" will draw
-#' rectangular lines, while "triangle" will draw triangular lines.
+#' 
+#' @param type The type of plot, indicating the shape of the dendrogram:
+#'   "rectangle" will draw rectangular lines, while "triangle" will draw
+#'   triangular lines.
+#' 
 #' @param ... ignored
 #' @seealso [ggdendrogram()]
 #' @family dendro_data methods
@@ -139,10 +151,9 @@ dendrogram_data <- function(x, type = c("rectangle", "triangle"), ...) {
       # 			text(x0, my, et)
     }
   }
-  ret <- ggPlotNode(x1, x2, x,
+  ret <- plotNode(x1, x2, x,
     type = type, center = center, leaflab = leaflab,
-    dLeaf = dLeaf, nodePar = nodePar, edgePar = edgePar, horiz = FALSE,
-    ddsegments = NULL, ddlabels = NULL
+    dLeaf = dLeaf, nodePar = nodePar, edgePar = edgePar, horiz = FALSE
   )
   names(ret$segments) <- c("x", "y", "xend", "yend")
   names(ret$labels) <- c("x", "y", "label")
@@ -150,66 +161,3 @@ dendrogram_data <- function(x, type = c("rectangle", "triangle"), ...) {
 }
 
 
-# .memberDend -------------------------------------------------------------
-
-### Code copied from stats:::.memberDend
-
-.memberDend <- function(x) {
-  r <- attr(x, "x.member")
-  if (is.null(r)) {
-    r <- attr(x, "members")
-    if (is.null(r)) {
-      r <- 1L
-    }
-  }
-  r
-}
-
-
-# plotNodeLimit -----------------------------------------------------------
-
-### Code copied from stats:::plotNodeLimit
-
-plotNodeLimit <- function(x1, x2, subtree, center) {
-  inner <- !is.leaf(subtree) && x1 != x2
-  if (inner) {
-    K <- length(subtree)
-    mTop <- .memberDend(subtree)
-    limit <- integer(K)
-    xx1 <- x1
-    for (k in 1L:K) {
-      m <- .memberDend(subtree[[k]])
-      xx1 <- xx1 + (if (center) {
-        (x2 - x1) * m / mTop
-      } else {
-        m
-      })
-      limit[k] <- xx1
-    }
-    limit <- c(x1, limit)
-  }
-  else {
-    limit <- c(x1, x2)
-  }
-  mid <- attr(subtree, "midpoint")
-  center <- center || (inner && !is.numeric(mid))
-  x <- if (center) {
-    mean(c(x1, x2))
-  } else {
-    x1 + (if (inner) {
-      mid
-    } else {
-      0
-    })
-  }
-  list(x = x, limit = limit)
-}
-
-# .midDend --------------------------------------------------------------------
-
-### Code copied from stats:::.midDend
-
-
-.midDend <- function(x) {
-  if (is.null(mp <- attr(x, "midpoint"))) 0 else mp
-}
