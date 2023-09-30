@@ -62,13 +62,13 @@ ggdendrogram <- function(data,
   if (segments && !is.null(data$segments)) {
     p <- p + geom_segment(
       data = segment(data),
-      aes_string(x = "x", y = "y", xend = "xend", yend = "yend")
+      aes(x = .data[["x"]], y = .data[["y"]], xend = .data[["xend"]], yend = .data[["yend"]])
     )
   }
   if (leaf_labels && !is.null(data$leaf_labels)) {
     p <- p + geom_text(
       data = leaf_label(data),
-      aes_string(x = "x", y = "y", label = "label"), hjust = hjust, angle = angle, ...
+      aes(x = .data[["x"]], y = .data[["y"]], label = .data[["label"]]), hjust = hjust, angle = angle, ...
     )
   }
   if (labels) {

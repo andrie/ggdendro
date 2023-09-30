@@ -9,3 +9,7 @@ README.md
 ^cran-comments\.md$
 ^CRAN-RELEASE$
 ^codecov\.yml$
+^revdep$
+^CRAN-SUBMISSION$
+^doc$
+^Meta$

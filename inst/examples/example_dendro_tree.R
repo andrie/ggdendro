@@ -8,7 +8,7 @@ if (require(tree)) {
                    data = cpus)
   tree_data <- dendro_data(cpus.ltr)
   ggplot(segment(tree_data)) +
-    geom_segment(aes(x = x, y = y, xend = xend, yend = yend, size = n),
+    geom_segment(aes(x = x, y = y, xend = xend, yend = yend, linewidth = n),
       colour = "lightblue"
     ) +
     scale_size("n") +

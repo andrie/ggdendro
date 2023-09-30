@@ -1,17 +1,19 @@
-ggdendro 0.1.23 (Release date: 2022-02-15)
-===============
+# ggdendro 0.1.23.9000
+
+- Fix deprecated ggplot aes usage
+
+
+# ggdendro 0.1.23
 
 * No functional changes.  Minor changes only to comply with CRAN policy.
 
-ggdendro 0.1.22 (Release date: 2020-09-13)
-===============
+# ggdendro 0.1.22 
 
 * No functional changes
 * Update tests to conform with `testthat_3.0.0`
 
 
-ggdendro 0.1.21 (Release date: 2020-08-08)
-===============
+# ggdendro 0.1.21 
 
 Bug fixes:
 
@@ -24,18 +26,16 @@ Other changes
 * Added spellcheck and fixed spelling mistakes
 
 
-ggdendro 0.1-20 (Release date: 2016-04-27)
-===============
+# ggdendro 0.1-20 
 
 Enhancements:
 
 * Don't open plot device during calculation of segment data #25
 
 
-ggdendro 0.1-19 (Release date: 2016-04-27)
-===============
+# ggdendro 0.1-19 
 
-Bug fix release
+Bug fix release.
 
 Functional changes:
 
@@ -48,8 +48,7 @@ Bug fixes:
 * Fixed issue #22: Margin not working for `dendro_data.rpart`
 
 
-ggdendro 0.1-16 (Release date: 2016-09-06)
-===============
+# ggdendro 0.1-16 
 
 New functionality:
 
@@ -59,20 +58,19 @@ Fixes:
 - Many small changes and improvements to documentation
 
 
-ggdendro 0.1-15 (Release date: 29/09/2014)
-===============
+# ggdendro 0.1-15 
 
 New functionality:
 - None
 
 Changes:
+
 - Some bug fixes
 - Unit tests now run during R CMD check
 - Modified vignette to use knitr instead of SWeave
 
 
-ggdendro 0.1-14 (Release date: 2013-09-03)
-===============
+# ggdendro 0.1-14 
 
 New functionality
 * Added support for rpart
@@ -84,8 +82,7 @@ Changes:
 
 
 
-ggdendro 0.1-12 (Release date: 2013-01-27)
-===============
+# ggdendro 0.1-12 
 
 New functionality
 * None
@@ -94,8 +91,7 @@ Changes:
 * ggdendro now imports MASS, tree and ggplot2 (rather than suggests)
 * Added Brian D. Ripley as author (original author of package tree)
 
-ggdendro 0.1-09 (Release date: 2012-12-25)
-===============
+# ggdendro 0.1-09 
 
 New functionality
 * None
@@ -104,28 +100,29 @@ Changes:
 * Removed support for rpart
 * Changed Licence from GPL (>=2) to GPL-2|GPL-3 to conform with rtree license conditions
 
-ggdendro 0.1-07 (Release date: 2012-08-30)
-===============
+# ggdendro 0.1-07 
 
-New functionality
+New functionality:
+
 * None
 
 Changes:
+
 * Modified code to conform to `ggplot2` v0.9.2
 
 
-ggdendro 0.1-04 (Release date: 2012-02-02)
-===============
+# ggdendro 0.1-04 
 
-New functionality
+New functionality:
+
 * None
 * Modified examples to conform to ggplot2 v0.9
 
 
-ggdendro 0.1-02 (Release date: 19/10/2011)
-===============
+# ggdendro 0.1-02 
 
-New functionality
+New functionality:
+
 * Added support for classification trees using `package:rpart` 
 
 Fixed bugs:
@@ -135,15 +132,13 @@ Changes in API
 * Fixed inconsistencies in the names of the `data.frame` segments.  The names are now always `x`, `y`, `xend` and `yend`
 
 
-ggdendro 0.0-7 (Release date: 2011-08-12)
-==============
+# ggdendro 0.0-7 
 
 New functionality
 * Included the `ggdendrogram` function that conveniently creates a `ggplot` dendrogram in a single line of code.
 * Created `theme_dendro`, an almost blank theme
 
-ggdendro 0.0
-============
+# ggdendro 0.0
 
 Experimental release of package.
 

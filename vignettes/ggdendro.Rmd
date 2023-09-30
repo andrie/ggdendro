@@ -1,8 +1,8 @@
 ---
-title: "Introduction to ggdendro"
+title: "Using 'ggdendro' to plot dendrograms"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Introduction to ggdendro}
+  %\VignetteIndexEntry{Using 'ggdendro' to plot dendrograms}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,8 +14,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-
-# Using the `ggdendro` package to plot dendrograms
 
 The `ggdendro` package makes it easy to extract dendrogram and tree diagrams into a list of data frames.  You can then use this list to recreate these types of plots using the `ggplot2` package.
 
@@ -44,7 +42,7 @@ library(ggplot2)
 library(ggdendro)
 ```
 
-## Using the `ggdendrogram()` wrapper
+## Using the 'ggdendrogram()' wrapper
 
 The `ggdendro` package extracts the plot data from dendrogram objects.  Sometimes it is useful to have fine-grained control over the plot.  Other times it might be more convenient to have a simple wrapper around `ggplot()` to produce a dendrogram with a small amount of code.
 
@@ -58,7 +56,7 @@ ggdendrogram(hc, rotate = FALSE, size = 2)
 
 The next section shows how to take full control over the data extraction and subsequent plotting.
 
-## Extracting the dendrogram plot data using `dendro_data()`
+## Extracting the dendrogram plot data using 'dendro_data()'
 
 The `hclust()` and `dendrogram()` functions in R makes it easy to plot the results of hierarchical cluster analysis and other dendrograms in R.  However, it is hard to extract the data from this analysis to customize these plots, since the `plot()` functions for both these classes prints directly without the option of returning the plot data.  
 
@@ -144,7 +142,7 @@ if(require(rpart)){
 ```
 
 
-## Twins diagrams: agnes and diana
+## Twins diagrams: 'agnes' and 'diana'
 
 The `cluster` package allows you to draw `agnes` and `diana` diagrams.
 
