@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ggdendro</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.23</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.23.9000</span>
       </span>
     </div>
 
@@ -27,6 +27,9 @@
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/andrie/ggdendro/" class="external-link">
@@ -53,15 +56,15 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ggdendrogram</span><span class="op">(</span>
-  <span class="va">data</span>,
-  segments <span class="op">=</span> <span class="cn">TRUE</span>,
-  labels <span class="op">=</span> <span class="cn">TRUE</span>,
-  leaf_labels <span class="op">=</span> <span class="cn">TRUE</span>,
-  rotate <span class="op">=</span> <span class="cn">FALSE</span>,
-  theme_dendro <span class="op">=</span> <span class="cn">TRUE</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ggdendrogram</span><span class="op">(</span></span>
+<span>  <span class="va">data</span>,</span>
+<span>  segments <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  leaf_labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  rotate <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  theme_dendro <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -70,23 +73,38 @@
 <dd><p>Either a dendro object or an object that can be coerced to class
 dendro using the <code><a href="dendro_data.html">dendro_data()</a></code> function, i.e. objects of class
 dendrogram, hclust or tree</p></dd>
+
+
 <dt>segments</dt>
 <dd><p>If TRUE, show line segments</p></dd>
+
+
 <dt>labels</dt>
 <dd><p>if TRUE, shows segment labels</p></dd>
+
+
 <dt>leaf_labels</dt>
 <dd><p>if TRUE, shows leaf labels</p></dd>
+
+
 <dt>rotate</dt>
 <dd><p>if TRUE, rotates plot by 90 degrees</p></dd>
+
+
 <dt>theme_dendro</dt>
 <dd><p>if TRUE, applies a blank theme to plot (see
 <code><a href="theme_dendro.html">theme_dendro()</a></code>)</p></dd>
+
+
 <dt>...</dt>
 <dd><p>other parameters passed to <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">ggplot2::geom_text()</a></code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot2::ggplot()</a></code> object</p>
+    
+
+<p>A <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot2::ggplot()</a></code> object</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -95,22 +113,22 @@ dendrogram, hclust or tree</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">### Demonstrate ggdendrogram</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="va">hc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/dist.html" class="external-link">dist</a></span><span class="op">(</span><span class="va">USArrests</span><span class="op">)</span>, <span class="st">"ave"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Demonstrate plotting directly from object class hclust</span></span>
-<span class="r-in"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">ggdendrogram</span><span class="op">(</span><span class="va">hc</span>, rotate <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">### Demonstrate ggdendrogram</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">hc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/dist.html" class="external-link">dist</a></span><span class="op">(</span><span class="va">USArrests</span><span class="op">)</span>, <span class="st">"ave"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Demonstrate plotting directly from object class hclust</span></span></span>
+<span class="r-in"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">ggdendrogram</span><span class="op">(</span><span class="va">hc</span>, rotate <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ggdendrogram-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span class="fu">ggdendrogram</span><span class="op">(</span><span class="va">hc</span>, rotate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">ggdendrogram</span><span class="op">(</span><span class="va">hc</span>, rotate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ggdendrogram-2.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># demonstrate converting hclust to dendro using dendro_data first</span></span>
-<span class="r-in"><span class="va">hcdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="dendro_data.html">dendro_data</a></span><span class="op">(</span><span class="va">hc</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">ggdendrogram</span><span class="op">(</span><span class="va">hcdata</span>, rotate <span class="op">=</span> <span class="cn">TRUE</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span> </span>
-<span class="r-in">  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Dendrogram in ggplot2"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># demonstrate converting hclust to dendro using dendro_data first</span></span></span>
+<span class="r-in"><span><span class="va">hcdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="dendro_data.html">dendro_data</a></span><span class="op">(</span><span class="va">hc</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">ggdendrogram</span><span class="op">(</span><span class="va">hcdata</span>, rotate <span class="op">=</span> <span class="cn">TRUE</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span> </span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Dendrogram in ggplot2"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ggdendrogram-3.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
@@ -126,7 +144,7 @@ dendrogram, hclust or tree</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

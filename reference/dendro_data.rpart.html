@@ -19,7 +19,7 @@ manipulated or plotted, e.g. using ggplot2::ggplot()."><!-- mathjax --><script s
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ggdendro</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.23</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.23.9000</span>
       </span>
     </div>
 
@@ -29,6 +29,9 @@ manipulated or plotted, e.g. using ggplot2::ggplot()."><!-- mathjax --><script s
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/andrie/ggdendro/" class="external-link">
@@ -57,59 +60,77 @@ manipulated or plotted, e.g. using <code><a href="https://ggplot2.tidyverse.org/
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for rpart</span>
-<span class="fu"><a href="dendro_data.html">dendro_data</a></span><span class="op">(</span>
-  <span class="va">model</span>,
-  uniform <span class="op">=</span> <span class="cn">FALSE</span>,
-  branch <span class="op">=</span> <span class="fl">1</span>,
-  compress <span class="op">=</span> <span class="cn">FALSE</span>,
-  <span class="va">nspace</span>,
-  minbranch <span class="op">=</span> <span class="fl">0.3</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for rpart</span></span>
+<span><span class="fu"><a href="dendro_data.html">dendro_data</a></span><span class="op">(</span></span>
+<span>  <span class="va">model</span>,</span>
+<span>  uniform <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  branch <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  compress <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">nspace</span>,</span>
+<span>  minbranch <span class="op">=</span> <span class="fl">0.3</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>model</dt>
 <dd><p>object of class "tree", e.g. the output of tree()</p></dd>
+
+
 <dt>uniform</dt>
 <dd><p>if TRUE, uniform vertical spacing of the nodes is used; this
 may be less cluttered when fitting a large plot onto a page. The default is
 to use a non-uniform spacing proportional to the error in the fit.</p></dd>
+
+
 <dt>branch</dt>
 <dd><p>controls the shape of the branches from parent to child node.
 Any number from 0 to 1 is allowed. A value of 1 gives square shouldered
 branches, a value of 0 give V shaped branches, with other values being
 intermediate.</p></dd>
+
+
 <dt>compress</dt>
 <dd><p>if FALSE, the leaf nodes will be at the horizontal plot
 coordinates of 1:nleaves. If TRUE, the routine attempts a more compact
 arrangement of the tree. The compaction algorithm assumes uniform=TRUE;
 surprisingly, the result is usually an improvement even when that is not
 the case.</p></dd>
+
+
 <dt>nspace</dt>
 <dd><p>the amount of extra space between a node with children and a
 leaf, as compared to the minimal space between leaves. Applies to
 compressed trees only. The default is the value of branch.</p></dd>
+
+
 <dt>minbranch</dt>
 <dd><p>set the minimum length for a branch to minbranch times the
 average branch length. This parameter is ignored if uniform=TRUE. Sometimes
 a split will give very little improvement, or even (in the classification
 case) no improvement at all. A tree with branch lengths strictly
 proportional to improvement leaves no room to squeeze in node labels.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>ignored</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A list of three data frames:</p>
+    
+
+<p>A list of three data frames:</p>
 <dl><dt>segments</dt>
 <dd><p>a data frame containing the line segment data</p></dd>
+
 <dt>labels</dt>
 <dd><p>a data frame containing the label text data</p></dd>
+
 <dt>leaf_labels</dt>
 <dd><p>a data frame containing the leaf label text data</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -131,21 +152,21 @@ the plot data but without plotting to a plot device.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">### Demonstrate rpart</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/bethatkinson/rpart" class="external-link">rpart</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span class="r-in">  <span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rpart/man/rpart.html" class="external-link">rpart</a></span><span class="op">(</span><span class="va">Kyphosis</span> <span class="op">~</span> <span class="va">Age</span> <span class="op">+</span> <span class="va">Number</span> <span class="op">+</span> <span class="va">Start</span>, method <span class="op">=</span> <span class="st">"class"</span>, </span>
-<span class="r-in">               data <span class="op">=</span> <span class="va">kyphosis</span><span class="op">)</span></span>
-<span class="r-in">  <span class="va">fitr</span> <span class="op">&lt;-</span> <span class="fu"><a href="dendro_data.html">dendro_data</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html" class="external-link">geom_segment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">fitr</span><span class="op">$</span><span class="va">segments</span>, </span>
-<span class="r-in">                 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, xend <span class="op">=</span> <span class="va">xend</span>, yend <span class="op">=</span> <span class="va">yend</span><span class="op">)</span></span>
-<span class="r-in">    <span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">fitr</span><span class="op">$</span><span class="va">labels</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, label <span class="op">=</span> <span class="va">label</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">fitr</span><span class="op">$</span><span class="va">leaf_labels</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, label <span class="op">=</span> <span class="va">label</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">    <span class="fu"><a href="theme_dendro.html">theme_dendro</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">### Demonstrate rpart</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/bethatkinson/rpart" class="external-link">rpart</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rpart/man/rpart.html" class="external-link">rpart</a></span><span class="op">(</span><span class="va">Kyphosis</span> <span class="op">~</span> <span class="va">Age</span> <span class="op">+</span> <span class="va">Number</span> <span class="op">+</span> <span class="va">Start</span>, method <span class="op">=</span> <span class="st">"class"</span>, </span></span>
+<span class="r-in"><span>               data <span class="op">=</span> <span class="va">kyphosis</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">fitr</span> <span class="op">&lt;-</span> <span class="fu"><a href="dendro_data.html">dendro_data</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html" class="external-link">geom_segment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">fitr</span><span class="op">$</span><span class="va">segments</span>, </span></span>
+<span class="r-in"><span>                 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, xend <span class="op">=</span> <span class="va">xend</span>, yend <span class="op">=</span> <span class="va">yend</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">fitr</span><span class="op">$</span><span class="va">labels</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, label <span class="op">=</span> <span class="va">label</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">fitr</span><span class="op">$</span><span class="va">leaf_labels</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, label <span class="op">=</span> <span class="va">label</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="theme_dendro.html">theme_dendro</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: rpart</span>
 <span class="r-plt img"><img src="dendro_data.rpart-1.png" alt="" width="700" height="433"></span>
 </code></pre></div>
@@ -162,7 +183,7 @@ the plot data but without plotting to a plot device.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
