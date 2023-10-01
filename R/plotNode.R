@@ -2,10 +2,9 @@
 plotNode <-  function (x1, x2, subtree, type, center, leaflab, dLeaf, nodePar, 
             edgePar, horiz = FALSE) 
   {
-    ddsegments <- data.frame(NA_real_, NA_real_, NA_real_, NA_real_)
     ddsegments <- NULL
-    ddlabels <- data.frame(NA_real_, NA_real_, NA_character_)
-    ddlabels <- NULL
+    ddlabels <- list()
+    
     wholetree <- subtree
     depth <- 0L
     llimit <- list()
@@ -73,7 +72,8 @@ plotNode <-  function (x1, x2, subtree, type, center, leaflab, dLeaf, nodePar,
           nodeText <- asTxt(attr(subtree, "label"))
           # text(X, Y, nodeText, xpd = lab.xpd, srt = srt, 
           #      adj = adj, cex = lab.cex, col = lab.col, font = lab.font)
-          ddlabels <- rbind(ddlabels, data.frame(x = X, y = 0, text = nodeText))
+          ddlabels$xy <- c(ddlabels$xy, X, 0)
+          ddlabels$text <- c(ddlabels$text, nodeText)
         }
       }
       else if (inner) {
@@ -102,14 +102,16 @@ plotNode <-  function (x1, x2, subtree, type, center, leaflab, dLeaf, nodePar,
           if (type == "triangle") {
             # segmentsHV(xTop, yTop, xBot, yBot)
             # segmentsHV(xTop, yTop, xBot, yBot)
-            ddsegments <- rbind(ddsegments, data.frame(x = xTop, y = yTop, xend = xBot, yend = yBot))
-            # ddsegments <- rbind(ddsegments, data.frame(xTop, yTop, xBot, yBot))
+            # ddsegments <- rbind(ddsegments, data.frame(x = xTop, y = yTop, xend = xBot, yend = yBot))
+            ddsegments <- c(ddsegments, xTop, yTop, xBot, yBot)
           }
           else {
             # segmentsHV(xTop, yTop, xBot, yTop)
             # segmentsHV(xBot, yTop, xBot, yBot)
-            ddsegments <- rbind(ddsegments, data.frame(x = xTop, y = yTop, xend = xBot, yend = yTop))
-            ddsegments <- rbind(ddsegments, data.frame(x = xBot, y = yTop, xend = xBot, yend = yBot))
+            # ddsegments <- rbind(ddsegments, data.frame(x = xTop, y = yTop, xend = xBot, yend = yTop))
+            # ddsegments <- rbind(ddsegments, data.frame(x = xBot, y = yTop, xend = xBot, yend = yBot))
+            ddsegments <- c(ddsegments, xTop, yTop, xBot, yTop)
+            ddsegments <- c(ddsegments, xBot, yTop, xBot, yBot)
           }
           vln <- NULL
           # if (is.leaf(child) && leaflab == "textlike") {

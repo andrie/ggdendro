@@ -84,7 +84,6 @@ is.dendro <- function(x) {
 #'
 #' @export
 as.dendro <- function(segments, labels, leaf_labels = NULL, class) {
-  # stopifnot(inherits(x, list))
   if (missing(class)) stop("Missing class in as.dendro")
   x <- list(
     segments = segments,

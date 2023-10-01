@@ -1,7 +1,28 @@
-test_that("multiplication works", {
+test_that("large dendogram completes in reasonable time", {
 
-  # node_overflow_data <- readr::read_csv("data/mydata.csv", col_types = paste0(rep("d", 27), collapse = ""))
-  node_overflow_data <- read_node_overflow_data()
+  skip_on_cran()
+  
+  # find data file location
+  file_location <- c(
+    "tests/testthat/data/node_overflow_data.rds", "data/node_overflow_data.rds"
+  )
+  fl <- file_location[file.exists(file_location)]
+  node_overflow_data <- readRDS(fl)
+  
+  # run hclust
   dhc <- hclust(dist(node_overflow_data), method = "average")
-  dendro_data(dhc, type = "rectangle")
+  
+  # start ggdendro tests
+  elapsed_time <- system.time({
+    dhd <- dendro_data(dhc, type = "rectangle")
+  })[[3]]
+  
+  
+  # performance expectation: complete in less than 4 seconds
+  expect_lt(elapsed_time, 4)
+  
+  expect_s3_class(dhd, "dendro")
+  p2 <- ggdendrogram(dhd, type = "rectangle")
+
+  expect_s3_class(p2, "ggplot")
 })

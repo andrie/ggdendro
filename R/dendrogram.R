@@ -155,8 +155,16 @@ dendrogram_data <- function(x, type = c("rectangle", "triangle"), ...) {
     type = type, center = center, leaflab = leaflab,
     dLeaf = dLeaf, nodePar = nodePar, edgePar = edgePar, horiz = FALSE
   )
-  names(ret$segments) <- c("x", "y", "xend", "yend")
-  names(ret$labels) <- c("x", "y", "label")
+  ret$segments <- as.data.frame(matrix(
+    ret$segments, ncol = 4, byrow = TRUE, 
+    dimnames = list(NULL, c("x", "y", "xend", "yend"))
+    ))
+  
+  ret$labels <- cbind(
+    as.data.frame(matrix(ret$labels$xy, ncol = 2, byrow = TRUE, dimnames = list(NULL, c("x", "y")))),
+    data.frame(text = ret$labels$text)
+  )
+  
   ret
 }
 
