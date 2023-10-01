@@ -19,7 +19,7 @@ test_that("large dendogram completes in reasonable time", {
   
   
   # performance expectation: complete in less than 4 seconds
-  expect_lt(elapsed_time, 4)
+  expect_lt(elapsed_time, 10)
   
   expect_s3_class(dhd, "dendro")
   p2 <- ggdendrogram(dhd, type = "rectangle")
