@@ -1,5 +1,5 @@
 Package: ggdendro
-Version: 0.1.23.9000
+Version: 0.2.0
 Title: Create Dendrograms and Tree Diagrams Using 'ggplot2'
 Description: This is a set of tools for dendrograms and
     tree plots using 'ggplot2'.  The 'ggplot2' philosophy is to

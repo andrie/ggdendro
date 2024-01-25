@@ -1,4 +1,4 @@
-# ggdendro 0.1.23.9000
+# ggdendro 0.2.0
 
 Bug fix:
 
@@ -7,8 +7,7 @@ Bug fix:
 Other:
 
 - Fix deprecated `ggplot()` `aes` usage
-
-
+- Small documentation fixes to comply with stricter CRAN testing
 
 
 

@@ -162,7 +162,7 @@ dendrogram_data <- function(x, type = c("rectangle", "triangle"), ...) {
   
   ret$labels <- cbind(
     as.data.frame(matrix(ret$labels$xy, ncol = 2, byrow = TRUE, dimnames = list(NULL, c("x", "y")))),
-    data.frame(text = ret$labels$text)
+    data.frame(label = ret$labels$text)
   )
   
   ret
