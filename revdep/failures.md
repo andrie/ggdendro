@@ -2,11 +2,11 @@
 
 <details>
 
-* Version: 1.4.0
+* Version: 1.6.0
 * GitHub: https://github.com/netZoo/netZooR
 * Source code: https://github.com/cran/netZooR
-* Date/Publication: 2023-04-25
-* Number of recursive dependencies: 227
+* Date/Publication: 2023-10-24
+* Number of recursive dependencies: 228
 
 Run `revdepcheck::revdep_details(, "netZooR")` for more info
 
@@ -60,11 +60,11 @@ ERROR: lazy loading failed for package 'netZooR'
 
 <details>
 
-* Version: 1.0.1
+* Version: 1.2.2
 * GitHub: https://github.com/jianhong/scRNAseqApp
 * Source code: https://github.com/cran/scRNAseqApp
-* Date/Publication: 2023-04-26
-* Number of recursive dependencies: 225
+* Date/Publication: 2023-11-02
+* Number of recursive dependencies: 235
 
 Run `revdepcheck::revdep_details(, "scRNAseqApp")` for more info
 
@@ -128,7 +128,7 @@ ERROR: lazy loading failed for package 'scRNAseqApp'
 * GitHub: https://github.com/IbtihelRebhi/SensMap
 * Source code: https://github.com/cran/SensMap
 * Date/Publication: 2022-07-04 19:00:02 UTC
-* Number of recursive dependencies: 146
+* Number of recursive dependencies: 145
 
 Run `revdepcheck::revdep_details(, "SensMap")` for more info
 
