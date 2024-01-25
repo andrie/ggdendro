@@ -57,7 +57,7 @@ ggplot() +
                aes(x = x, y = y, xend = xend, yend = yend)
   ) +
   geom_text(data = label(hcdata), 
-            aes(x = x, y = y, label = label, hjust = 0), 
+            aes(x = x, y = y, label = text, hjust = 0), 
             size = 3
   ) +
   coord_flip() +

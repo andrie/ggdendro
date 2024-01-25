@@ -27,7 +27,7 @@
 #'
 #'
 #' @param model object of type [stats::hclust()], [stats::dendrogram()] or
-#'   `tree::tree()`
+#'   [tree::tree()]
 #'
 #' @param ... ignored
 #'
@@ -38,11 +38,17 @@
 #'
 #' @seealso There are several implementations for specific cluster algorithms:
 #'
-#' \itemize{ \item [dendro_data.hclust()] \item [dendro_data.dendrogram()] \item
-#' [dendro_data.tree()] \item [dendro_data.rpart()] } To extract the data for
-#' line segments, labels or leaf labels use: \itemize{ \item{[segment()]}: {the
-#' line segment data} \item{[label()]}: {the text for each end segment}
-#' \item{[leaf_label()]}: {the leaf labels of a tree diagram} }
+#' - [dendro_data.hclust()] 
+#' - [dendro_data.dendrogram()]
+#' - [dendro_data.tree()]
+#' - [dendro_data.rpart()]
+#' 
+#'  To extract the data for line segments, labels or leaf labels use:
+#'  
+#' - [segment()]: the line segment data
+#' - [label()]: the text for each end segment
+#' - [leaf_label()]: the leaf labels of a tree diagram
+#' 
 dendro_data <- function(model, ...) {
   UseMethod("dendro_data", model)
 }

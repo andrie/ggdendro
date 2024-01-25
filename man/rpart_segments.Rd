@@ -8,8 +8,6 @@ rpart_segments(x, ...)
 }
 \arguments{
 \item{...}{ignored}
-
-\item{model}{object of class "tree", e.g. the output of tree()}
 }
 \description{
 Extract data frame from rpart object for plotting using ggplot.

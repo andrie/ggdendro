@@ -115,7 +115,6 @@ dendro_data.rpart <- function(model, uniform = FALSE, branch = 1, compress = FAL
 }
 
 #' Extract data frame from rpart object for plotting using ggplot.
-#' @param model object of class "tree", e.g. the output of tree()
 #' @param ... ignored
 #' @keywords internal
 #' @seealso [ggdendrogram()]
@@ -136,8 +135,6 @@ rpart_segments <- function(x, ...) {
 #' Extract labels data frame from rpart object for plotting using ggplot.
 #'
 #' This code is modified from the original plot.rpart in package rpart.
-#' @param model object of class "rpart", e.g. the output of rpart()
-#' @param ... ignored
 #' @return a list with two elements: $labels and $leaf_labels
 #' @author Original author Brian Ripley
 #' @keywords internal

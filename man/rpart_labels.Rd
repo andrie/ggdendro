@@ -6,11 +6,6 @@
 \usage{
 rpart_labels(x)
 }
-\arguments{
-\item{model}{object of class "rpart", e.g. the output of rpart()}
-
-\item{...}{ignored}
-}
 \value{
 a list with two elements: $labels and $leaf_labels
 }
