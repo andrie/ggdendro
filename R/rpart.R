@@ -353,8 +353,7 @@ rpartco <- function(tree, parms) {
 ## Fancy option has been added in (to mimic post.tree)
 ##
 
-#' @export
-text.rpart <- function(x, splits = TRUE, label, FUN = text, all = FALSE,
+text_rpart <- function(x, splits = TRUE, label, FUN = text, all = FALSE,
                        pretty = NULL, digits = getOption("digits") - 3L,
                        use.n = FALSE, fancy = FALSE, fwidth = 0.8, fheight = 0.8,
                        bg = par("bg"), minlength = 1L, parms, ...) {

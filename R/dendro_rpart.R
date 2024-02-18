@@ -102,7 +102,7 @@ dendro_data.rpart <- function(model, uniform = FALSE, branch = 1, compress = FAL
   #   lines(c(temp$x), c(temp$y))
   #   invisible(list(x = xx, y = yy))
 
-  labels <- text.rpart(x, parms = parms)
+  labels <- text_rpart(x, parms = parms)
 
   segments <- rpart_segments(temp)
   #   labels <- rpart_labels(xx, ...)
