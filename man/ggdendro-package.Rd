@@ -2,8 +2,8 @@
 % Please edit documentation in R/ggdendro-package.R
 \docType{package}
 \name{ggdendro-package}
-\alias{ggdendro-package}
 \alias{ggdendro}
+\alias{ggdendro-package}
 \title{Create Dendrograms and Tree Diagrams using 'ggplot2'}
 \description{
 This package enables you to create dendrograms and tree plots using

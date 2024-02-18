@@ -16,9 +16,9 @@ This code is modified from the original plot.rpart in package rpart.
 \code{\link[=ggdendrogram]{ggdendrogram()}}
 
 Other dendro_data methods: 
+\code{\link{dendro_data}()},
 \code{\link{dendro_data.rpart}()},
 \code{\link{dendro_data.tree}()},
-\code{\link{dendro_data}()},
 \code{\link{dendrogram_data}()}
 
 Other rpart functions: 

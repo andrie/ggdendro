@@ -53,9 +53,6 @@
 #' To plot a dendrogram, either construct a plot with [ggplot2::ggplot()] or use
 #' the function [ggdendrogram()].
 #' 
-#' @name ggdendro-package
-#' @aliases ggdendro
-#' @docType package
 #' @import MASS ggplot2
 #' @importFrom grDevices col2rgb dev.cur dev.new
 #' @importFrom graphics par points polygon text
@@ -64,4 +61,4 @@
 #' @author Andrie de Vries - \email{apdevries@@gmail.com}
 #' @keywords package
 #' @seealso [dendro_data()]
-NULL
+"_PACKAGE"

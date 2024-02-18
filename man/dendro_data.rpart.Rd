@@ -80,8 +80,8 @@ if (require(rpart)) {
 \code{\link[=ggdendrogram]{ggdendrogram()}}
 
 Other dendro_data methods: 
-\code{\link{dendro_data.tree}()},
 \code{\link{dendro_data}()},
+\code{\link{dendro_data.tree}()},
 \code{\link{dendrogram_data}()},
 \code{\link{rpart_labels}()}
 

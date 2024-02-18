@@ -55,8 +55,8 @@ if (require(tree)) {
 \code{\link[=ggdendrogram]{ggdendrogram()}}
 
 Other dendro_data methods: 
-\code{\link{dendro_data.rpart}()},
 \code{\link{dendro_data}()},
+\code{\link{dendro_data.rpart}()},
 \code{\link{dendrogram_data}()},
 \code{\link{rpart_labels}()}
 
