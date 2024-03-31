@@ -1,4 +1,5 @@
 
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # ggdendro <img src='man/figures/logo.png' align="right" height="139" />
@@ -10,9 +11,9 @@ Provides functions for creating dendrograms and tree plots using
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ggdendro)](https://CRAN.R-project.org/package=ggdendro)
-[![R-CMD-check](https://github.com/andrie/ggdendro/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/andrie/ggdendro/actions/workflows/R-CMD-check.yaml)
 [![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/ggdendro)](http://www.r-pkg.org/pkg/ggdendro)
+[![R-CMD-check](https://github.com/andrie/ggdendro/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/andrie/ggdendro/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/andrie/ggdendro/branch/main/graph/badge.svg)](https://app.codecov.io/gh/andrie/ggdendro?branch=main)
 [![Project Status: Inactive – The project has reached a stable, usable
@@ -64,7 +65,8 @@ ggplot() +
   scale_y_reverse(expand = c(0.2, 0))
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-1.png"
+style="width:100.0%" />
 
 ``` r
 
@@ -72,13 +74,15 @@ ggplot() +
 ggdendrogram(hc)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-2.png"
+style="width:100.0%" />
 
 ``` r
 ggdendrogram(hc, rotate = TRUE)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-3.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-3.png"
+style="width:100.0%" />
 
 ``` r
 
@@ -88,7 +92,8 @@ ggdendrogram(hcdata, rotate = TRUE) +
   labs(title = "Dendrogram in ggplot2")
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-4.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-4.png"
+style="width:100.0%" />
 
 # Use `dendextend` instead
 
