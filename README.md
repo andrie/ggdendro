@@ -1,5 +1,4 @@
 
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # ggdendro <img src='man/figures/logo.png' align="right" height="139" />
@@ -28,7 +27,7 @@ text from the various clustering models:
 - `dendro_data()` extracts cluster information from the model object,
   e.g. cluster allocation, line segment data or label data.
 
-The `dendro_data` object has methods for the following classes:
+The `dendro_data` object has methods for the following classes:-
 
 - `tree`
 - `hclust`
@@ -65,8 +64,7 @@ ggplot() +
   scale_y_reverse(expand = c(0.2, 0))
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png"
-style="width:100.0%" />
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
 ``` r
 
@@ -74,15 +72,13 @@ style="width:100.0%" />
 ggdendrogram(hc)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-2.png"
-style="width:100.0%" />
+<img src="man/figures/README-unnamed-chunk-2-2.png" width="100%" />
 
 ``` r
 ggdendrogram(hc, rotate = TRUE)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-3.png"
-style="width:100.0%" />
+<img src="man/figures/README-unnamed-chunk-2-3.png" width="100%" />
 
 ``` r
 
@@ -92,8 +88,7 @@ ggdendrogram(hcdata, rotate = TRUE) +
   labs(title = "Dendrogram in ggplot2")
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-4.png"
-style="width:100.0%" />
+<img src="man/figures/README-unnamed-chunk-2-4.png" width="100%" />
 
 # Use `dendextend` instead
 
