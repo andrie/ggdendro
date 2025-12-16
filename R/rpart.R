@@ -32,7 +32,7 @@
 #'   columns, containing the labels of the left and right descendants of each
 #'   node; TRUE = return a vector of 1 column, with the label of the parent
 #'
-#' @param pretty: for historical compatibility: 0   -> minlength = 0; NULL ->
+#' @param pretty for historical compatibility: 0   -> minlength = 0; NULL ->
 #'   minlength = 1; TRUE   -> minlength = 4
 #'
 #' @param ... = other args for abbreviate()
